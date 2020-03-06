@@ -34,10 +34,16 @@ class Api::UsersController < ApplicationController
     def update
         @user = @user.find_by(id: params[:id])
 
+        if @user.update(user_params)
+            render :show
+        else
+            render json: @user.errors.full_messages, status: 422
+        end
     end
 
     def destroy
-
+        @user = User.find_by(id: params[:id])
+        @user.destroy
     end
 
     private
