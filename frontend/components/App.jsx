@@ -2,7 +2,7 @@ import React from 'react';
 import GreetingContainer from './GreetingContainer';
 import LoginFormContainer from './LoginFormContainer';
 import SignupFormContainer from './SignupFormContainer'; 
-import Modal from './Modal';
+import Modal from './modal';
 import SplashPage from './Splash';
 import { AuthRoute } from '../util/route_util'
 import { Route, Switch } from 'react-router-dom';
