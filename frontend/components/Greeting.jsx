@@ -6,11 +6,13 @@ const Greeting = (props) => {
 
     if (props.currentUser) {
 
-        return (
-            <div>Hi {props.currentUser.username}!
-        <br />
-                <button onClick={() => (props.logout())}>LOG OUT</button>
-            </div>
+        return (<div className="user-greeting-container">
+                    <div className="user-greeting" >Hi {props.currentUser.username}!
+                    <br />
+                    </div>
+                    <button className="nav-button" onClick={() => (props.logout())}>LOG OUT</button>
+                </div>
+            
         )
     } else {
         return (

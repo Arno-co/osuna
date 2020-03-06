@@ -5,6 +5,8 @@
 
 .logo-header {
     width: 200px;
+    max-width: 100%;
+    height: auto;
     margin-right: auto;
 }
 
@@ -29,4 +31,12 @@ nav.login-signup {
     background-color: rgb(237, 115, 219);
     border: 2px solid rgb(237, 115, 219);
     color: white;
+}
+
+.user-greeting-container {
+    display: flex;
+    align-items: center;
+}
+
+.user-greeting {
 }

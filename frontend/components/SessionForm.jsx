@@ -42,7 +42,7 @@ class SessionForm extends React.Component {
                 <>
                     <div className='instead'>
                         <br />
-                        <p className='link-form-label'>Not a registered user?</p>
+                        <p className='link-form-label'>Not a registered user?   </p>
                         <Link className='link-form' onClick={this.linkModal} to="/signup">Sign up</Link>
                         
                     </div>
@@ -53,7 +53,7 @@ class SessionForm extends React.Component {
             <>
             <div className='instead'>
                     <br />
-                        <p className='link-form-label'>Already have an account?</p>
+                        <p className='link-form-label'>Already have an account?   </p>
                         <Link className='link-form' onClick={this.linkModal} to="/login">Log in</Link>
             </div>
             </>
@@ -73,7 +73,7 @@ class SessionForm extends React.Component {
     
     renderErrors() {
         return(
-        <ul classname='errors'>{
+        <ul className='errors'>{
             this.props.errors.map((error, i) => (
             <li className='error' key={`error=${i}`}>{error}</li>
             ))
@@ -110,25 +110,31 @@ class SessionForm extends React.Component {
     render() {
         return(
             <form className='login-signup-form' onSubmit={this.handleSubmit}>
-                <h1 className='form-title'>{this.props.formType}</h1>
-                <br/>
-                <br/>
-                {this.addUsername()}
-                <br/>
-                <label className='login-signup-label'>Email
-                <br />
-                </label>
-                <input className='login-signup-field' type="text" placeholder="    name@company.com" value={this.state.email} onChange={this.update('email')} />
-                <br/>
-                <label className='login-signup-label'>Password
-                <br/>
-                </label>
-                <input className='login-signup-field' type="password" placeholder="    password" value={this.state.password} onChange={this.update('password')}/>
-                <br/>
-                {this.renderErrors()}
-                <input className='login-signup-button' type="submit" value={this.props.formType} />
-                {this.addDemo()}
-                {this.addLink()}
+                <div className="form-top">
+                    <h1 className='form-title'>{this.props.formType}</h1>
+                    <br />
+                    <br />
+                    {this.addUsername()}
+                    
+                    <label className='login-signup-label'>Email
+                    </label>
+                    
+                    <input className='login-signup-field' type="text" placeholder="    name@company.com" value={this.state.email} onChange={this.update('email')} />
+                   
+                    <label className='login-signup-label'>Password
+                    </label>
+                  
+                    <input className='login-signup-field' type="password" placeholder="    password" value={this.state.password} onChange={this.update('password')} />
+                </div>
+
+                    {this.renderErrors()}
+                <div className="form-bottom">
+                    <br />
+                    <input className='login-signup-button' type="submit" value={this.props.formType} />
+                    {this.addDemo()}
+                    {this.addLink()}
+                </div>
+                
             </form>
         )
     }
