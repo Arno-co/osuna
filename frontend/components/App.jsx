@@ -2,16 +2,17 @@ import React from 'react';
 import GreetingContainer from './GreetingContainer';
 import LoginFormContainer from './LoginFormContainer';
 import SignupFormContainer from './SignupFormContainer'; 
-import Modal from './modal';
-import SplashPage from './splash_page';
+import Modal from './Modal';
+import SplashPage from './Splash';
 import { AuthRoute } from '../util/route_util'
 import { Route, Switch } from 'react-router-dom';
 
 const App = () => (
-    <div>
+    <div className='main'>
         <Modal />
-        <header>
-            <h1>Osunaaaaaaaaaaaaaaaaaa</h1>
+        <header className='nav'>
+            <img className="logo-header" src={window.logoURL} />
+           
             <GreetingContainer />
             
         </header>

@@ -3,6 +3,7 @@ import { signup, login, logout } from '../actions/session_actions';
 import { Link } from 'react-router-dom';
 
 const Greeting = (props) => {
+
     if (props.currentUser) {
 
         return (
@@ -15,15 +16,15 @@ const Greeting = (props) => {
         return (
             // <div>Not signed in!
             //     <br />
-            //     <Link to='/signup'>Sign Up</Link>
+            //     <Link to='/signup'>SIGN UP</Link>
             //     <br />
-            //     <Link to='/login'>Sign In</Link>
+            //     <Link to='/login'>LOG IN</Link>
             //     <br />
             // </div>
             <nav className="login-signup">
-                <button onClick={() => props.openModal('login')}>LOG IN</button>
-                &nbsp;or&nbsp;
-                <button onClick={() => props.openModal('signup')}>SIGN UP</button>
+                <button className='nav-button' onClick={() => props.openModal('login')}>LOG IN</button>
+            
+                <button className='nav-button' onClick={() => props.openModal('signup')}>SIGN UP</button>
             </nav>
         )
     }

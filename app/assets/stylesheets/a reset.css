@@ -18,4 +18,9 @@ time, mark, audio, video {
 	font-family: 'Roboto', sans-serif;
 	font: inherit;
 	vertical-align: baseline;
+	/* border: 1px solid blue; */
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: lightgray;
 }

@@ -1,0 +1,32 @@
+.nav {
+    display: flex;
+    /* justify-content: space-evenly; */
+}
+
+.logo-header {
+    width: 200px;
+    margin-right: auto;
+}
+
+nav.login-signup {
+    margin-left: auto;
+}
+
+.nav-button {
+    height: 40px;
+    width: 100px;
+    border: 2px solid rgb(237, 115, 219);
+    color: rgb(237, 115, 219);
+    border-radius: 3px;
+    text-align: center;
+    margin: 0 10px;
+
+    
+}
+
+.nav-button:hover {
+    
+    background-color: rgb(237, 115, 219);
+    border: 2px solid rgb(237, 115, 219);
+    color: white;
+}
