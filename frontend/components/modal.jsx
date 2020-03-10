@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import { AuthRoute } from '../util/route_util'
 import LoginFormContainer from './LoginFormContainer';
 import SignupFormContainer from './SignupFormContainer';
+import TeamFormContainer from './teams/TeamForm';
+import CreateTeamFormContainer from './teams/CreateTeamFormContainer';
+import JoinTeamFormContainer from './teams/JoinTeamFormContainer';
 
 function Modal({ modal, closeModal, clearErrors }) {
     if (!modal) {
@@ -19,6 +22,12 @@ function Modal({ modal, closeModal, clearErrors }) {
         case 'signup':
             component = <SignupFormContainer />;
             // component = <AuthRoute path="/login" component={LoginFormContainer} />;
+            break;
+        case 'createTeam':
+            component = <CreateTeamFormContainer />;
+            break;
+        case 'joinTeam':
+            component = <JoinTeamFormContainer />;
             break;
         default:
             return null;

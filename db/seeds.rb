@@ -6,5 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+Team.destroy_all
+team_demo = Team.create(name: 'Beastie Boys', description: 'Best band ever')
+
 User.destroy_all
 user_demo = User.create(username: 'MCA', email: 'mca@beastieboys.com', password:'password')
+

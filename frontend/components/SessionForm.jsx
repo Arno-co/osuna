@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import TeamForm from './teams/TeamForm';
 
 
 
@@ -9,12 +10,15 @@ class SessionForm extends React.Component {
         this.state = {
             username: "",
             email: "",
-            password: ""
+            password: "",
+            team: ""
         };
+        
         this.handleSubmit = this.handleSubmit.bind(this);
         this.linkModal = this.linkModal.bind(this);
         this.props.clearErrors();
         this.fillDemo = this.fillDemo.bind(this);
+        this.addTeam = this.addTeam.bind(this);
     }
 
     update(field) {
@@ -34,10 +38,12 @@ class SessionForm extends React.Component {
             return ''
         }
     }
+
+    
     
     addLink() {
         if (this.props.formType === 'LOG IN') {
-
+            
             return (
                 <>
                     <div className='instead'>
@@ -60,7 +66,7 @@ class SessionForm extends React.Component {
             )
         }
     }
-
+    
     linkModal() {
         if (this.props.formType === 'LOG IN') {
             this.props.clearErrors();
@@ -71,6 +77,22 @@ class SessionForm extends React.Component {
         }
     }
     
+    addTeam() {
+        if (this.props.formType === 'SIGN UP') {
+            return (<>
+                    <label className='login-signup-label'>Team
+                    <br />
+                    </label>
+                <div className='team-buttons-container'>
+                    <button className="team-buttons" onClick={() => this.props.openModal('createTeam')}>CREATE A TEAM</button>
+                    <button className="team-buttons" onClick={() => this.props.openModal('joinTeam')}>JOIN A TEAM</button>
+                </div>
+            </>)
+        }
+        else {
+            return ''
+        }
+    }
     renderErrors() {
         return(
         <ul className='errors'>{
@@ -83,8 +105,8 @@ class SessionForm extends React.Component {
 
     fillDemo(e) {
         e.preventDefault();
-        this.props.loginForm({ email: 'mca@beastieboys.com', password: 'password' })
-            .then(() => (this.props.closeModal()))
+        this.props.loginForm({ email: 'mca@beastieboys.com', password: 'password', team_id: 1 })
+            .then(() => (this.props.closeModal())).then(() => this.props.history.push('/home'))
     }
 
     addDemo() {
@@ -94,17 +116,21 @@ class SessionForm extends React.Component {
             )
 
     }
+    
 
     handleSubmit(e) {
         e.preventDefault();
         e.stopPropagation();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user).then(() => this.props.closeModal(), () => this.renderErrors())
+        // this.props.processForm(user).then(() => this.props.closeModal(), () => this.renderErrors());
+        // this.navigateToHome();
+        this.props.processForm(user).then(() => {
+            this.props.closeModal(); 
+            this.props.history.push('/home')
+        },
+            () => this.renderErrors()
+        )
     }
-
-    // componentDidUpdate() {
-    //     { this.addLink() } 
-    // }
 
 
     render() {
@@ -125,6 +151,7 @@ class SessionForm extends React.Component {
                     </label>
                   
                     <input className='login-signup-field' type="password" placeholder="    password" value={this.state.password} onChange={this.update('password')} />
+                    {this.addTeam()}
                 </div>
 
                     {this.renderErrors()}

@@ -8,6 +8,11 @@ class User < ApplicationRecord
     attr_reader :password
     after_initialize :ensure_session_token
 
+    belongs_to :team,
+    foreign_key: :team_id,
+    class_name: :Team,
+    optional: :true
+
     has_many :projects,
     foreign_key: :project_owner_id,
     class_name: :Project

@@ -1,6 +1,6 @@
-.login-signup-form {
+.team-form {
     /* border: 2px solid red; */
-    height: 500px;
+    height: 300px;
     width: 400px;
     background-color: white;
     text-align: center;
@@ -27,7 +27,7 @@
 }
 
 
-.login-signup-field {
+.team-field {
     width: 100%;
     height: 30px;
     border-radius: 5px;
@@ -35,7 +35,7 @@
     font-size: 15px;
 }
 
-.login-signup-label {
+.team-label {
     width: 100%;
     line-height: 10px;
     font-size: 13px;
@@ -45,7 +45,7 @@
 }
 
 
-.login-signup-button {
+.team-button {
     box-sizing: content-box;
     width: 100%;
     height: 30px;
@@ -60,7 +60,7 @@
     border: 2px solid rgb(244, 134, 187);
 }
 
-.login-signup-button:hover {
+.team-button:hover {
 
     color: rgb(244, 134, 187);
     background-color: white;

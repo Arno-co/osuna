@@ -24,8 +24,8 @@ export const fetchProjects = () => {
     .then((projects) => dispatch(receiveProjects(projects)))
 }
 
-export const fetchProject = (postId) => {
-    return ProjectApiUtil.fetchProject(postId)
+export const fetchProject = (projectId) => {
+    return ProjectApiUtil.fetchProject(projectId)
     .then((project) => dispatch(receiveProject(project)))
 }
 
