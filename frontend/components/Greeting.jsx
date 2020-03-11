@@ -6,13 +6,17 @@ const Greeting = (props) => {
 
     if (props.currentUser) {
 
-        return (<div className="user-greeting-container">
+               
+            return (
+        <header className='nav'>
+                <img className="logo-header" src={window.logoURL} />
+                <div className="user-greeting-container">
                     <div className="user-greeting" >Hi {props.currentUser.username}!
                     <br />
                     </div>
                     <button className="nav-button" onClick={() => (props.logout())}>LOG OUT</button>
                 </div>
-            
+        </header>
         )
     } else {
         return (
@@ -23,11 +27,15 @@ const Greeting = (props) => {
             //     <Link to='/login'>LOG IN</Link>
             //     <br />
             // </div>
-            <nav className="login-signup">
-                <button className='nav-button' onClick={() => props.openModal('login')}>LOG IN</button>
             
-                <button className='nav-button' onClick={() => props.openModal('signup')}>SIGN UP</button>
-            </nav>
+            <header className='nav'>
+                <img className="logo-header" src={window.logoURL} />
+                <nav className="login-signup">
+                    <button className='nav-button' onClick={() => props.openModal('login')}>LOG IN</button>
+
+                    <button className='nav-button' onClick={() => props.openModal('signup')}>SIGN UP</button>
+                </nav>
+            </header>
         )
     }
 }

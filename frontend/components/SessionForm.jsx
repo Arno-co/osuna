@@ -11,8 +11,9 @@ class SessionForm extends React.Component {
             username: "",
             email: "",
             password: "",
-            team: ""
+            teamId: 1
         };
+      
         
         this.handleSubmit = this.handleSubmit.bind(this);
         this.linkModal = this.linkModal.bind(this);
@@ -84,7 +85,10 @@ class SessionForm extends React.Component {
                     <br />
                     </label>
                 <div className='team-buttons-container'>
-                    <button className="team-buttons" onClick={() => this.props.openModal('createTeam')}>CREATE A TEAM</button>
+                    <button className="team-buttons" onClick={() => {
+                        localStorage.setItem(this.state.username, JSON.stringify(this.state));
+                        this.props.openModal('createTeam')
+                    }}>CREATE A TEAM</button>
                     <button className="team-buttons" onClick={() => this.props.openModal('joinTeam')}>JOIN A TEAM</button>
                 </div>
             </>)

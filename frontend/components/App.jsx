@@ -9,15 +9,21 @@ import { AuthRoute } from '../util/route_util'
 import { Route, Switch } from 'react-router-dom';
 import TeamForm from './teams/TeamForm';
 
-const App = () => (
-    <div className='main'>
-        <Modal />
-        <header className='nav'>
-            <img className="logo-header" src={window.logoURL} />
-           
-            <GreetingContainer />
-            
-        </header>
+const App = (props) => {
+
+    // const greetingContainerDiv = (props.loggedIn) ? (
+    //     null
+    // ) : (
+    //     <GreetingContainer />
+    // )
+    
+    return (
+        <div className='main'>
+            <Modal />
+                <Route exact path="/" component={GreetingContainer} />
+            {/* <header className='nav'>
+         
+            </header> */}
             <Route exact path="/" component={SplashPage} />
             {/* <TeamForm /> */}
             <AuthRoute path="/home" component={Home} />
@@ -26,7 +32,8 @@ const App = () => (
         {/* <Route path="/login" component={LoginFormContainer} />
         <Route path="/signup" component={SignupFormContainer} /> */}
     </div>
-);
+)
+};
 
 
 export default App; 

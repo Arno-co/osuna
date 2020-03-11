@@ -36,6 +36,7 @@ class Api::UsersController < ApplicationController
 
         if @user.update(user_params)
             render :show
+            user.update(team_id: params[:team_id])
         else
             render json: @user.errors.full_messages, status: 422
         end
@@ -49,7 +50,7 @@ class Api::UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:username, :email, :password)
+        params.require(:user).permit(:username, :email, :password, :team_id)
     end
 
 

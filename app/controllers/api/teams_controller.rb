@@ -1,5 +1,5 @@
 class Api::TeamsController < ApplicationController
-    before_action :require_logged_in, only:[:show, :index, :edit, :update, :destroy]
+    before_action :require_logged_in, only:[:edit, :update, :destroy]
 
     def new
         render :new
@@ -19,7 +19,6 @@ class Api::TeamsController < ApplicationController
         @team = Team.create(team_params)
             
         if @team.save
-            login(@team)
             render :show
         else
             render json: @team.errors.full_messages, status: 422
@@ -47,7 +46,7 @@ class Api::TeamsController < ApplicationController
 
     private
 
-    def project_params
+    def team_params
         params.require(:team).permit(:name, :description)
     end
 

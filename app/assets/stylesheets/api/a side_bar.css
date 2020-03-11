@@ -1,0 +1,38 @@
+.side-bar {
+    background-color: #151b26;
+    height: 1000px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-aside {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+}
+
+.logo-aside {
+    width: 150px;
+    height: auto;
+    margin: 30px 0;
+}
+
+.button-aside {
+    margin: 10px;
+    background-color: rgb(244, 134, 187);
+    color: white;
+    height: 30px;
+    width: 80px;
+    border: 2px solid rgb(244, 134, 187);
+    border-radius: 3px;
+    text-align: center;
+  
+}
+.button-aside:hover {
+    
+    color: rgb(244, 134, 187);
+    border: 2px solid rgb(244, 134, 187);
+    background-color: white;
+}

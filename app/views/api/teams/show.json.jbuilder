@@ -1,5 +1,4 @@
+json.partial! 'api/teams/team', team: @team
 
-    json.team do 
-        json.extract! @team, :id, :name, :description
-    end
+
    

@@ -1,17 +1,25 @@
 import React from 'react';
 import { signup, login, logout } from '../actions/session_actions';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 const SideBar = (props) => {
 
     if (props.currentUser) {
 
-        return (<div className="">
-            <div className="" >Hi {props.currentUser.username}!
+        return (
+        <aside className="side-bar">
+            <div className="top-aside">
+                    <img className="logo-aside" src={window.logo_darkURL} />
+                    <div className="" >Hi {props.currentUser.username}!
                     <br />
+                    </div>
+                    <button className="button-aside" onClick={() => {
+                        props.logout();
+                        props.history.push('/')
+                    }}>LOG OUT</button>
             </div>
-            <button className="nav-button" onClick={() => (props.logout())}>LOG OUT</button>
-        </div>
+        </aside>
 
         )
     } else {
@@ -24,12 +32,12 @@ const SideBar = (props) => {
             //     <br />
             // </div>
             <nav className="login-signup">
-                <button className='nav-button' onClick={() => props.openModal('login')}>LOG IN</button>
+                <button className='button-aside' onClick={() => props.openModal('login')}>LOG IN</button>
 
-                <button className='nav-button' onClick={() => props.openModal('signup')}>SIGN UP</button>
+                <button className='button-aside' onClick={() => props.openModal('signup')}>SIGN UP</button>
             </nav>
         )
     }
 }
 
-export default SideBar;
+export default withRouter(SideBar);

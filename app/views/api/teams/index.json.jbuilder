@@ -1,3 +1,5 @@
    @teams.each do |team|
-        json.partial! "api/teams/team", team: team
+        json.set! team.id do 
+            json.partial! "api/teams/team", team: team
+        end
     end

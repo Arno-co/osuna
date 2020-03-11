@@ -1,11 +1,11 @@
 import {
-    RECEIVE_CURRENT_USER,
+    RECEIVE_TEAM,
     RECEIVE_ERRORS,
     CLEAR_ERRORS
-} from '../actions/session_actions';
+} from '../actions/team_actions';
 
 
-const sessionErrorsReducer = (oldState = [], action) => {
+const teamErrorsReducer = (oldState = [], action) => {
     Object.freeze(oldState);
     let nextState = Object.assign({}, oldState);
 
@@ -16,7 +16,7 @@ const sessionErrorsReducer = (oldState = [], action) => {
             } else {
                 return null;
             };
-        case RECEIVE_CURRENT_USER:
+        case RECEIVE_TEAM:
             return [];
         case CLEAR_ERRORS:
             return [];
@@ -25,4 +25,4 @@ const sessionErrorsReducer = (oldState = [], action) => {
     }
 }
 
-export default sessionErrorsReducer;
+export default teamErrorsReducer;
