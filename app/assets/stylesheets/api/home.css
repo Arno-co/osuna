@@ -1,0 +1,49 @@
+#home {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-home {
+    height: 200px;
+    width: 100%;
+}
+.main-home {
+    width: 80%;
+    margin: 0;
+    padding: 0;
+
+}
+
+.project-form {
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    color: #151b26;
+    padding: 20px;
+}
+
+.project-label {
+    font-size: 25px;
+    padding: 20px 20px 0 20px;
+}
+
+.project-form-title {
+    width: 100%;
+    border-bottom: 1px solid darkgray;
+    margin: 10px;
+}
+.project-field-title {
+    width: 40%;
+    height: 30px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    margin: 10px;
+}
+
+.project-field-description {
+    width: 40%;
+    height: 60px;
+    margin: 10px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+}

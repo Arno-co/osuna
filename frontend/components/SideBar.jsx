@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 
 const SideBar = (props) => {
-    console.log(props)
     if (props.currentUser) {
         return (
         <aside className="side-bar">
@@ -19,6 +18,11 @@ const SideBar = (props) => {
                         props.logout();
                         props.history.push('/')
                     }}>LOG OUT</button>
+            </div>
+            <div className="bottom-aside">
+                    <i className="fab fa-github-square"></i>
+                    <i className="fab fa-linkedin"></i>
+                    <i className="fas fa-briefcase"></i>
             </div>
         </aside>
 

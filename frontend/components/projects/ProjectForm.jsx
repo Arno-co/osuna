@@ -23,17 +23,23 @@ class ProjectForm extends React.Component {
     }
 
     render() {
-        <div>
-            <form className='project-form'onSubmit={this.handleSubmit}>
-                <h2 className='project-form-title'>CREATE YOUR PROJECT</h2>
-                <label className='project-label'>Title</label>
-                <input className='project-field' type="text" placeholder="    your project title" value={this.state.title} onChange={this.update('title')} />
-                <label className='project-label'>Description</label>
-                <input className='project-field' type="text" placeholder="    your project description" value={this.state.description} onChange={this.update('description')} />
-                <label className='project-label'>Starts</label>
-                <input className='project-field' type="date" placeholder="    your project starting date" value={this.state.description} onChange={this.update('description')} />
-            </form>
-        </div>
+        return (
+            <div>
+                <form className='project-form' onSubmit={this.handleSubmit}>
+                    <h2 className='project-form-title'>CREATE YOUR PROJECT</h2>
+                    <label className='project-label'>Title</label>
+                    <input className='project-field-title' type="text" placeholder="    your project title" value={this.state.title} onChange={this.update('title')} />
+                    <label className='project-label'>Description</label>
+                    <input className='project-field-description' type="text" placeholder="    your project description" value={this.state.description} onChange={this.update('description')} />
+                    <div className='dates'>
+                        <label className='project-label'>Starts</label>
+                        <input className='project-field' type="date" placeholder="    your project starting date" value={this.state.description} onChange={this.update('start_date')} />
+                        <label className='project-label'>Ends</label>
+                        <input className='project-field' type="date" placeholder="    your project ending date" value={this.state.description} onChange={this.update('end_date')} />
+                    </div>
+                </form>
+            </div>
+        )
     }
 
 }

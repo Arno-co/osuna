@@ -41,7 +41,6 @@ class JoinTeamForm extends React.Component {
         e.preventDefault();
         e.stopPropagation();
         const team = Object.assign({}, this.state);
-        console.log(team);
         
        
         localStorage.setItem('myTeamInfo', JSON.stringify({
