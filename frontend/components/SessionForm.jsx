@@ -120,7 +120,7 @@ class SessionForm extends React.Component {
         }
         else if (this.props.formType === 'SIGN UP' && localStorage.myTeamInfo){
             return(
-                <div>
+                <div className='team-signup'>
                     <label className='login-signup-label'>Team
                     </label>
                     <input className='login-signup-field' type="text" placeholder={JSON.parse(localStorage.getItem('myTeamInfo')).name} />

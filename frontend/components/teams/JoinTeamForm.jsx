@@ -22,9 +22,8 @@ class JoinTeamForm extends React.Component {
 
     grabElement() {
     
-    // debugger;
+    
    ( (document.getElementsByTagName('select'))[0]).addEventListener('mouseup', function (event) {
-        debugger;
     })
     }
 
@@ -38,8 +37,7 @@ class JoinTeamForm extends React.Component {
     }
 
     handleSubmit(e) {
-        // this.setState({ id: this.menu.value }) 
-        debugger;
+       
         e.preventDefault();
         e.stopPropagation();
         const team = Object.assign({}, this.state);
@@ -75,7 +73,6 @@ class JoinTeamForm extends React.Component {
                                 return (<option value={team.id} key={team.id}>{team.name}</option>)
                             })
                             }
-                        <option value="hi" selected>hi</option>
                     </select>
                     </div>
                     {/* {this.renderErrors()} */}
