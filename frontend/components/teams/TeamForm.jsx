@@ -20,11 +20,15 @@ class TeamForm extends React.Component {
         e.preventDefault();
         e.stopPropagation();
         const team = Object.assign({}, this.state);
-        this.props.createTeam(team).then(() => {
-            
+        this.props.createTeam(team).then((result) => {
+            // LOCAL STORAGE FOR TEAM_ID
+            localStorage.setItem('myTeamInfo', JSON.stringify({
+                id: result.team.id,
+                name: this.state.name,
+                description: this.state.description
+            }));
             this.props.openModal('signup');
-            // localStorage.getItem(this.state.username, JSON.parse(this.state));
-            // this.state = JSON.parse(localStorage.getItem(this.state.username))
+        
         }
         )
     }

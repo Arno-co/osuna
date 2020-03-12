@@ -4,8 +4,14 @@ import { connect } from 'react-redux';
 import { openModal } from '../actions/modal_actions';
 import SideBar from './SideBar';
 
-const mapSTP = (state) => ({
-    currentUser: state.entities.users[state.session.currentUserId]
+
+const mapSTP = (state, ownProp) => ({
+    currentUser: state.entities.users[state.session.currentUserId],
+    team: state.entities.teams[state.entities.users[state.session.currentUserId].teamId],
+    ownProp: ownProp,
+    teams: state.entities.teams,
+    currentState: state
+
 })
 
 const mapDTP = (dispatch) => ({

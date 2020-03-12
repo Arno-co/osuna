@@ -34,7 +34,6 @@ function Modal({ modal, closeModal, clearErrors }) {
     }
 
     const handleClearErrors= (e) => {
-        console.log(e);
         e.stopPropagation(); 
         clearErrors()
         

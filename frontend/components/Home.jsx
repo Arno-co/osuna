@@ -3,24 +3,29 @@ import { connect } from 'react-redux';
 import SideBarContainer from './SideBarContainer';
 
 
-const Home = () => {
-    return(
-    <div>
-        <SideBarContainer />
-        
-    </div>
+class Home extends React.Component {
 
-    )
+    constructor(props) {
+        super(props);
+    }
+
+    // componentDidMount() {
+    //     this.props.fetchTeams()
+    // }
+
+
+    render() {
+        return (
+            <div>
+                <SideBarContainer team={this.props.team} />
+
+            </div>
+
+        )
+    }
+
 }
 
-// const mSTP = state => ({
 
-// })
-
-// const mDTP = dispatch => ({
-
-// })
-
-// export default connect(mSTP, mDTP)(Home);
 
 export default Home;

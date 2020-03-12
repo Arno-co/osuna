@@ -7,12 +7,33 @@ import TeamForm from './teams/TeamForm';
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            username: "",
-            email: "",
-            password: "",
-            teamId: 1
-        };
+        if (!localStorage.myUserData) {
+            this.state = {
+                username: "",
+                email: "",
+                password: "",
+                team_id: ""
+            }
+            
+        } else {
+            let userData = JSON.parse(localStorage.getItem('myUserData'));
+            userData.team_id = JSON.parse(localStorage.getItem('myTeamInfo')).id
+            
+            this.state = userData;
+            // this.setState({ ['teamId']: JSON.parse(localStorage.getItem('myTeamInfo')).id }) 
+            
+            localStorage.setItem('myUserData', '');
+            
+
+            // return this.state;
+            // localStorage.myUserData.clear();
+    };
+        // this.state = {
+        //     username: "",
+        //     email: "",
+        //     password: "",
+        //     teamId: ""
+        // }
       
         
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -79,32 +100,44 @@ class SessionForm extends React.Component {
     }
     
     addTeam() {
-        if (this.props.formType === 'SIGN UP') {
+    
+        if (this.props.formType === 'SIGN UP' && !localStorage.myTeamInfo) {
             return (<>
                     <label className='login-signup-label'>Team
                     <br />
                     </label>
                 <div className='team-buttons-container'>
                     <button className="team-buttons" onClick={() => {
-                        localStorage.setItem(this.state.username, JSON.stringify(this.state));
+                        localStorage.setItem('myUserData', JSON.stringify(this.state));
                         this.props.openModal('createTeam')
                     }}>CREATE A TEAM</button>
-                    <button className="team-buttons" onClick={() => this.props.openModal('joinTeam')}>JOIN A TEAM</button>
+                    <button className="team-buttons" onClick={() => {
+                        localStorage.setItem('myUserData', JSON.stringify(this.state));
+                        this.props.openModal('joinTeam')
+                    }}>JOIN A TEAM</button>
                 </div>
             </>)
         }
-        else {
-            return ''
+        else if (this.props.formType === 'SIGN UP' && localStorage.myTeamInfo){
+            return(
+                <div>
+                    <label className='login-signup-label'>Team
+                    </label>
+                    <input className='login-signup-field' type="text" placeholder={JSON.parse(localStorage.getItem('myTeamInfo')).name} />
+                </div>
+            )
         }
     }
     renderErrors() {
-        return(
-        <ul className='errors'>{
-            this.props.errors.map((error, i) => (
-            <li className='error' key={`error=${i}`}>{error}</li>
-            ))
-            }</ul>
-        )
+        if (this.props.errors) {
+            return (
+                <ul className='errors'>{
+                    this.props.errors.map((error, i) => (
+                        <li className='error' key={`error=${i}`}>{error}</li>
+                    ))
+                }</ul>
+            )
+        }
     }
 
     fillDemo(e) {
@@ -126,6 +159,7 @@ class SessionForm extends React.Component {
         e.preventDefault();
         e.stopPropagation();
         const user = Object.assign({}, this.state);
+    
         // this.props.processForm(user).then(() => this.props.closeModal(), () => this.renderErrors());
         // this.navigateToHome();
         this.props.processForm(user).then(() => {
@@ -133,7 +167,8 @@ class SessionForm extends React.Component {
             this.props.history.push('/home')
         },
             () => this.renderErrors()
-        )
+        );
+        localStorage.setItem('myTeamInfo', '');
     }
 
 

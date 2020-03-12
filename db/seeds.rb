@@ -11,5 +11,5 @@ Team.destroy_all
 team_demo = Team.create(name: 'Beastie Boys', description: 'Best band ever')
 
 User.destroy_all
-user_demo = User.create(username: 'MCA', email: 'mca@beastieboys.com', password:'password')
+user_demo = User.create(username: 'MCA', email: 'mca@beastieboys.com', password:'password', team_id: team_demo.id)
 

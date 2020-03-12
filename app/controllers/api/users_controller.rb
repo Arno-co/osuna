@@ -18,7 +18,6 @@ class Api::UsersController < ApplicationController
 
     def create
         @user = User.create(user_params)
-            
         if @user.save
             login(@user)
             render :show
@@ -36,7 +35,7 @@ class Api::UsersController < ApplicationController
 
         if @user.update(user_params)
             render :show
-            user.update(team_id: params[:team_id])
+            # user.update(team_id: params[:team_id])
         else
             render json: @user.errors.full_messages, status: 422
         end

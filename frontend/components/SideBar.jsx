@@ -4,16 +4,17 @@ import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 
 const SideBar = (props) => {
-
+    console.log(props)
     if (props.currentUser) {
-
         return (
         <aside className="side-bar">
             <div className="top-aside">
                     <img className="logo-aside" src={window.logo_darkURL} />
                     <div className="" >Hi {props.currentUser.username}!
+                    
                     <br />
                     </div>
+                    {/* <div>{props.team.name}</div> */}
                     <button className="button-aside" onClick={() => {
                         props.logout();
                         props.history.push('/')

@@ -5,7 +5,7 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 
 const mSTP = state => ({
-    teams: Object.values(state.entities.teams),
+    teams: state.entities.teams,
     errors: state.errors.teams
 })
 
@@ -16,4 +16,4 @@ const mDTP = dispatch => ({
     openModal: (modal) => dispatch(openModal(modal)),
 })
 
-export default connect(mSTP, mDTP)(JoinTeamForm)
+export default connect(mSTP, mDTP)(JoinTeamForm);    
