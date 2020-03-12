@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import SideBarContainer from './SideBarContainer';
+import ProjectForm from './projects/ProjectFormContainer';
+import ProjectFormContainer from './projects/ProjectFormContainer';
 
 
 class Home extends React.Component {
@@ -18,6 +20,7 @@ class Home extends React.Component {
         return (
             <div>
                 <SideBarContainer team={this.props.team} />
+                <ProjectFormContainer team={this.props.team} />
 
             </div>
 
