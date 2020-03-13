@@ -39,7 +39,7 @@ class TeamForm extends React.Component {
                 <div className='form-top'>
                     <h2 className='form-title'>CREATE A TEAM</h2>
                     <label className='team-label'>Team Name</label>
-                    <input className='team-field' type="text" placeholder="    your team name" value={this.state.name} onChange={this.update('name')} />
+                    <input className='team-field' type="text" placeholder="    your team name" value={this.state.name} onChange={this.update('name')} required/>
                     <label className='team-label'>Team description</label>
                     <input className='team-field' type="text" placeholder="    your team in a few words" value={this.state.description} onChange={this.update('description')} />
                 </div>

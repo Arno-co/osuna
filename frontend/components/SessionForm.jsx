@@ -69,7 +69,7 @@ class SessionForm extends React.Component {
                     <div className='instead'>
                         <br />
                         <p className='link-form-label'>Not a registered user?   </p>
-                        <Link className='link-form' onClick={this.linkModal} to="/signup">Sign up</Link>
+                        <Link className='link-form' onClick={this.linkModal} to="/">Sign up</Link>
                         
                     </div>
                 </>
@@ -80,7 +80,7 @@ class SessionForm extends React.Component {
             <div className='instead'>
                     <br />
                         <p className='link-form-label'>Already have an account?   </p>
-                        <Link className='link-form' onClick={this.linkModal} to="/login">Log in</Link>
+                        <Link className='link-form' onClick={this.linkModal} to="/">Log in</Link>
             </div>
             </>
             )
