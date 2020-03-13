@@ -33,7 +33,11 @@ const Greeting = (props) => {
                 <nav className="login-signup">
                     <button className='nav-button' onClick={() => props.openModal('login')}>LOG IN</button>
 
-                    <button className='nav-button' onClick={() => props.openModal('signup')}>SIGN UP</button>
+                    <button className='nav-button' onClick={() => {
+                        props.openModal('signup');
+                        localStorage.setItem('myUserData', '');
+                        localStorage.setItem('myTeamInfo', '');
+                    }}>SIGN UP</button>
                 </nav>
             </header>
         )

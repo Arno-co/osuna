@@ -76,7 +76,7 @@ class JoinTeamForm extends React.Component {
                     </div>
                     {/* {this.renderErrors()} */}
                     <div className='form-bottom'>
-                        <input className='team-button' type="submit"  />
+                        <input className='team-button' type="submit" value='JOIN A TEAM' />
                     </div>
                 </form>
 

@@ -61,8 +61,6 @@ class SessionForm extends React.Component {
         }
     }
 
-    
-    
     addLink() {
         if (this.props.formType === 'LOG IN') {
             
@@ -92,10 +90,14 @@ class SessionForm extends React.Component {
     linkModal() {
         if (this.props.formType === 'LOG IN') {
             this.props.clearErrors();
-            this.props.openModal('signup')
+            this.props.openModal('signup');
+            localStorage.setItem('myTeamInfo', '');
+            localStorage.setItem('myUserData', '');
         } else {
             this.props.clearErrors();
-            this.props.openModal('login')
+            this.props.openModal('login');
+            localStorage.setItem('myTeamInfo', '');
+            localStorage.setItem('myUserData', '');
         }
     }
     
@@ -164,11 +166,12 @@ class SessionForm extends React.Component {
         // this.navigateToHome();
         this.props.processForm(user).then(() => {
             this.props.closeModal(); 
-            this.props.history.push('/home')
+            this.props.history.push('/home');
+            localStorage.setItem('myTeamInfo', '');
+            localStorage.setItem('myUserData', '');
         },
             () => this.renderErrors()
         );
-        localStorage.setItem('myTeamInfo', '');
     }
 
 
