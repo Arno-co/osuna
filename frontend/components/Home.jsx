@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SideBarContainer from './SideBarContainer';
 import ProjectForm from './projects/ProjectForm';
+import { fetchTeams } from '../actions/team_actions'
 
 
 class Home extends React.Component {

@@ -37,6 +37,7 @@ class ProjectForm extends React.Component {
                         <label className='project-label'>Ends</label>
                         <input className='project-field' type="date" placeholder="    your project ending date" value={this.state.description} onChange={this.update('end_date')} />
                     </div>
+                    <button className='nav-button'>CREATE</button>
                 </form>
             </div>
         )

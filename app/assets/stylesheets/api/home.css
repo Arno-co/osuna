@@ -24,7 +24,7 @@
 
 .project-label {
     font-size: 25px;
-    padding: 20px 20px 0 20px;
+    padding: 30px 20px 0 20px;
 }
 
 .project-form-title {
@@ -36,7 +36,7 @@
     width: 40%;
     height: 30px;
     border: 1px solid lightgray;
-    border-radius: 3px;
+    border-radius: 5px;
     margin: 10px;
 }
 
@@ -47,3 +47,25 @@
     border: 1px solid lightgray;
     border-radius: 3px;
 }
+
+.dates {
+    font-size: 15px;
+    margin: 40px 0;
+
+}
+
+
+input[type="date"] {
+    /* appearance: none;
+    -webkit-appearance: none; */
+    color: lightgray;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    border:1px solid lightgray;
+    border-radius: 5px;
+    padding:5px;
+    display: inline-block !important;
+    visibility: visible !important;
+}
+
+

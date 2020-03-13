@@ -6,7 +6,6 @@ const Greeting = (props) => {
 
     if (props.currentUser) {
 
-               
             return (
         <header className='nav'>
                 <img className="logo-header" src={window.logoURL} />

@@ -22,5 +22,8 @@ time, mark, audio, video {
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: lightgray;
+  
+	color: lightgray;
 }
+
+
