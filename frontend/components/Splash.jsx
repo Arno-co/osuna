@@ -12,7 +12,7 @@ function Splash({openModal}) {
             
             <p className='text-splash'>OSUNA is the work management platform teams use to stay focused on the goals, projects, and daily tasks that grow your business.</p>
             <div className='signup-splash'>
-                <input className="splash-signup-input" type="text" placeholder="   yourname@yourcompany.com" />
+                {/* <input className="splash-signup-input" type="text" placeholder="   yourname@yourcompany.com" /> */}
                 <button className='splash-button' onClick={() => openModal('signup')}>GET STARTED</button>
             </div>
             <img className = 'splash-meeting'src={window.team_meetingURL}/>
