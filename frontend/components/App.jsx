@@ -20,7 +20,8 @@ const App = (props) => {
     return (
         <div className='main'>
             <Modal />
-                <Route exact path="/" component={GreetingContainer} />
+                {/* <Route exact path="
+                /" component={GreetingContainer} /> */}
             {/* <header className='nav'>
          
             </header> */}
