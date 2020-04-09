@@ -1,9 +1,6 @@
 class Api::TeamsController < ApplicationController
     before_action :require_logged_in, only:[:edit, :update, :destroy]
 
-    def new
-        render :new
-    end
 
     def show
         @team = Team.find_by(id: params[:id])
@@ -41,7 +38,7 @@ class Api::TeamsController < ApplicationController
 
     def destroy
         @team = Team.find_by(id: params[:id])
-        @project.destroy
+        @team.destroy
     end
 
     private

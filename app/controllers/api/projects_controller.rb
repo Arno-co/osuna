@@ -1,40 +1,34 @@
 class Api::ProjectsController < ApplicationController
     before_action :require_logged_in, only:[:show, :index, :edit, :update, :destroy]
 
-    def new
-        render :new
-    end
 
     def show
         @project = Project.find_by(id: params[:id])
-        render :show
+        render json: @project
     end
 
     def index
         @projects = Project.all
-        render :index
+        render json: @projects
     end
 
     def create
         @project = Project.create(project_params)
             
         if @project.save
-            login(@project)
-            render :show
+            render json: @project
         else
             render json: @project.errors.full_messages, status: 422
         end
     end
 
-    def edit
-        render :edit
-    end
+
 
     def update
         @project = Project.find_by(id: params[:id])
 
         if @project.update(project_params)
-            render :show
+            render json: @project
         else
             render json: @project.errors.full_messages, status: 422
         end
@@ -48,7 +42,7 @@ class Api::ProjectsController < ApplicationController
     private
 
     def project_params
-        params.require(:project).permit(:title, :description, :start_date, :end_date)
+        params.require(:project).permit(:title, :description, :project_owner_id, :start_date, :end_date)
     end
 
 

@@ -13,28 +13,24 @@ class Api::UsersController < ApplicationController
 
     def index
         @users = User.all
-        render :index
+        render json: @users
     end
 
     def create
         @user = User.create(user_params)
         if @user.save
             login(@user)
-            render :show
+            render json: @user
         else
             render json: @user.errors.full_messages, status: 422
         end
-    end
-
-    def edit
-        render :edit
     end
 
     def update
         @user = @user.find_by(id: params[:id])
 
         if @user.update(user_params)
-            render :show
+            render json: @user
             # user.update(team_id: params[:team_id])
         else
             render json: @user.errors.full_messages, status: 422

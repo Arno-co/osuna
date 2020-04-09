@@ -7,7 +7,7 @@ class ProjectForm extends React.Component {
         this.state = {
             description: '',
             description: '',
-            start_end: '',
+            start_date: '',
             end_date: '',
             teams: []
         };

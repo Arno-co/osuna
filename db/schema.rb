@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_013602) do
+ActiveRecord::Schema.define(version: 2020_04_08_173707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assignments", force: :cascade do |t|
+    t.bigint "project_id"
+    t.bigint "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_assignments_on_project_id"
+    t.index ["team_id"], name: "index_assignments_on_team_id"
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string "title", null: false
@@ -48,4 +57,6 @@ ActiveRecord::Schema.define(version: 2020_03_12_013602) do
     t.index ["username"], name: "index_users_on_username"
   end
 
+  add_foreign_key "assignments", "projects"
+  add_foreign_key "assignments", "teams"
 end

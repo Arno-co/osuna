@@ -144,7 +144,7 @@ class SessionForm extends React.Component {
 
     fillDemo(e) {
         e.preventDefault();
-        this.props.loginForm({ email: 'mca@beastieboys.com', password: 'password', team_id: 1 })
+        this.props.loginForm({ email: 'md@beastieboys.com', password: 'password'})
             .then(() => (this.props.closeModal())).then(() => this.props.history.push('/home'))
     }
 

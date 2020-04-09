@@ -46,7 +46,7 @@ Rails.application.routes.draw do
       resources :projects, only: [:index]
     end
     resources :projects, except: [:index]
-    resource :session, only: [:new, :create, :destroy]
+    resource :session, only: [:create, :destroy]
   end
 
 end

@@ -10,12 +10,15 @@ class User < ApplicationRecord
 
     belongs_to :team,
     foreign_key: :team_id,
-    class_name: :Team,
-    optional: :true
+    class_name: :Team
 
     has_many :projects,
     foreign_key: :project_owner_id,
     class_name: :Project
+
+    has_many :participating_projects,
+    through: :team,
+    source: :projects
 
 
     def self.find_by_credentials(email, password)
