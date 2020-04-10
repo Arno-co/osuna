@@ -1,4 +1,6 @@
 import React from "react";
+import Home from './Home';
+import { connect } from 'react-redux';
 import { fetchTeams } from "../actions/team_actions";
 
 

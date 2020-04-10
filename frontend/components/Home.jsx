@@ -10,23 +10,24 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
     }
-
+    
     // componentDidMount() {
-    //     this.props.fetchTeams()
-    // }
-
-
-    render() {
+        //     this.props.fetchTeams()
+        // }
+        
+        
+        render() {
+            console.log(this.props);
         return (
             <div id='home'>
                 <SideBarContainer team={this.props.team} />
                 <div className="main-home">
                     <div className='nav-home'></div>
-                    <ProjectForm team={this.props.team} />
+                    {/* <ProjectForm team={this.props.team} /> */}
                 </div>
             </div>
 
-        )
+)
     }
 
 }

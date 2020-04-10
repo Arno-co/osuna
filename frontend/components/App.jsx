@@ -3,7 +3,7 @@ import GreetingContainer from './GreetingContainer';
 import LoginFormContainer from './LoginFormContainer';
 import SignupFormContainer from './SignupFormContainer'; 
 import Modal from './modal';
-import Home from './Home';
+import HomeContainer from './HomeContainer';
 import SplashPage from './Splash';
 import { AuthRoute } from '../util/route_util'
 import { Route, Switch } from 'react-router-dom';
@@ -27,7 +27,7 @@ const App = (props) => {
             </header> */}
             <Route exact path="/" component={SplashPage} />
             {/* <TeamForm /> */}
-            <AuthRoute path="/home" component={Home} />
+            <AuthRoute path="/home" component={HomeContainer} />
             {/* <AuthRoute path="/signup" component={SignupFormContainer} /> */}
         
         {/* <Route path="/login" component={LoginFormContainer} />
