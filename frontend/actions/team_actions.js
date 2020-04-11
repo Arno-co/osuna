@@ -60,6 +60,6 @@ export const deleteTeam = (teamId) => dispatch => {
         .then((teamId) => dispatch(removeTeam(teamId)))
 }
 
-export const clearErrors = () => dispatch => ({
+export const clearErrors = () => ({
     type: CLEAR_ERRORS
 })  

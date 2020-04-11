@@ -13,6 +13,7 @@ class Home extends React.Component {
     
     componentDidMount() {
         debugger;
+            // this.props.fetchUsers()
             this.props.fetchTeams()
             this.props.fetchProjects()
         }
