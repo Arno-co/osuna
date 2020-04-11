@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 
 const SideBar = (props) => {
+  
     if (props.currentUser) {
 
-    
         return (
         <aside className="side-bar">
             <div className="top-aside">
@@ -20,11 +20,12 @@ const SideBar = (props) => {
                         props.logout();
                         props.history.push('/')
                     }}>LOG OUT</button>
-                    <div className='shortcut-aside-label'>Your projects</div>
+                    <div className='shortcut-aside-label'>Team</div>
+                    {/* <Teammates /> */}
                     <div className='shortcut-aside-field'></div>
-                    <div className='shortcut-aside-label'>Your milestones</div>
+                    <div className='shortcut-aside-label'>Projects</div>
                     <div className='shortcut-aside-field'></div>
-                    <div className='shortcut-aside-label'>Your tasks</div>
+                    <div className='shortcut-aside-label'>Tasks</div>
                     <div className='shortcut-aside-field'></div>
             </div>
             <div className="bottom-aside">

@@ -20,6 +20,10 @@ class User < ApplicationRecord
     through: :team,
     source: :projects
 
+    has_many :teammates,
+    through: :team,
+    source: :members
+
 
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)

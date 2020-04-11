@@ -6,6 +6,8 @@ export const REMOVE_TEAM = 'REMOVE_TEAM';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
+// ACTION OBJECTS
+
 const receiveTeams = (teams) => ({
     type: RECEIVE_TEAMS,
     teams: teams
@@ -27,6 +29,7 @@ const receiveErrors = (errors) => ({
 })
 
 
+// ACTION CREATORS - The JS objects returned by these functions are the ACTIONS
 
 export const fetchTeams = () => dispatch => {
     return TeamApiUtil.fetchTeams()

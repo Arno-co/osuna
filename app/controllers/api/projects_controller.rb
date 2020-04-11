@@ -4,19 +4,19 @@ class Api::ProjectsController < ApplicationController
 
     def show
         @project = Project.find_by(id: params[:id])
-        render json: @project
+        render :show
     end
 
     def index
         @projects = Project.all
-        render json: @projects
+        render :index
     end
 
     def create
         @project = Project.create(project_params)
             
         if @project.save
-            render json: @project
+            render :show
         else
             render json: @project.errors.full_messages, status: 422
         end
@@ -28,7 +28,7 @@ class Api::ProjectsController < ApplicationController
         @project = Project.find_by(id: params[:id])
 
         if @project.update(project_params)
-            render json: @project
+            render :show
         else
             render json: @project.errors.full_messages, status: 422
         end

@@ -23,17 +23,9 @@ class SessionForm extends React.Component {
             // this.setState({ ['teamId']: JSON.parse(localStorage.getItem('myTeamInfo')).id }) 
             
             localStorage.setItem('myUserData', '');
-            
 
-            // return this.state;
-            // localStorage.myUserData.clear();
     };
-        // this.state = {
-        //     username: "",
-        //     email: "",
-        //     password: "",
-        //     teamId: ""
-        // }
+        
       
         
         this.handleSubmit = this.handleSubmit.bind(this);

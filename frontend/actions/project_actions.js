@@ -19,27 +19,27 @@ const removeProject = (projectId) => ({
     projectId: projectId
 }) 
 
-export const fetchProjects = () => {
+export const fetchProjects = () => dispatch => {
     return ProjectApiUtil.fetchProjects()
     .then((projects) => dispatch(receiveProjects(projects)))
 }
 
-export const fetchProject = (projectId) => {
+export const fetchProject = (projectId) => dispatch => {
     return ProjectApiUtil.fetchProject(projectId)
     .then((project) => dispatch(receiveProject(project)))
 }
 
-export const createProject = (project) => {
+export const createProject = (project) => dispatch => {
     return ProjectApiUtil.createProject(project)
     .then((project) => dispatch(receiveProject(project)))
 }
 
-export const updateProject = (project) => {
+export const updateProject = (project) => dispatch => {
     return ProjectApiUtil.updateProject(project)
     .then((project) => dispatch(receiveProject(project)))
 }
 
-export const deleteProject = (projectId) => {
+export const deleteProject = (projectId) => dispatch => {
     return ProjectApiUtil.deleteProject(projectId)
     .then((projectId) => dispatch(removeProject(projectId)))
 }

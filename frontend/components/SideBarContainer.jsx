@@ -10,7 +10,6 @@ const mapSTP = (state, ownProp) => ({
     team: state.entities.teams[state.entities.users[state.session.currentUserId].teamId],
     ownProp: ownProp,
     teams: state.entities.teams,
-    currentState: state
 
 })
 

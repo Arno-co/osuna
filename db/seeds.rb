@@ -19,7 +19,7 @@ team_3 = Team.create(name: 'Marketing', description: 'Make that money!')
 
 user_demo = User.create(username: 'Mike D', email: 'md@beastieboys.com', password:'password', team_id: team_demo.id)
 user_1 = User.create(username: 'Ad Rock', email: 'ar@beastieboys.com', password:'password', team_id: team_demo.id)
-user_2 = User.create(username: 'MCA', email: 'md@beastieboys.com', password:'password', team_id: team_demo.id)
+user_2 = User.create(username: 'MCA', email: 'mca@beastieboys.com', password:'password', team_id: team_demo.id)
 user_3 = User.create(username: 'Germain', email: 'captain@donika.com', password:'password', team_id: team_1.id)
 user_6 = User.create(username: 'Greg', email: 'segond@donika.com', password:'password', team_id: team_1.id)
 user_4 = User.create(username: 'Michael Jordan', email: 'mj@cb23.com', password:'password', team_id: team_2.id)
