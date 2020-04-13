@@ -20,6 +20,7 @@ class Api::ProjectsController < ApplicationController
         @project = Project.create(project_params)
             
         if @project.save
+            assignement = Assignment.create(project_id: @project.id, team_id: current_user.team_id) if current_user
             render :show
         else
             render json: @project.errors.full_messages, status: 422

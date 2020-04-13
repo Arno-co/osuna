@@ -2,9 +2,10 @@ import React from 'react';
 import { signup, login, logout } from '../actions/session_actions';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
+import Team from './Team';
 
 const SideBar = (props) => {
-  
+    // console.log(props)
     if (props.currentUser) {
 
         return (
@@ -21,7 +22,7 @@ const SideBar = (props) => {
                         props.history.push('/')
                     }}>LOG OUT</button>
                     <div className='shortcut-aside-label'>     Team</div>
-                    {/* <Teammates /> */}
+                    <Team users={props.users} team={props.team} />
                     <div className='shortcut-aside-field'></div>
                     <div className='shortcut-aside-label'>     Projects</div>
                     <div className='shortcut-aside-field'></div>

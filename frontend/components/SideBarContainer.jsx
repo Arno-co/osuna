@@ -5,12 +5,11 @@ import { openModal } from '../actions/modal_actions';
 import SideBar from './SideBar';
 
 
-const mapSTP = (state, ownProp) => ({
+const mapSTP = (state) => ({
     currentUser: state.session.currentUser,
-    // team: state.entities.teams[state.entities.users[state.session.currentUserId].teamId],
-    ownProp: ownProp,
-    teams: state.entities.teams,
-
+    users: Object.values(state.entities.users),
+    team: Object.values(state.entities.teams),
+    projects: state.entities.projects
 })
 
 const mapDTP = (dispatch) => ({

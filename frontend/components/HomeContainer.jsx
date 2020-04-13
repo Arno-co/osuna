@@ -9,8 +9,8 @@ import { fetchUsers } from "../actions/user_actions";
 
 const mSTP = state => ({
     currentUser: state.session.currentUser,
-    // team: state.entities.teams[state.entities.users[state.session.currentUserId].teamId],
     users: state.entities.users,
+    team: state.entities.teams,
     projects: state.entities.projects
 })
 
