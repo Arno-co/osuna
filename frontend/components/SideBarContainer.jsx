@@ -6,7 +6,7 @@ import SideBar from './SideBar';
 
 
 const mapSTP = (state, ownProp) => ({
-    currentUser: state.entities.users[state.session.currentUserId],
+    currentUser: state.session.currentUser,
     // team: state.entities.teams[state.entities.users[state.session.currentUserId].teamId],
     ownProp: ownProp,
     teams: state.entities.teams,

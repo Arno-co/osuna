@@ -20,12 +20,12 @@ const SideBar = (props) => {
                         props.logout();
                         props.history.push('/')
                     }}>LOG OUT</button>
-                    <div className='shortcut-aside-label'>Team</div>
+                    <div className='shortcut-aside-label'>     Team</div>
                     {/* <Teammates /> */}
                     <div className='shortcut-aside-field'></div>
-                    <div className='shortcut-aside-label'>Projects</div>
+                    <div className='shortcut-aside-label'>     Projects</div>
                     <div className='shortcut-aside-field'></div>
-                    <div className='shortcut-aside-label'>Tasks</div>
+                    <div className='shortcut-aside-label'>     Tasks</div>
                     <div className='shortcut-aside-field'></div>
             </div>
             <div className="bottom-aside">

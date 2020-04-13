@@ -6,7 +6,7 @@ import {fetchTeam} from '../actions/team_actions';
 import Greeting from './Greeting';
 
 const mapSTP = (state) => ({
-    currentUser: state.entities.users[state.session.currentUserId],
+    currentUser: state.session.currentUser,
     team:{}
 })
 

@@ -8,7 +8,11 @@ class Api::ProjectsController < ApplicationController
     end
 
     def index
-        @projects = Project.all
+        @projects = Project
+        .joins("INNER JOIN assignments ON projects.id = assignments.project_id")
+        .joins("INNER JOIN teams ON assignments.team_id = teams.id")
+        .where(teams: {id: current_user.team_id})
+
         render :index
     end
 

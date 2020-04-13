@@ -12,7 +12,7 @@ class Api::UsersController < ApplicationController
     end
 
     def index
-        @users = User.all
+        @users = User.where(team_id: current_user.team_id)
         render :index
     end
 

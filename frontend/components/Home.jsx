@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SideBarContainer from './SideBarContainer';
 import ProjectForm from './projects/ProjectForm';
-import { fetchTeams } from '../actions/team_actions';
+import { fetchTeams, fetchTeam } from '../actions/team_actions';
 
 
 class Home extends React.Component {
@@ -12,8 +12,7 @@ class Home extends React.Component {
     }
     
     componentDidMount() {
-        debugger;
-            // this.props.fetchUsers()
+            this.props.fetchUsers()
             this.props.fetchTeams()
             this.props.fetchProjects()
         }

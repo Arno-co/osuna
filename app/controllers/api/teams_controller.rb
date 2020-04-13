@@ -8,7 +8,11 @@ class Api::TeamsController < ApplicationController
     end
 
     def index
-        @teams = Team.all
+        if !current_user  
+            @teams = Team.all
+        else
+            @teams = Team.where(id: current_user.team_id)
+        end
         render :index
     end
 
