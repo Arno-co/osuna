@@ -25,11 +25,10 @@ class Team extends React.Component {
                             return (
                                 <div>
                                     <div className='team-member' key={idx}>{this.handleName(user.username)}
-                                    
                                         <div className='team-member-hover' key={idx}>
                                             <div>{user.username}</div>
                                             <br/>
-                                            <div>{this.props.team.length ? this.props.team[0].name : null}</div>
+                                            <div>{this.props.teams.length ? this.props.teams[0].name : null}</div>
                                         </div>
                                     </div>
                                 </div>

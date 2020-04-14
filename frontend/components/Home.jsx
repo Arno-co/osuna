@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import SideBarContainer from './SideBarContainer';
 import ProjectForm from './projects/ProjectForm';
 import { fetchTeams, fetchTeam } from '../actions/team_actions';
+import Projects from './projects/Projects';
 
 
 class Home extends React.Component {
@@ -19,14 +20,20 @@ class Home extends React.Component {
         
         
         render() {
-            console.log(this.props);
+            // console.log(this.props);
         return (
             <div id='home'>
                 <SideBarContainer />
                 <div className="main-home">
                     <div className='nav-home'></div>
-                    {/* <ProjectForm team={this.props.team} /> */}
-                    {/* <Projects /> */}
+                    <div className='body-home'>
+                        {/* <ProjectForm team={this.props.team} /> */}
+                        <Projects
+                            users={this.props.users}
+                            projects={this.props.projects}
+                            teams={this.props.teams}
+                        />
+                    </div>
                 </div>
             </div>
 

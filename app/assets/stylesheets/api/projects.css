@@ -1,0 +1,9 @@
+.home-projects-index{
+    display: flex;
+    width: 90%;
+}
+
+.home-project-container{
+    display: flex;
+    flex-direction: row;
+}

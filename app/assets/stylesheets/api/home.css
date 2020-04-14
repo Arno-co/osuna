@@ -4,14 +4,21 @@
 }
 
 .nav-home {
-    height: 200px;
+    height: 15%;
     width: 100%;
+}
+
+.body-home{
+    height: 85%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .main-home {
     width: 80%;
     margin: 0;
     padding: 0;
-
 }
 
 .project-form {

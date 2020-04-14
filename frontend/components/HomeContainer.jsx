@@ -10,8 +10,8 @@ import { fetchUsers } from "../actions/user_actions";
 const mSTP = state => ({
     currentUser: state.session.currentUser,
     users: state.entities.users,
-    team: state.entities.teams,
-    projects: state.entities.projects
+    teams: state.entities.teams,
+    projects: Object.values(state.entities.projects)
 })
 
 const mDTP = dispatch => ({

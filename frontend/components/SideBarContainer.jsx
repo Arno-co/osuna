@@ -8,8 +8,8 @@ import SideBar from './SideBar';
 const mapSTP = (state) => ({
     currentUser: state.session.currentUser,
     users: Object.values(state.entities.users),
-    team: Object.values(state.entities.teams),
-    projects: state.entities.projects
+    teams: Object.values(state.entities.teams),
+    projects: Object.values(state.entities.projects)
 })
 
 const mapDTP = (dispatch) => ({
