@@ -21,18 +21,40 @@ const SideBar = (props) => {
                         props.logout();
                         props.history.push('/')
                     }}>LOG OUT</button>
-                    <div className='shortcut-aside-label'>     Team</div>
+                    <div>
+                        <i className="fas fa-home fa-1x"></i>
+                    </div>
+                    <div className='shortcut-aside-label'>Team</div>
                     <Team users={props.users} teams={props.teams} />
                     <div className='shortcut-aside-field'></div>
-                    <div className='shortcut-aside-label'>     Projects</div>
-                    <div className='shortcut-aside-field'></div>
-                    <div className='shortcut-aside-label'>     Tasks</div>
+                    <div className='shortcut-aside-label'>Projects</div>
+                    <div className='shortcut-aside-field'>
+                        <div>{
+                            props.projects.map((project, idx) => {
+                                return (
+                                    <Link to={`/projects/${project.id}`}>
+                                        <div key={idx}>{project.title}</div>
+                                    </Link>
+                                )
+                            })
+                        }</div>
+                    </div>
+                    <div className='shortcut-aside-label'>Tasks</div>
                     <div className='shortcut-aside-field'></div>
             </div>
             <div className="bottom-aside">
-                    <i className="fab fa-github-square fa-3x"></i>
-                    <i className="fab fa-linkedin fa-3x"></i>
-                    <i className="fas fa-briefcase fa-3x"></i>
+                    <a className='icon-arnoco-gh' href="https://github.com/Arno-co">
+                        <i className="fab fa-github-square fa-3x"></i>
+                    </a>
+                    <a className='icon-arnoco-li' href="https://www.linkedin.com/in/arnaud-cognard-127556a/">
+                        <i className="fab fa-linkedin fa-3x"></i>
+                    </a>
+                    <a className='icon-arnoco-al' href="https://angel.co/u/arnaud-cognard">
+                        <i className="fab fa-angellist fa-3x"></i>
+                    </a>    
+                    {/* <a className='icon-arnoco-we' href="">
+                        <i className="fas fa-briefcase fa-3x"></i>
+                    </a>     */}
             </div>
         </aside>
 

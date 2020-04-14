@@ -1,4 +1,5 @@
 import React from 'react';
+import ProjectTile from './ProjectTile';
 
 class Projects extends React.Component {
     constructor(props) {
@@ -16,17 +17,7 @@ class Projects extends React.Component {
                                 this.props.projects.map((project, idx) => {
                                     return (
                                         <div className='home-project-container'>
-                                            <div className='tile-container'>
-                                                <div className='tile'>
-                                                    <span className='icon-container'>
-                                                        <i className="fas fa-list fa-3x" ></i>
-                                                    </span>
-                                                    <div className='project-leader'></div>
-                                                </div>
-                                                <div key={idx} className='home-project-element'>
-                                                    {project.title}
-                                                </div>
-                                            </div>
+                                            <ProjectTile project={project} idx={idx}/>
                                         </div>
                                     )
                                 })

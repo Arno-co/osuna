@@ -45,11 +45,14 @@
   z-index: 10;
 }
 
+.team-member:hover {
+    transition-duration: .4s;
+}
+
 .team-member:hover .team-member-hover{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    
 }
 
 /* .team-member:hover {
