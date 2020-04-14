@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import Team from './Team';
 
 const SideBar = (props) => {
-    // console.log(props)
+    console.log(props)
     if (props.currentUser) {
 
         return (

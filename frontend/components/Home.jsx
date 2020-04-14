@@ -19,13 +19,14 @@ class Home extends React.Component {
         
         
         render() {
-            // console.log(this.props);
+            console.log(this.props);
         return (
             <div id='home'>
                 <SideBarContainer />
                 <div className="main-home">
                     <div className='nav-home'></div>
                     {/* <ProjectForm team={this.props.team} /> */}
+                    {/* <Projects /> */}
                 </div>
             </div>
 

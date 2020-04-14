@@ -1,11 +1,11 @@
 import React from 'react';
 
+
 class Team extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props)
     }
-
+    
     handleName(name) {
         let nameArray = name.split(' ');
         if (nameArray.length === 1) {
@@ -15,13 +15,25 @@ class Team extends React.Component {
         }
     }
     render() {
+
         return(
 
             <div className='team-container'>
                 <div className='team-member-container'>
                     {
                         this.props.users.map((user, idx) => {
-                            return <div className='team-member' key={idx}>{this.handleName(user.username)}</div>
+                            return (
+                                <div>
+                                    <div className='team-member' key={idx}>{this.handleName(user.username)}
+                                    
+                                        <div className='team-member-hover' key={idx}>
+                                            <div>{user.username}</div>
+                                            <br/>
+                                            <div>{this.props.team.length ? this.props.team[0].name : null}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
                         })
                     }
                 </div>

@@ -21,6 +21,8 @@
     width:100%;
     margin-top: 30px;
     font-size: 0.9rem;
+    padding-left: 30px;
+    box-sizing: border-box;
 }
 .shortcut-aside-field {
     color: #6f7782;
