@@ -30,9 +30,9 @@ const SideBar = (props) => {
                     <div className='shortcut-aside-field'></div>
             </div>
             <div className="bottom-aside">
-                    <i className="fab fa-github-square"></i>
-                    <i className="fab fa-linkedin"></i>
-                    <i className="fas fa-briefcase"></i>
+                    <i className="fab fa-github-square fa-3x"></i>
+                    <i className="fab fa-linkedin fa-3x"></i>
+                    <i className="fas fa-briefcase fa-3x"></i>
             </div>
         </aside>
 

@@ -56,5 +56,9 @@
 }
 
 .bottom-aside {
+    display: flex;
+    justify-content: space-evenly;
     color: white;
+    margin-top: auto;
+    margin-bottom: 30px;
 }

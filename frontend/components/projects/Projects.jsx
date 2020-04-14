@@ -12,16 +12,31 @@ class Projects extends React.Component {
         } else {
             return (
                 <div className='home-projects-index'>
-                    <div className='home-project-container'>{
-                        this.props.projects.map((project, idx) => {
-                            return (
-                                <div key={idx} className='home-project-element'>
-                                    {project.title}
-                                </div>
-                            )
-                        })
-                    }</div>
-                    <div className='home-new-project-container'>New Project</div>
+                            {
+                                this.props.projects.map((project, idx) => {
+                                    return (
+                                        <div className='home-project-container'>
+                                            <div className='tile-container'>
+                                                <div className='tile'>
+                                                    <span className='icon-container'>
+                                                        <i className="fas fa-list fa-3x" ></i>
+                                                    </span>
+                                                    <div className='project-leader'></div>
+                                                </div>
+                                                <div key={idx} className='home-project-element'>
+                                                    {project.title}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+
+                    <div className='home-project-container'>
+                        <div className='tile-container'>
+                            NEW PROJECT
+                        </div>
+                    </div>
                 </div>
             )
         }

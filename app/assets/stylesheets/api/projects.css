@@ -7,3 +7,44 @@
     display: flex;
     flex-direction: row;
 }
+
+.tile-container{
+    border-radius: 30px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 221px;
+    min-width: 150px;
+    padding: 15px 0;
+    width: 150px;
+    align-items: center;
+    background: transparent;
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    transition-duration: .4s;
+    margin: 20px;
+}
+
+.tile-container:hover{
+    background-color: #e7e7e7;
+    margin-top: 10px;
+}
+
+.tile{
+    border-radius: 20px;
+    height: 130px;
+    width: 130px;
+    box-shadow: inset 0 -2px rgba(0,0,0,.05);
+    align-items: center;
+    background: #3ad580;
+    display: flex;
+    fill: #fff;
+    flex-direction: column;
+    justify-content: center;
+    flex-flow: column;
+    position: relative;
+}
+
+.icon-container{
+    color: white;
+}
