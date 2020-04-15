@@ -21,9 +21,9 @@ const SideBar = (props) => {
                         props.logout();
                         props.history.push('/')
                     }}>LOG OUT</button>
-                    <div>
+                    <Link to={`/home`}>
                         <i className="fas fa-home fa-1x"></i>
-                    </div>
+                    </Link>
                     <div className='shortcut-aside-label'>Team</div>
                     <Team users={props.users} teams={props.teams} />
                     <div className='shortcut-aside-field'></div>

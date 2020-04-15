@@ -9,6 +9,15 @@ class ProjectTile extends React.Component {
         }
     }
 
+    handleName(name) {
+        let nameArray = name.split(' ');
+        if (nameArray.length === 1) {
+            return name.slice(0, 1).toUpperCase()
+        } else {
+            return nameArray[0].slice(0, 1).toUpperCase().concat(nameArray[nameArray.length - 1].slice(0, 1).toUpperCase())
+        }
+    }
+
     render() {
         return(
             <Link to={`/projects/${this.props.project.id}`} key={this.props.idx} className="home-project-index-item">
@@ -17,7 +26,9 @@ class ProjectTile extends React.Component {
                         <span className='icon-container'>
                             <i className="fas fa-list fa-3x" ></i>
                         </span>
-                        <div className='project-leader'></div>
+                        <div className='project-leader'>{
+                        this.handleName(this.props.users[this.props.project.projectOwnerId].username)
+                        }</div>
                     </div>
                     <div className='home-project-element'>
                         {this.props.project.title}

@@ -8,6 +8,7 @@ import SplashPage from './Splash';
 import { AuthRoute } from '../util/route_util'
 import { Route, Switch } from 'react-router-dom';
 import TeamForm from './teams/TeamForm';
+import Project from './projects/Project';
 
 const App = (props) => {
 
@@ -28,10 +29,7 @@ const App = (props) => {
             <Route exact path="/" component={SplashPage} />
             {/* <TeamForm /> */}
             <AuthRoute path="/home" component={HomeContainer} />
-            {/* <AuthRoute path="/signup" component={SignupFormContainer} /> */}
-        
-        {/* <Route path="/login" component={LoginFormContainer} />
-        <Route path="/signup" component={SignupFormContainer} /> */}
+            <AuthRoute exact path="/projects/:projectId" component={Project} />
     </div>
 )
 };

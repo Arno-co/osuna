@@ -17,7 +17,7 @@ class Projects extends React.Component {
                                 this.props.projects.map((project, idx) => {
                                     return (
                                         <div className='home-project-container'>
-                                            <ProjectTile project={project} idx={idx}/>
+                                            <ProjectTile project={project} users={this.props.users} idx={idx}/>
                                         </div>
                                     )
                                 })
