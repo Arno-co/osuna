@@ -20,7 +20,7 @@ class ProjectTile extends React.Component {
 
     render() {
         return(
-            <Link to={`/projects/${this.props.project.id}`} key={this.props.idx} className="home-project-index-item">
+            <Link to={`/projects/${this.props.project.id}`} className="home-project-index-item">
                 <div className='tile-container'>
                     <div className='tile'>
                         <span className='icon-container'>

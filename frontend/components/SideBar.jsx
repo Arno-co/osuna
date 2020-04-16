@@ -32,8 +32,8 @@ const SideBar = (props) => {
                         <div>{
                             props.projects.map((project, idx) => {
                                 return (
-                                    <Link to={`/projects/${project.id}`}>
-                                        <div key={idx}>{project.title}</div>
+                                    <Link to={`/projects/${project.id}`} key={idx}>
+                                        <div>{project.title}</div>
                                     </Link>
                                 )
                             })

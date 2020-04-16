@@ -23,8 +23,8 @@ class Team extends React.Component {
                     {
                         this.props.users.map((user, idx) => {
                             return (
-                                <div>
-                                    <div className='team-member' key={idx}>{this.handleName(user.username)}
+                                <div key={idx}>
+                                    <div className='team-member'>{this.handleName(user.username)}
                                         <div className='team-member-hover' key={idx}>
                                             <div>{user.username}</div>
                                             <br/>

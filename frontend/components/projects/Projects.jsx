@@ -7,7 +7,7 @@ class Projects extends React.Component {
     }
 
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         if (!this.props.projects.length) {
             return null;
         } else {
@@ -16,8 +16,8 @@ class Projects extends React.Component {
                             {
                                 this.props.projects.map((project, idx) => {
                                     return (
-                                        <div className='home-project-container'>
-                                            <ProjectTile project={project} users={this.props.users} idx={idx}/>
+                                        <div className='home-project-container' key={idx}>
+                                            <ProjectTile project={project} users={this.props.users} />
                                         </div>
                                     )
                                 })
