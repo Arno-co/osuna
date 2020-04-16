@@ -21,16 +21,10 @@ const App = (props) => {
     return (
         <div className='main'>
             <Modal />
-                {/* <Route exact path="
-                /" component={GreetingContainer} /> */}
-            {/* <header className='nav'>
-         
-            </header> */}
             <Route exact path="/" component={SplashPage} />
-            {/* <TeamForm /> */}
             <AuthRoute path="/home" component={HomeContainer} />
             <AuthRoute exact path="/projects/:projectId" component={ProjectContainer} />
-    </div>
+        </div>
 )
 };
 

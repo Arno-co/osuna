@@ -7,7 +7,6 @@ class Project extends React.Component {
         this.state = {
             project: {}
         }
-
         console.log(this.props)
     }
 
@@ -17,20 +16,30 @@ class Project extends React.Component {
         this.props.fetchUsers();
         this.props.fetchTeams();
         this.props.fetchProjects().then(() => (this.setState({ project: this.props.projects[projectIdNumber] })))
-        // this.props.fetchProject(projectIdNumber).then(() => { return this.setState({ project })} )
         
         
     }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.match.params.projectId !== prevProps.match.params.projectId) {
+            const projectIdNumber = this.props.match.params.projectId;
+
+            this.props.fetchUsers();
+            this.props.fetchTeams();
+            this.props.fetchProjects().then(() => (this.setState({ project: this.props.projects[projectIdNumber] })))
+        }
+    }
+
     render() {
         // console.log(this.props)
         return(
             <div className='project-page'>
                     <SideBarContainer />
                 <div className='project-main'>
-                PROJECT GOES HERE
-                {this.state.project.title}
-                {this.state.project.description}
-                {this.state.project.projectOwnerId ? this.props.users[this.state.project.projectOwnerId].username : null}
+                    PROJECT GOES HERE
+                <div>{this.state.project.title}</div>
+                <div>{this.state.project.description}</div>
+                <div>{this.state.project.projectOwnerId ? this.props.users[this.state.project.projectOwnerId].username : null}</div>
                 </div>
             </div>
         )
