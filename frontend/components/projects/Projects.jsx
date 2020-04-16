@@ -25,7 +25,11 @@ class Projects extends React.Component {
 
                     <div className='home-project-container'>
                         <div className='tile-container'>
-                            NEW PROJECT
+                            <div className='new-project-tile'>
+                                <span className='icon-container'>
+                                    <i className="fas fa-plus-square fa-3x" ></i>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
