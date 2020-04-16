@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchTeams } from "../../actions/team_actions";
 import { fetchProject, fetchProjects } from "../../actions/project_actions";
 import { fetchUsers } from "../../actions/user_actions";
+import { openModal } from '../../actions/modal_actions';
 
 
 
@@ -19,7 +20,8 @@ const mDTP = dispatch => ({
     fetchTeams: () => dispatch(fetchTeams()),
     fetchTeam: (teamId) => dispatch(fetchTeams(teamId)),
     fetchProject: (projectId) => dispatch(fetchProject(projectId)),
-    fetchProjects: ( ) => dispatch(fetchProjects( ))
+    fetchProjects: ( ) => dispatch(fetchProjects( )),
+    openModal: modal => dispatch(openModal(modal))
 })
 
 export default connect(mSTP, mDTP)(Project);

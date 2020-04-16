@@ -8,6 +8,8 @@ import SignupFormContainer from './SignupFormContainer';
 import TeamFormContainer from './teams/TeamForm';
 import CreateTeamFormContainer from './teams/CreateTeamFormContainer';
 import JoinTeamFormContainer from './teams/JoinTeamFormContainer';
+import CreateProjectFormContainer from './projects/CreateProjectFormContainer';
+import EditProjectFormContainer from './projects/EditProjectFormContainer';
 
 function Modal({ modal, closeModal, clearErrors }) {
     if (!modal) {
@@ -17,17 +19,21 @@ function Modal({ modal, closeModal, clearErrors }) {
     switch (modal) {
         case 'login':
             component = <LoginFormContainer />;
-            // component = <AuthRoute path="/signup" component={LoginFormContainer} />
             break;
         case 'signup':
             component = <SignupFormContainer />;
-            // component = <AuthRoute path="/login" component={LoginFormContainer} />;
             break;
         case 'createTeam':
             component = <CreateTeamFormContainer />;
             break;
         case 'joinTeam':
             component = <JoinTeamFormContainer />;
+            break;
+        case 'createProject':
+            component = <CreateProjectFormContainer />;
+            break;
+        case 'editProject':
+            component = <EditProjectFormContainer />;
             break;
         default:
             return null;

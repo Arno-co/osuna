@@ -1,5 +1,6 @@
 import React from 'react';
 import ProjectTile from './ProjectTile';
+import { openModal } from '../../actions/modal_actions';
 
 class Projects extends React.Component {
     constructor(props) {
@@ -24,11 +25,14 @@ class Projects extends React.Component {
                             }
 
                     <div className='home-project-container'>
-                        <div className='tile-container'>
+                        <div className='tile-container' onClick={() => this.props.openModal('createProject')}>
                             <div className='new-project-tile'>
                                 <span className='icon-container'>
                                     <i className="fas fa-plus-square fa-3x" ></i>
                                 </span>
+                            </div>
+                            <div className='home-project-element'>
+                                Add a project
                             </div>
                         </div>
                     </div>

@@ -28,7 +28,7 @@ class ProjectTile extends React.Component {
         } else if (['M', 'N', 'O', 'P', 'Q'].includes(initial)) {
             return '#eec300'
         } else if (['R', 'S', 'T', 'U'].includes(initial)) {
-            return '#79a9e8'
+            return '#4186e0'
         } else if (['V', 'W', 'X', 'Y', 'Z'].includes(initial)) {
             return '#e8384f'
         } else {
@@ -41,6 +41,14 @@ class ProjectTile extends React.Component {
             <Link to={`/projects/${this.props.project.id}`} className="home-project-index-item">
                 <div className='tile-container'>
                     <div className='tile' style={{ background: this.handleColor(this.props.project.title) }}>
+                        <div className='tile-top-container'>
+                            <span className='top-icon-container'>
+                                <i className="fas fa-star fa-xs" ></i>
+                            </span>
+                            <span className='top-icon-container'>
+                                <i className="fas fa-ellipsis-h fa-xs" ></i>
+                            </span>
+                        </div>
                         <span className='icon-container'>
                             <i className="fas fa-list fa-3x" ></i>
                         </span>

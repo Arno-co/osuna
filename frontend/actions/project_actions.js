@@ -3,6 +3,8 @@ import * as ProjectApiUtil from '../util/project_api_util'
 export const RECEIVE_PROJECTS = 'RECEIVE_PROJECTS';
 export const RECEIVE_PROJECT = 'RECEIVE_PROJECT';
 export const REMOVE_PROJECT = 'REMOVE_PROJECT';
+export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 const receiveProjects = (projects) => ({
     type: RECEIVE_PROJECTS,
@@ -19,27 +21,41 @@ const removeProject = (projectId) => ({
     projectId: projectId
 }) 
 
+const receiveErrors = (errors) => ({
+    type: RECEIVE_ERRORS,
+    errors: errors
+})
+
 export const fetchProjects = () => dispatch => {
     return ProjectApiUtil.fetchProjects()
-    .then((projects) => dispatch(receiveProjects(projects)))
+    .then((projects) => dispatch(receiveProjects(projects)
+    ), err => (dispatch(receiveErrors(err.responseJSON))))
 }
 
 export const fetchProject = (projectId) => dispatch => {
     return ProjectApiUtil.fetchProject(projectId)
-    .then((project) => dispatch(receiveProject(project)))
+    .then((project) => dispatch(receiveProject(project)
+    ), err => (dispatch(receiveErrors(err.responseJSON))))
 }
 
 export const createProject = (project) => dispatch => {
     return ProjectApiUtil.createProject(project)
-    .then((project) => dispatch(receiveProject(project)))
+    .then((project) => dispatch(receiveProject(project)
+    ), err => (dispatch(receiveErrors(err.responseJSON))))
 }
 
 export const updateProject = (project) => dispatch => {
     return ProjectApiUtil.updateProject(project)
-    .then((project) => dispatch(receiveProject(project)))
+    .then((project) => dispatch(receiveProject(project)
+    ), err => (dispatch(receiveErrors(err.responseJSON))))
 }
 
 export const deleteProject = (projectId) => dispatch => {
     return ProjectApiUtil.deleteProject(projectId)
-    .then((projectId) => dispatch(removeProject(projectId)))
+    .then((projectId) => dispatch(removeProject(projectId)
+    ), err => (dispatch(receiveErrors(err.responseJSON))))
 }
+
+export const clearErrors = () => ({
+    type: CLEAR_ERRORS
+}) 

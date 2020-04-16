@@ -32,6 +32,7 @@ class Home extends React.Component {
                             users={this.props.users}
                             projects={this.props.projects}
                             teams={this.props.teams}
+                            openModal={this.props.openModal}
                         />
                     </div>
                 </div>

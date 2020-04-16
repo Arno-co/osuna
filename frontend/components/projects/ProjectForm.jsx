@@ -5,7 +5,7 @@ class ProjectForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            description: '',
+            title: '',
             description: '',
             start_date: '',
             end_date: '',
@@ -19,7 +19,7 @@ class ProjectForm extends React.Component {
 
     handleSubmit(e) {
         const project = Object.assign({}, this.state);
-        this.props.createProject(project);
+        this.props.processForm(project);
     }
 
     render() {

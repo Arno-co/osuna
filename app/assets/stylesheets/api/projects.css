@@ -45,13 +45,48 @@
     display: flex;
     fill: #fff;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-flow: column;
     position: relative;
+    transition-duration: .4s;
+    
 }
 
+
 .project-leader{
+    display: none;
     color: white;
+    transition-duration: .4s;
+}
+
+.tile-container:hover .project-leader{
+    display: flex;
+    /* transition-duration: .4s; */
+}
+
+.tile-container:hover .tile-top-container{
+    display: flex;
+}
+.tile-top-container{
+    color: white;
+    display: none;
+    justify-content: space-between;
+    width: 80%;
+    transition-duration: .4s;
+}
+
+
+.top-icon-container{
+    display: none;
+    transition-duration: .4s;
+}
+
+.tile-container:hover .top-icon-container{
+    display: flex;
+}
+
+.icon-container > i{
+    transition-duration: .4s;
 }
 
 .new-project-tile{
@@ -71,4 +106,6 @@
 
 .icon-container{
     color: white;
+    
 }
+

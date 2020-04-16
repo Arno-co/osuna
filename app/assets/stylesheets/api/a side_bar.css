@@ -100,3 +100,14 @@
     margin-bottom: 10px;
     color: white;
 }
+.mini-tile-container{
+    display: flex;
+
+}
+.mini-tile{
+    width: 12px;
+    height: 12px;
+    /* display: block; */
+    border-radius: 3px;
+    margin-right: 10px;
+}

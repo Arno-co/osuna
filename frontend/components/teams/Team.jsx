@@ -14,6 +14,25 @@ class Team extends React.Component {
             return nameArray[0].slice(0, 1).toUpperCase().concat(nameArray[nameArray.length-1].slice(0, 1).toUpperCase())
         }
     }
+
+    handleColor(title) {
+        const initial = title.slice(0, 1).toUpperCase();
+
+        if (['A', 'B', 'C', 'D', 'E'].includes(initial)) {
+            return '#4186e0'
+        } else if (['G', 'H', 'I', 'J', 'K', 'L'].includes(initial)) {
+            return '#e8384f'
+        } else if (['M', 'N', 'O', 'P', 'Q'].includes(initial)) {
+            return '#3ad580'
+        } else if (['R', 'S', 'T', 'U'].includes(initial)) {
+            return '#4186e0'
+        } else if (['V', 'W', 'X', 'Y', 'Z'].includes(initial)) {
+            return '#e8384f'
+        } else {
+            return '#eec300'
+        }
+    }
+
     render() {
 
         return(
@@ -24,8 +43,8 @@ class Team extends React.Component {
                         this.props.users.map((user, idx) => {
                             return (
                                 <div key={idx}>
-                                    <div className='team-member'>{this.handleName(user.username)}
-                                        <div className='team-member-hover' key={idx}>
+                                    <div className='team-member' style={{ background: this.handleColor(user.username) }}>{this.handleName(user.username)}
+                                        <div className='team-member-hover' key={idx} style={{ background: this.handleColor(user.username) }}>
                                             <div>{user.username}</div>
                                             <br/>
                                             <div>{this.props.teams.length ? this.props.teams[0].name : null}</div>
