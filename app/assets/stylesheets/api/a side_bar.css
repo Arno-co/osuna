@@ -25,6 +25,7 @@
     box-sizing: border-box;
 }
 .shortcut-aside-field {
+    display: inline-table;
     color: white;
     font-size: 0.9rem;
     width:100%;

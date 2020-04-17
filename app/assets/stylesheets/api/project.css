@@ -10,3 +10,25 @@
     width: 80%;
 
 }
+
+.project-main h1{
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px;
+}
+
+.project-title-container{
+    display: flex;
+    justify-content: left;
+}
+
+.project-mini-tile-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 15px;
+    color: white;
+    margin: 20px;
+}

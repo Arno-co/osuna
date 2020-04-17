@@ -7,8 +7,15 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 
 
 const mSTP = (state) => ({
+    project: {
+        title: '',
+        description: '',
+        project_owner_id: state.session.currentUser.id,
+        start_date: '',
+        end_date: ''
+    },
     errors: state.errors.projects,
-    formType: 'ADD A PROJECT'
+    formType: 'CREATE A PROJECT'
 })
 
 const mDTP = dispatch => ({
@@ -18,4 +25,4 @@ const mDTP = dispatch => ({
     clearErrors: () => dispatch(clearErrors())
 })
 
-export default connect(mSTP, mDTP)(ProjectForm);
+export default withRouter(connect(mSTP, mDTP)(ProjectForm));

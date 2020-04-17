@@ -1,6 +1,15 @@
 .home-projects-index{
     display: flex;
+    flex-wrap: wrap;
     width: 90%;
+}
+
+.home-projects-index h2{
+    font-size: 20px;
+    width: 100%;
+    border-bottom: 2px solid gray;
+    padding-bottom: 20px;
+    margin: 20px;
 }
 
 .home-project-element{

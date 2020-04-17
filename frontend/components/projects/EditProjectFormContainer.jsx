@@ -7,6 +7,7 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 
 
 const mSTP = (state) => ({
+    // project: state.entities.projects[],
     errors: state.errors.projects,
     formType: 'EDIT YOUR PROJECT'
 })

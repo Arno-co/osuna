@@ -14,6 +14,7 @@ class Projects extends React.Component {
         } else {
             return (
                 <div className='home-projects-index'>
+                    <h2>Projects</h2>
                             {
                                 this.props.projects.map((project, idx) => {
                                     return (

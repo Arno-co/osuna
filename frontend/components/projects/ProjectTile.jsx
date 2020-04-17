@@ -22,17 +22,17 @@ class ProjectTile extends React.Component {
         const initial = title.slice(0,1).toUpperCase();
 
         if (['A', 'B', 'C', 'D', 'E'].includes(initial)) {
-            return '#aa62e3'
-        } else if (['G', 'H', 'I', 'J', 'K', 'L'].includes(initial)) {
-            return '#aa62e3'
-        } else if (['M', 'N', 'O', 'P', 'Q'].includes(initial)) {
-            return '#eec300'
-        } else if (['R', 'S', 'T', 'U'].includes(initial)) {
-            return '#4186e0'
-        } else if (['V', 'W', 'X', 'Y', 'Z'].includes(initial)) {
             return '#e8384f'
+        } else if (['G', 'H', 'I', 'J', 'K', 'L'].includes(initial)) {
+            return '#eec300'
+        } else if (['M', 'N', 'O', 'P', 'Q'].includes(initial)) {
+            return '#4186e0'
+        } else if (['R', 'S', 'T', 'U'].includes(initial)) {
+            return '#ea4e9d'
+        } else if (['V', 'W', 'X', 'Y', 'Z'].includes(initial)) {
+            return '#7a6ff0'
         } else {
-            return '#3ad580'
+            return '#aa62e3'
         }
     }
 

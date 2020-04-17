@@ -8,6 +8,11 @@
     width: 100%;
 }
 
+.nav-home h2{
+    font-size: 20px;
+    margin: 30px;
+}
+
 .body-home{
     height: 85%;
     width: 100%;
@@ -21,58 +26,5 @@
     padding: 0;
 }
 
-.project-form {
-    font-size: 25px;
-    display: flex;
-    flex-direction: column;
-    color: #151b26;
-    padding: 20px;
-}
-
-.project-label {
-    font-size: 25px;
-    padding: 30px 20px 0 20px;
-}
-
-.project-form-title {
-    width: 100%;
-    border-bottom: 1px solid darkgray;
-    margin: 10px;
-}
-.project-field-title {
-    width: 40%;
-    height: 30px;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    margin: 10px;
-}
-
-.project-field-description {
-    width: 40%;
-    height: 60px;
-    margin: 10px;
-    border: 1px solid lightgray;
-    border-radius: 3px;
-}
-
-.dates {
-    font-size: 15px;
-    margin: 40px 0;
-
-}
-
-
-input[type="date"] {
-    /* appearance: none;
-    -webkit-appearance: none; */
-    color: lightgray;
-    font-family: 'Roboto', sans-serif;
-    font-size: 18px;
-    border:1px solid lightgray;
-    border-radius: 5px;
-    padding:5px;
-    display: inline-block !important;
-    visibility: visible !important;
-}
 
 

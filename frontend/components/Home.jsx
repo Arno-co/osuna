@@ -25,7 +25,9 @@ class Home extends React.Component {
             <div id='home'>
                 <SideBarContainer />
                 <div className="main-home">
-                    <div className='nav-home'></div>
+                    <div className='nav-home'>
+                        <h2>Home</h2>
+                    </div>
                     <div className='body-home'>
                         {/* <ProjectForm team={this.props.team} /> */}
                         <Projects
