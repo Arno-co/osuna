@@ -8,3 +8,19 @@ html, body {
     color: #151b26;
 
 }
+
+#root{
+    width: 100vw;
+    height: 100vh;
+}
+
+.main{
+    width: 100%;
+    height: 100%;
+}
+
+#home{
+    /* height: inherit; */
+    width: 100%;
+    height: 100%;
+}
