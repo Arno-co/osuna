@@ -1,13 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ProjectMenu from './ProjectMenu';
 
 class ProjectTile extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-
+            showMenu: false
         }
+
+        this.handleProjectMenu = this.handleProjectMenu.bind(this)
     }
+
+    handleProjectMenu() {
+        debugger;
+        if (this.state.showMenu === false) {
+            this.setState({
+                showMenu: true
+            })
+        } else {
+            this.setState({
+                showMenu: false
+            })
+        }
+    };
 
     handleName(name) {
         let nameArray = name.split(' ');
@@ -45,9 +61,10 @@ class ProjectTile extends React.Component {
                             <span className='top-icon-container'>
                                 <i className="fas fa-star fa-xs" ></i>
                             </span>
-                            <span className='top-icon-container'>
+                            <span className='top-icon-container' onClick={() => this.handleProjectMenu(), e => e.stopPropagation()}>
                                 <i className="fas fa-ellipsis-h fa-xs" ></i>
                             </span>
+                            {this.state.showMenu === true ? <ProjectMenu handleProjectMenu={this.handleProjectMenu} project={this.props.project} /> : null}
                         </div>
                         <span className='icon-container'>
                             <i className="fas fa-list fa-3x" ></i>
