@@ -5,24 +5,39 @@ import ProjectMenu from './ProjectMenu';
 class ProjectTile extends React.Component {
     constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             showMenu: false
         }
 
-        this.handleProjectMenu = this.handleProjectMenu.bind(this)
+        this.handleProjectMenu = this.handleProjectMenu.bind(this);
     }
 
-    handleProjectMenu() {
-        debugger;
-        if (this.state.showMenu === false) {
-            this.setState({
-                showMenu: true
-            })
-        } else {
-            this.setState({
-                showMenu: false
-            })
-        }
+    handleProjectMenu(e) {
+
+        // console.log(e)
+
+        e.preventDefault()
+
+        // console.log(this.state, 'this.state')
+        // this.setState({
+        //         showMenu: !this.state.showMenu
+        //     })
+
+        // if (this.state.showMenu === false) {
+        //     this.setState({
+        //         showMenu: true
+        //     })
+        // } else {
+        //     this.setState({
+        //         showMenu: false
+        //     })
+        // }
+
+        this.setState((state) => {
+            return { showMenu: !state.showMenu };
+        })
+
+        
     };
 
     handleName(name) {
@@ -58,13 +73,13 @@ class ProjectTile extends React.Component {
                 <div className='tile-container'>
                     <div className='tile' style={{ background: this.handleColor(this.props.project.title) }}>
                         <div className='tile-top-container'>
-                            <span className='top-icon-container'>
+                            <span className='star-icon-container'>
                                 <i className="fas fa-star fa-xs" ></i>
                             </span>
-                            <span className='top-icon-container' onClick={() => this.handleProjectMenu(), e => e.stopPropagation()}>
+                            <span className='etc-icon-container' onClick={this.handleProjectMenu}>
                                 <i className="fas fa-ellipsis-h fa-xs" ></i>
                             </span>
-                            {this.state.showMenu === true ? <ProjectMenu handleProjectMenu={this.handleProjectMenu} project={this.props.project} /> : null}
+                            {this.state.showMenu === true ? <ProjectMenu handleProjectMenu={this.handleProjectMenu} project={this.props.project} openModal={this.props.openModal}/> : null}
                         </div>
                         <span className='icon-container'>
                             <i className="fas fa-list fa-3x" ></i>

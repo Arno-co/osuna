@@ -19,6 +19,7 @@
     margin: 10px;
 }
 .project-field-title {
+    font-size: 0.9rem;
     width: 40%;
     height: 30px;
     border: 1px solid lightgray;
@@ -27,6 +28,7 @@
 }
 
 .project-field-description {
+    font-size: 0.9rem;
     width: 40%;
     height: 60px;
     margin: 10px;

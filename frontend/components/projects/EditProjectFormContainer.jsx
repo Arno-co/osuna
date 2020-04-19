@@ -6,8 +6,8 @@ import { withRouter } from 'react-router-dom';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
 
-const mSTP = (state) => ({
-    // project: state.entities.projects[],
+const mSTP = (state, {id}) => ({
+    project: state.entities.projects[state.ui.modal.id],
     errors: state.errors.projects,
     formType: 'EDIT YOUR PROJECT'
 })

@@ -20,7 +20,7 @@ const mDTP = dispatch => ({
     fetchTeams: () => dispatch(fetchTeams()),
     fetchTeam: (teamId) => dispatch(fetchTeams(teamId)),
     fetchProjects: () => dispatch(fetchProjects()),
-    openModal: modal => dispatch(openModal(modal))
+    openModal: (type, id) => dispatch(openModal(type, id))
 })
 
 export default connect(mSTP, mDTP)(Home);

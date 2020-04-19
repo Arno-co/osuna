@@ -11,12 +11,13 @@ import JoinTeamFormContainer from './teams/JoinTeamFormContainer';
 import CreateProjectFormContainer from './projects/CreateProjectFormContainer';
 import EditProjectFormContainer from './projects/EditProjectFormContainer';
 
-function Modal({ modal, closeModal, clearErrors }) {
-    if (!modal) {
+function Modal(props) {
+
+    if (!props.type) {
         return null;
     }
     let component;
-    switch (modal) {
+    switch (props.type) {
         case 'login':
             component = <LoginFormContainer />;
             break;
@@ -41,12 +42,12 @@ function Modal({ modal, closeModal, clearErrors }) {
 
     const handleClearErrors= (e) => {
         e.stopPropagation(); 
-        clearErrors()
+        props.clearErrors()
         
     }
 
     return (
-        <div className="modal-background" onClick={closeModal}>
+        <div className="modal-background" onClick={props.closeModal}>
             <div className="modal-child" onClick={handleClearErrors}>
                 {component}
             </div>
@@ -57,7 +58,8 @@ function Modal({ modal, closeModal, clearErrors }) {
 
 const mapStateToProps = state => ({
         
-    modal: state.ui.modal
+    type: state.ui.modal.type,
+    id: state.ui.modal.id
 })
 const mapDispatchToProps = dispatch => ({
     closeModal: () => dispatch(closeModal()),

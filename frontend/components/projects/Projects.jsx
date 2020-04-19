@@ -19,7 +19,7 @@ class Projects extends React.Component {
                                 this.props.projects.map((project, idx) => {
                                     return (
                                         <div className='home-project-container' key={idx}>
-                                            <ProjectTile project={project} users={this.props.users} />
+                                            <ProjectTile project={project} users={this.props.users} openModal={this.props.openModal}/>
                                         </div>
                                     )
                                 })

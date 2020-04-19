@@ -22,7 +22,7 @@ export const createProject = (project) => {
 
 export const updateProject = (project) => {
     return $.ajax({
-        url: `/api/projects/${projectId}`,
+        url: `/api/projects/${project.id}`,
         method: 'PATCH',
         data: { project: project }
     });
