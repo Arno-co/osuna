@@ -16,7 +16,17 @@ export const createProject = (project) => {
     return $.ajax({
         url: `/api/projects`,
         method: 'POST',
-        data: { project: project }
+        data: {
+            project:
+            {
+                title: project.title,
+                description: project.description,
+                project_owner_id: project.projectOwnerId,
+                start_date: project.startDate,
+                end_date: project.endDate
+
+            }
+        }
     });
 };
 
@@ -24,7 +34,15 @@ export const updateProject = (project) => {
     return $.ajax({
         url: `/api/projects/${project.id}`,
         method: 'PATCH',
-        data: { project: project }
+        data: { project: 
+        { 
+            title: project.title,
+            description: project.description,
+            project_owner_id: project.projectOwnerId,
+            start_date: project.startDate,
+            end_date: project.endDate
+
+        } }
     });
 };
 

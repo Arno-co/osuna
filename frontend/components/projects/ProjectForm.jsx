@@ -9,6 +9,7 @@ class ProjectForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.props.clearErrors()
         console.log(this.props)
+        console.log(this.state)
     }
 
     update(field) {
@@ -44,17 +45,17 @@ class ProjectForm extends React.Component {
         if (this.props.project) {
             return (
                 <div>
-                    <form className='project-form' onSubmit={this.handleSubmit}>
+                    <form className='project-form' id='project' onSubmit={this.handleSubmit}>
                         <h2 className='project-form-title'>{this.props.formType}</h2>
                         <label className='project-label'>Title</label>
-                        <input className='project-field-title' type="text" placeholder="your project title" value={this.state.title} onChange={this.update('title')} />
+                        <input className='project-field-title' type="text" value={this.state.title} onChange={this.update('title')} required/>
                         <label className='project-label'>Description</label>
-                        <input className='project-field-description' type="textarea" placeholder="Add a description" value={this.state.description} onChange={this.update('description')} />
+                        <textarea className='project-field-description'  value={this.state.description} onChange={this.update('description')} form='project' rows="5" cols="33" required></textarea>
                         <div className='dates'>
                             <label className='project-label'>Starts</label>
-                            <input className='project-field' type="date" placeholder="your project starting date" value={this.state.start_date} onChange={this.update('start_date')} />
+                            <input className='project-field' type="date" value={this.state.startDate} onChange={this.update('startDate')} />
                             <label className='project-label'>Ends</label>
-                            <input className='project-field' type="date" placeholder="your project ending date" value={this.state.end_date} onChange={this.update('end_date')} />
+                            <input className='project-field' type="date" value={this.state.endDate} onChange={this.update('endDate')} required/>
                         </div>
                         <input className='nav-button' type='submit' value={this.props.formType === 'CREATE A PROJECT' ? 'CREATE' : 'EDIT'} />
                         {this.renderErrors()}

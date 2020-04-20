@@ -10,9 +10,9 @@ const mSTP = (state) => ({
     project: {
         title: '',
         description: '',
-        project_owner_id: state.session.currentUser.id,
-        start_date: '',
-        end_date: ''
+        projectOwnerId: state.session.currentUser.id,
+        startDate: '',
+        endDate: ''
     },
     errors: state.errors.projects,
     formType: 'CREATE A PROJECT'

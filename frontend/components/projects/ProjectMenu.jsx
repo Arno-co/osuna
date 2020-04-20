@@ -11,7 +11,7 @@ class ProjectMenu extends React.Component {
 
     handleEditClick(e) {
         e.preventDefault();
-
+        this.props.handleProjectMenu(e)
         this.props.openModal('editProject', this.props.project.id);
         console.log(this.props)
     } 

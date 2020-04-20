@@ -8,30 +8,13 @@ class ProjectTile extends React.Component {
         this.state = {
             showMenu: false
         }
-
         this.handleProjectMenu = this.handleProjectMenu.bind(this);
     }
 
     handleProjectMenu(e) {
 
-        // console.log(e)
 
         e.preventDefault()
-
-        // console.log(this.state, 'this.state')
-        // this.setState({
-        //         showMenu: !this.state.showMenu
-        //     })
-
-        // if (this.state.showMenu === false) {
-        //     this.setState({
-        //         showMenu: true
-        //     })
-        // } else {
-        //     this.setState({
-        //         showMenu: false
-        //     })
-        // }
 
         this.setState((state) => {
             return { showMenu: !state.showMenu };

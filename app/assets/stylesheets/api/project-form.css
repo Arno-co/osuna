@@ -20,20 +20,21 @@
 }
 .project-field-title {
     font-size: 0.9rem;
-    width: 40%;
+    width: 60%;
     height: 30px;
     border: 1px solid lightgray;
     border-radius: 5px;
     margin: 10px;
+    cursor: ;
 }
 
 .project-field-description {
     font-size: 0.9rem;
-    width: 40%;
-    height: 60px;
+    width: 60%;
+    height: 100px;
     margin: 10px;
     border: 1px solid lightgray;
-    border-radius: 3px;
+    border-radius: 5px;
 }
 
 .dates {
@@ -46,9 +47,10 @@
 input[type="date"] {
     appearance: none;
     -webkit-appearance: none;
-    color: lightgray;
+    /* color: lightgray; */
+    text-align: center;
     font-family: 'Roboto', sans-serif;
-    font-size: 18px;
+    font-size: 0.9rem;
     border:1px solid lightgray;
     border-radius: 5px;
     padding:5px;
