@@ -10,6 +10,7 @@ import CreateTeamFormContainer from './teams/CreateTeamFormContainer';
 import JoinTeamFormContainer from './teams/JoinTeamFormContainer';
 import CreateProjectFormContainer from './projects/CreateProjectFormContainer';
 import EditProjectFormContainer from './projects/EditProjectFormContainer';
+import DeleteProjectFormContainer from './projects/DeleteProjectFormContainer';
 
 function Modal(props) {
 
@@ -35,6 +36,9 @@ function Modal(props) {
             break;
         case 'editProject':
             component = <EditProjectFormContainer />;
+            break;
+        case 'deleteProject':
+            component = <DeleteProjectFormContainer />;
             break;
         default:
             return null;

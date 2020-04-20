@@ -41,6 +41,10 @@ class Api::ProjectsController < ApplicationController
 
     def destroy
         @project = Project.find_by(id: params[:id])
+        assignments = Assignment.where(assignments: {project_id: @project.id})
+        assignments.each do |assignment|
+            assignment.destroy
+        end
         @project.destroy
     end
 

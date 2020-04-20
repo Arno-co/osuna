@@ -7,20 +7,26 @@ class ProjectMenu extends React.Component {
         // console.log(props)
 
         this.handleEditClick = this.handleEditClick.bind(this);
+        this.handleDeleteClick = this.handleDeleteClick.bind(this);
     }
 
     handleEditClick(e) {
         e.preventDefault();
         this.props.handleProjectMenu(e)
         this.props.openModal('editProject', this.props.project.id);
-        console.log(this.props)
+    } 
+
+    handleDeleteClick(e) {
+        e.preventDefault();
+        this.props.handleProjectMenu(e)
+        this.props.openModal('deleteProject', this.props.project.id);
     } 
 
     render() {
         return (
             <div className='project-menu-container'>
                 <div className='project-menu-item' onClick={this.handleEditClick}>Edit project</div>
-                <div className='project-menu-item'>Delete project</div>
+                <div className='project-menu-item' onClick={this.handleDeleteClick}>Delete project</div>
                 <div className='project-menu-item'>Go to project</div>
             </div>
         )
