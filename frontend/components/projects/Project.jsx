@@ -7,7 +7,7 @@ class Project extends React.Component {
         this.state = {
             project: {}
         }
-        console.log(this.props)
+        // console.log(this.props)
     }
 
     componentDidMount() {
@@ -21,6 +21,7 @@ class Project extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
+
         if (this.props.match.params.projectId !== prevProps.match.params.projectId) {
             const projectIdNumber = this.props.match.params.projectId;
 

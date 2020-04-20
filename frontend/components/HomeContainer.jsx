@@ -5,6 +5,7 @@ import { fetchTeams } from "../actions/team_actions";
 import { fetchProjects } from "../actions/project_actions";
 import { fetchUsers } from "../actions/user_actions";
 import { openModal } from '../actions/modal_actions';
+import { withRouter } from 'react-router-dom';
 
 
 
@@ -12,7 +13,8 @@ const mSTP = state => ({
     currentUser: state.session.currentUser,
     users: state.entities.users,
     teams: state.entities.teams,
-    projects: Object.values(state.entities.projects)
+    projects: Object.values(state.entities.projects),
+    modal: state.ui.modal
 })
 
 const mDTP = dispatch => ({
@@ -23,4 +25,4 @@ const mDTP = dispatch => ({
     openModal: (type, id) => dispatch(openModal(type, id))
 })
 
-export default connect(mSTP, mDTP)(Home);
+export default withRouter(connect(mSTP, mDTP)(Home));

@@ -25,12 +25,18 @@ user_6 = User.create(username: 'Greg', email: 'segond@donika.com', password:'pas
 user_4 = User.create(username: 'Michael Jordan', email: 'mj@cb23.com', password:'password', team_id: team_2.id)
 user_5 = User.create(username: 'Scottie Pippen', email: 'sp@cb23.com', password:'password', team_id: team_2.id)
 user_7 = User.create(username: 'Eli Martinez', email: 'em@sg.com', password:'password', team_id: team_3.id)
-user_7 = User.create(username: 'Xav Blanchant', email: 'xb@sg.com', password:'password', team_id: team_3.id)
+user_8 = User.create(username: 'Xav Blanchant', email: 'xb@sg.com', password:'password', team_id: team_3.id)
+user_9 = User.create(username: 'Joseph Simmons', email: 'js@beastieboys.com', password:'password', team_id: team_demo.id)
+user_10 = User.create(username: 'Darryl McDaniels', email: 'dmd@beastieboys.com', password:'password', team_id: team_demo.id)
+user_11 = User.create(username: 'Jason Mizell', email: 'jm@beastieboys.com', password:'password', team_id: team_demo.id)
 
 
 project_demo = Project.create(title: 'World Tour Prep', description: 'The Intergalatic Show', project_owner_id: user_demo.id, start_date: '2020-04-08', end_date: '2021-12-12')
 project_1 = Project.create(title: 'Repair the van', description: 'Have it ready 2 months before the first tour date', project_owner_id: user_demo.id, start_date: '2020-04-08', end_date: '2021-12-12')
 project_2 = Project.create(title: 'Donika prep', description: 'Make Donika transat ready', project_owner_id: user_3.id , start_date: '2020-06-30' , end_date: '2022-12-31')
+project_3 = Project.create(title: 'Build the Stage', description: 'The biggest scene you''ve ever seen', project_owner_id: user_1.id, start_date: '2020-04-08', end_date: '2021-12-12')
+project_4 = Project.create(title: 'Flight cases', description: 'Safety first', project_owner_id: user_2.id, start_date: '2020-04-08', end_date: '2021-12-12')
+project_5 = Project.create(title: 'Promo', description: 'Dates, travel and merchandising', project_owner_id: user_10.id, start_date: '2020-04-08', end_date: '2021-12-12')
 
 
 
@@ -39,3 +45,6 @@ assignment_demo = Assignment.create(project_id: project_demo.id, team_id: team_d
 assignment_1 = Assignment.create(project_id: project_1.id, team_id: team_demo.id)
 assignment_2 = Assignment.create(project_id: project_1.id, team_id: team_1.id)
 assignment_3 = Assignment.create(project_id: project_2.id, team_id: team_1.id)
+assignment_4 = Assignment.create(project_id: project_3.id, team_id: team_demo.id)
+assignment_5 = Assignment.create(project_id: project_4.id, team_id: team_demo.id)
+assignment_6 = Assignment.create(project_id: project_5.id, team_id: team_demo.id)

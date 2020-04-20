@@ -1,5 +1,6 @@
 import React from 'react';
 import ProjectTile from './ProjectTile';
+import { withRouter } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
 
 class Projects extends React.Component {
@@ -7,12 +8,17 @@ class Projects extends React.Component {
         super(props);
     }
 
-    componentDidMount() {
-        this.props.fetchProjects();
+    componentDidUpdate(prevProps) {
+        console.log(prevProps)
+
+        if (prevProps.modal.type !== this.props.modal.type) {
+
+            this.props.fetchProjects();
+        }
     }
 
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         if (!this.props.projects.length) {
             return null;
         } else {
@@ -24,7 +30,14 @@ class Projects extends React.Component {
             
                                     return (
                                         <div className='home-project-container' key={project.id}>
-                                            <ProjectTile project={project} users={this.props.users} openModal={this.props.openModal} />
+                                            <ProjectTile 
+                                            project={project} 
+                                            users={this.props.users} 
+                                            openModal={this.props.openModal}
+                                            fetchProjects={this.props.fetchProjects}
+                                            fetchUsers={this.props.fetchUsers}
+                                            fetchTeams={this.props.fetchTeams} 
+                                            />
                                         </div>
                                     )
                                 })
@@ -50,4 +63,4 @@ class Projects extends React.Component {
 
 }
 
-export default Projects
+export default withRouter(Projects)

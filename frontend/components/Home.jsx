@@ -36,6 +36,9 @@ class Home extends React.Component {
                             teams={this.props.teams}
                             openModal={this.props.openModal}
                             fetchProjects={this.props.fetchProjects}
+                            fetchUsers={this.props.fetchUsers}
+                            fetchTeams={this.props.fetchTeams} 
+                            modal={this.props.modal}
                         />
                     </div>
                 </div>
