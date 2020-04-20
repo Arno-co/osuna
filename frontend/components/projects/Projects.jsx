@@ -9,16 +9,14 @@ class Projects extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        console.log(prevProps)
 
         if (prevProps.modal.type !== this.props.modal.type) {
-
             this.props.fetchProjects();
         }
     }
 
     render() {
-        // console.log(this.props)
+  
         if (!this.props.projects.length) {
             return null;
         } else {

@@ -9,7 +9,7 @@ class SideBar extends React.Component {
     constructor(props) {
         super(props)
     }
-    // console.log(props)
+
     
     handleColor(title) {
         const initial = title.slice(0, 1).toUpperCase();

@@ -8,8 +8,7 @@ class ProjectForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.props.clearErrors()
-        console.log(this.props)
-        console.log(this.state)
+    
     }
 
     update(field) {

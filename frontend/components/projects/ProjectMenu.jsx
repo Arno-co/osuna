@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 class ProjectMenu extends React.Component {
     constructor(props) {
         super(props)
-        // console.log(props)
+   
 
         this.handleEditClick = this.handleEditClick.bind(this);
         this.handleDeleteClick = this.handleDeleteClick.bind(this);

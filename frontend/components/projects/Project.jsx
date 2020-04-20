@@ -7,7 +7,6 @@ class Project extends React.Component {
         this.state = {
             project: {}
         }
-        // console.log(this.props)
     }
 
     componentDidMount() {
@@ -55,24 +54,28 @@ class Project extends React.Component {
     }
 
     render() {
-        // console.log(this.props)
-        return(
-            <div className='project-page'>
+     
+        if (this.props.users) {
+            return (
+                <div className='project-page'>
                     <SideBarContainer />
-                <div className='project-main'>
-                    <div className='project-title-container'>
-                        <div className='project-mini-tile-container' style={{ background: this.handleColor(this.state.project.title) }}>
-                            <span className='project-mini-tile'>
-                                <i className="fas fa-list fa-2x" ></i>
-                            </span>
+                    <div className='project-main'>
+                        <div className='project-title-container'>
+                            <div className='project-mini-tile-container' style={{ background: this.handleColor(this.state.project.title) }}>
+                                <span className='project-mini-tile'>
+                                    <i className="fas fa-list fa-2x" ></i>
+                                </span>
+                            </div>
+                            <h1>{this.state.project.title}</h1>
                         </div>
-                    <h1>{this.state.project.title}</h1>
+                        <div>{this.state.project.description}</div>
+                        <div>{this.props.users[this.state.project.projectOwnerId] ? this.props.users[this.state.project.projectOwnerId].username : null}</div>
                     </div>
-                <div>{this.state.project.description}</div>
-                <div>{this.state.project.projectOwnerId ? this.props.users[this.state.project.projectOwnerId].username : null}</div>
                 </div>
-            </div>
-        )
+            )
+        } else {
+            return null;
+        }
     }
 
 
