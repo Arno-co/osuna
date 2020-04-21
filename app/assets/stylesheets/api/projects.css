@@ -115,6 +115,7 @@
     justify-content: center;
     flex-flow: column;
     position: relative;
+    cursor: pointer;
 }
 
 .icon-container{

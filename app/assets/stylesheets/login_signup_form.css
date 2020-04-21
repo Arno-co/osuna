@@ -61,6 +61,7 @@
     padding: 0px;
     text-align: center;
     border: 2px solid rgb(244, 134, 187);
+    cursor: pointer;
 }
 
 .login-signup-button:hover {
