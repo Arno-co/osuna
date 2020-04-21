@@ -1,7 +1,6 @@
 class Api::ProjectsController < ApplicationController
     before_action :require_logged_in, only:[:show, :index, :edit, :update, :destroy]
 
-
     def show
         @project = Project.find_by(id: params[:id])
         render :show
@@ -53,7 +52,6 @@ class Api::ProjectsController < ApplicationController
     def project_params
         params.require(:project).permit(:title, :description, :project_owner_id, :start_date, :end_date)
     end
-
-
-
+    
 end
+

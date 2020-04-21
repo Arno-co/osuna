@@ -16,6 +16,14 @@ class User < ApplicationRecord
     foreign_key: :project_owner_id,
     class_name: :Project
 
+    has_many :authored_tasks,
+    foreign_key: :author_id,
+    class_name: :Task
+
+    has_many :assigned_tasks,
+    foreign_key: :assignee_id,
+    class_name: :Task
+
     has_many :participating_projects,
     through: :team,
     source: :projects
