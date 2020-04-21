@@ -49,7 +49,7 @@ class ProjectForm extends React.Component {
                         <label className='project-label'>Title</label>
                         <input className='project-field-title' type="text" value={this.state.title} onChange={this.update('title')} required/>
                         <label className='project-label'>Description</label>
-                        <textarea className='project-field-description'  value={this.state.description} onChange={this.update('description')} form='project' rows="5" cols="33" required></textarea>
+                        <textarea className='project-field-description'  value={this.state.description} onChange={this.update('description')} form='project' rows="5" cols="33" ></textarea>
                         <div className='dates'>
                             <label className='project-label'>Starts</label>
                             <input className='project-field' type="date" value={this.state.startDate} onChange={this.update('startDate')} />

@@ -1,6 +1,6 @@
 import {
     RECEIVE_TEAM,
-    RECEIVE_ERRORS,
+    RECEIVE_TEAM_ERRORS,
     CLEAR_ERRORS
 } from '../actions/team_actions';
 
@@ -10,9 +10,11 @@ const teamErrorsReducer = (oldState = [], action) => {
     let nextState = Object.assign({}, oldState);
 
     switch (action.type) {
-        case RECEIVE_ERRORS:
+        case RECEIVE_TEAM_ERRORS:
+            debugger
             if (action.errors) {
-                return action.errors
+                nextState = action.errors
+                return nextState
             } else {
                 return null;
             };

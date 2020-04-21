@@ -26,6 +26,14 @@
 #                           PATCH  /api/projects/:id(.:format)                                                              api/projects#update {:format=>:json}
 #                           PUT    /api/projects/:id(.:format)                                                              api/projects#update {:format=>:json}
 #                           DELETE /api/projects/:id(.:format)                                                              api/projects#destroy {:format=>:json}
+#                 api_tasks GET    /api/tasks(.:format)                                                                     api/tasks#index {:format=>:json}
+#                           POST   /api/tasks(.:format)                                                                     api/tasks#create {:format=>:json}
+#              new_api_task GET    /api/tasks/new(.:format)                                                                 api/tasks#new {:format=>:json}
+#             edit_api_task GET    /api/tasks/:id/edit(.:format)                                                            api/tasks#edit {:format=>:json}
+#                  api_task GET    /api/tasks/:id(.:format)                                                                 api/tasks#show {:format=>:json}
+#                           PATCH  /api/tasks/:id(.:format)                                                                 api/tasks#update {:format=>:json}
+#                           PUT    /api/tasks/:id(.:format)                                                                 api/tasks#update {:format=>:json}
+#                           DELETE /api/tasks/:id(.:format)                                                                 api/tasks#destroy {:format=>:json}
 #               api_session DELETE /api/session(.:format)                                                                   api/sessions#destroy {:format=>:json}
 #                           POST   /api/session(.:format)                                                                   api/sessions#create {:format=>:json}
 #        rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
@@ -43,6 +51,7 @@ Rails.application.routes.draw do
     resources :users
     resources :teams 
     resources :projects
+    resources :tasks
     resource :session, only: [:create, :destroy]
   end
 

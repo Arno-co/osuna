@@ -1,23 +1,23 @@
 import {
-    RECEIVE_PROJECT,
-    RECEIVE_PROJECT_ERRORS,
+    RECEIVE_TASK,
+    RECEIVE_TASK_ERRORS,
     CLEAR_ERRORS
 } from '../actions/project_actions';
 
 
-const projectErrorsReducer = (oldState = [], action) => {
+const taskErrorsReducer = (oldState = [], action) => {
     Object.freeze(oldState);
     let nextState = Object.assign({}, oldState);
 
     switch (action.type) {
-        case RECEIVE_PROJECT_ERRORS:
+        case RECEIVE_TASK_ERRORS:
             if (action.errors) {
                 nextState = action.errors
                 return nextState
             } else {
                 return null;
             };
-        case RECEIVE_PROJECT:
+        case RECEIVE_TASK:
             return [];
         case CLEAR_ERRORS:
             return [];
@@ -26,4 +26,4 @@ const projectErrorsReducer = (oldState = [], action) => {
     }
 }
 
-export default projectErrorsReducer;
+export default taskErrorsReducer;

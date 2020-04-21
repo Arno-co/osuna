@@ -3,7 +3,7 @@ import * as TeamApiUtil from '../util/team_api_util'
 export const RECEIVE_TEAMS = 'RECEIVE_TEAMS';
 export const RECEIVE_TEAM = 'RECEIVE_TEAM';
 export const REMOVE_TEAM = 'REMOVE_TEAM';
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const RECEIVE_TEAM_ERRORS = 'RECEIVE_TEAM_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 // ACTION OBJECTS
@@ -24,7 +24,7 @@ const removeTeam = (teamId) => ({
 })
 
 const receiveErrors = (errors) => ({
-    type: RECEIVE_ERRORS,
+    type: RECEIVE_TEAM_ERRORS,
     errors: errors
 })
 
