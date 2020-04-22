@@ -2,7 +2,7 @@ import {
     RECEIVE_TASK,
     RECEIVE_TASK_ERRORS,
     CLEAR_ERRORS
-} from '../actions/project_actions';
+} from '../actions/task_actions';
 
 
 const taskErrorsReducer = (oldState = [], action) => {

@@ -45,7 +45,12 @@ class ProjectForm extends React.Component {
             return (
                 <div>
                     <form className='project-form' id='project' onSubmit={this.handleSubmit}>
-                        <h2 className='project-form-title'>{this.props.formType}</h2>
+                        <div className='project-form-title-container'>
+                            <h2 className='project-form-title'>{this.props.formType}</h2>
+                            <span className='close-icon-container' onClick={this.props.closeModal}>
+                                <i className="fas fa-times fa-s" ></i>
+                            </span>
+                        </div>
                         <label className='project-label'>Title</label>
                         <input className='project-field-title' type="text" value={this.state.title} onChange={this.update('title')} required/>
                         <label className='project-label'>Description</label>

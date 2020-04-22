@@ -13,10 +13,10 @@ json.teammatesIds do
   json.array! (user.teammates.ids)
 end
 
-json.authoredTasks do 
+json.authoredTasksIds do 
   json.array! (user.authored_tasks.ids)
 end
 
-json.assignedTasks do  
+json.assignedTasksIds do  
   json.array! (user.assigned_tasks.ids)
 end

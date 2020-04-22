@@ -3,7 +3,7 @@ import * as TaskApiUtil from '../util/task_api_util';
 export const RECEIVE_TASKS = 'RECEIVE_TASKS';
 export const RECEIVE_TASK = 'RECEIVE_TASK';
 export const REMOVE_TASK = 'REMOVE_TASK';
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const RECEIVE_TASK_ERRORS = 'RECEIVE_TASK_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 const receiveTasks = (tasks) => ({
@@ -22,7 +22,7 @@ const removeTask = (taskId) => ({
 })
 
 const receiveErrors = (errors) => ({
-    type: RECEIVE_ERRORS,
+    type: RECEIVE_TASK_ERRORS,
     errors: errors
 })
 
