@@ -5,8 +5,12 @@ class Project extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            project: {}
+            project: {
+                id: this.props.match.params.projectId
+            }
         }
+        console.log(this.props);
+        this.handleTasksIndex = this.handleTasksIndex.bind(this);
     }
 
     componentDidMount() {
@@ -14,6 +18,7 @@ class Project extends React.Component {
 
         this.props.fetchUsers();
         this.props.fetchTeams();
+        this.props.fetchTasks();
         this.props.fetchProjects().then(() => (this.setState({ project: this.props.projects[projectIdNumber] })))
         
         
@@ -26,6 +31,7 @@ class Project extends React.Component {
 
             this.props.fetchUsers();
             this.props.fetchTeams();
+            this.props.fetchTasks();
             this.props.fetchProjects().then(() => (this.setState({ project: this.props.projects[projectIdNumber] })))
         }
     }
@@ -53,6 +59,29 @@ class Project extends React.Component {
         }
     }
 
+    handleTasksIndex() {
+        if (this.props.tasks) {
+            
+            let tasks = this.props.tasks.filter(task => task.projectId === this.state.project.id)
+
+            return (
+                    tasks.map((task) => {
+                        return (
+                            <div className='tasks-table-row' key={task.id}>
+                                <div className='task-table-cell-completed'>{task.completed}</div>
+                                <div className='task-table-cell-task'>{task.title}</div>
+                                <div className='task-table-cell-assignee'>Assignee</div>
+                                <div className='task-table-cell-start-date'>{task.startDate}</div>
+                                <div className='task-table-cell-end-date'>{task.endDate}</div>
+                            </div>
+                        )
+                    })
+            )
+        } else {
+            return null;
+        }
+    }
+
     render() {
      
         if (this.props.users) {
@@ -60,16 +89,33 @@ class Project extends React.Component {
                 <div className='project-page'>
                     <SideBarContainer />
                     <div className='project-main'>
-                        <div className='project-title-container'>
-                            <div className='project-mini-tile-container' style={{ background: this.handleColor(this.state.project.title) }}>
-                                <span className='project-mini-tile'>
-                                    <i className="fas fa-list fa-2x" ></i>
-                                </span>
+                        <div className='project-header-container'>
+                            <div className='project-title-container'>
+                                <div className='project-mini-tile-container' style={{ background: this.handleColor(this.state.project.title) }}>
+                                    <span className='project-mini-tile'>
+                                        <i className="fas fa-list fa-2x" ></i>
+                                    </span>
+                                </div>
+                                <h1>{this.state.project.title}</h1>
                             </div>
-                            <h1>{this.state.project.title}</h1>
+                            <div className='project-owner'>{this.props.users[this.state.project.projectOwnerId] ? this.props.users[this.state.project.projectOwnerId].username : null}</div>
+                            <div className='project-description'>{this.state.project.description}</div>
                         </div>
-                        <div>{this.state.project.description}</div>
-                        <div>{this.props.users[this.state.project.projectOwnerId] ? this.props.users[this.state.project.projectOwnerId].username : null}</div>
+                        <div className='project-body-container'>
+                            <div className='tasks-index-container'>
+                                <div className='tasks-table'>
+                                    <div className='tasks-table-row-top'>
+                                        <div className='task-table-cell-completed'></div>
+                                        <div className='task-table-cell-task'>Task</div>
+                                        <div className='task-table-cell-assignee'>Assignee</div>
+                                        <div className='task-table-cell-start-date'>Start Date</div>
+                                        <div className='task-table-cell-end-date'>Due Date</div>
+                                    </div>
+                                    {this.handleTasksIndex()}
+                                    <div className='tasks-table-row'></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             )

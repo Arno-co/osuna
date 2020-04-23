@@ -2,24 +2,27 @@
     width:100%;
     height:100%;
     display: flex;
+    box-sizing: border-box;
 }
 
 .project-main{
     display: flex;
     flex-direction: column;
     width: 80%;
-
+    box-sizing: border-box;
 }
 
 .project-main h1{
     font-size: 30px;
     font-weight: bold;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 .project-title-container{
     display: flex;
     justify-content: left;
+    box-sizing: border-box;
 }
 
 .project-mini-tile-container{
@@ -31,4 +34,62 @@
     border-radius: 15px;
     color: white;
     margin: 20px;
+}
+
+.project-header-container{
+    border-bottom: 1px solid lightgray;
+    box-sizing: border-box;
+}
+
+.project-owner{
+    padding: 5px 15px;
+    color: gray;
+}
+
+.project-description{
+    padding: 5px 15px;
+    color: gray;
+}
+
+.tasks-index-container{
+    display: flex;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.tasks-table{
+    width: 100%;
+    padding: 30px;
+}
+.tasks-table-row-top{
+    display: flex;
+    width: 100%;
+    color: gray;
+}
+
+.tasks-table-row{
+    display: flex;
+    width: 100%;
+}
+
+.task-table-cell-completed{
+width: 10%;
+}
+.task-table-cell-task{
+width: 40%;
+}
+.task-table-cell-assignee{
+width: 20%;
+}
+.task-table-cell-start-date{
+width: 15%;
+}
+.task-table-cell-end-date{
+width: 15%;
+}
+
+[class^='task-table-cell'] {
+    border-bottom: 1px solid lightgray;
+    padding: 5px;
 }

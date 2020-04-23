@@ -18,6 +18,7 @@ class Api::TasksController < ApplicationController
     end
 
     def create
+        
         @task = Task.create(task_params)
             
         if @task.save
@@ -47,7 +48,7 @@ class Api::TasksController < ApplicationController
     private
 
     def task_params
-        params.require(:task).permit(:title, :description, :author_id, :project_id, :assignee_id, :start_date, :end_date)
+        params.require(:task).permit(:title, :description, :author_id, :project_id, :assignee_id, :completed, :start_date, :end_date)
     end
     
 end

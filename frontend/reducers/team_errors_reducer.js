@@ -11,7 +11,6 @@ const teamErrorsReducer = (oldState = [], action) => {
 
     switch (action.type) {
         case RECEIVE_TEAM_ERRORS:
-            debugger
             if (action.errors) {
                 nextState = action.errors
                 return nextState

@@ -16,6 +16,7 @@ class Home extends React.Component {
             this.props.fetchUsers()
             this.props.fetchTeams()
             this.props.fetchProjects()
+            this.props.fetchTasks()
         }
         
         
@@ -38,6 +39,7 @@ class Home extends React.Component {
                             fetchProjects={this.props.fetchProjects}
                             fetchUsers={this.props.fetchUsers}
                             fetchTeams={this.props.fetchTeams} 
+                            fetchTasks={this.props.fetchTasks}
                             modal={this.props.modal}
                         />
                     </div>

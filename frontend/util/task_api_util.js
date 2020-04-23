@@ -24,6 +24,7 @@ export const createTask = (task) => {
                 author_id: task.authorId,
                 project_id: task.projectId,
                 assignee_id: task.assigneeId,
+                completed: task.completed,
                 start_date: task.startDate,
                 end_date: task.endDate
             }
@@ -43,6 +44,7 @@ export const updateTask = (task) => {
                 author_id: task.authorId,
                 project_id: task.projectId,
                 assignee_id: task.assigneeId,
+                completed: task.completed,
                 start_date: task.startDate,
                 end_date: task.endDate
             }

@@ -1,6 +1,7 @@
 class Task < ApplicationRecord
-    validates :title, :description, :author_id, :project_id, :assignee_id, :completed, :start_date, :end_date, presence: true
-
+    validates :title, :description, :author_id, :project_id, :assignee_id, :start_date, :end_date, presence: true
+    validates :completed, inclusion: { in: [ true, false ] }
+    
     belongs_to :project,
     foreign_key: :project_id,
     class_name: :Project
