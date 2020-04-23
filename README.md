@@ -2,7 +2,7 @@
 
 # Osuna
 
-Osunan is an Asana clone, it is a web application designed to help teams organize, track and manage their projects and related tasks. 
+Osuna is an Asana clone, it is a single page web application designed to help teams organize, track and manage their projects and related tasks. 
 Users can access projects and tasks of their team, they can create and assign tasks.
 
 [Osuna Live Demo](https://osuna.herokuapp.com/#/)
@@ -20,7 +20,8 @@ Postgres Database is required for Osuna to operate correctly.
 ### Setting up
 Please run the following commands:
 
-```bundle install
+```
+bundle install
 npm install
 bundle exec rails db:create
 bundle exec rails db:migrate
@@ -30,14 +31,19 @@ bundle exec rails db:seed
 ### Running the app
 Please run the following commands in separate tabs and maje sure Postgres is running:
 
-```rails s
+```
+rails s
 npm run start
 ```
 
-# Features 
+## Features 
 
-In Osuna, users can create or join a team. They can create and edit projects for this team through the home page.
-They can view, create, edit, and assign tasks through the project page. Projects and tasks are accessible to the entire team that the user is part of. A task can be a milestone or a regular task. Users set a due date, and mark the task as complete. 
+[Osuna Design Documents](https://github.com/Arno-co/osuna/wiki)
+
+In Osuna, users can create or join a team when they sign up.
+
+They can create and edit projects for this team through the home page.
+They can view, create, edit, and assign tasks through the project page. Projects and tasks are accessible to the entire team that the user is part of. Users set a due date, and can mark the task as complete. 
 
 
 ## System Design
