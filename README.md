@@ -1,29 +1,4 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-![osuna logo] (app/assets/images/logo.png / 'Osuna Logo')
 
 # Osuna
 
@@ -33,8 +8,31 @@ Users can access projects and tasks of their team, they can create and assign ta
 [Osuna Live Demo](https://osuna.herokuapp.com/#/)
 
 ## Technologies
+ * Backend: Ruby on Rails/PostgreSQL
+ * Frontend: JavaScript/React/Redux
+ * HTML5/SCSS
+ * Webpack
 
-Osuna is built using Ruby on Rails, React.js, Redux.js, and PostgreSQL. 
+## Installation
+### Pre-requisites
+Postgres Database is required for Osuna to operate correctly.
+
+### Setting up
+Please run the following commands:
+
+```bundle install
+npm install
+bundle exec rails db:create
+bundle exec rails db:migrate
+bundle exec rails db:seed
+```
+
+### Running the app
+Please run the following commands in separate tabs and maje sure Postgres is running:
+
+```rails s
+npm run start
+```
 
 # Features 
 
