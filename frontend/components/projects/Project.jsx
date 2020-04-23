@@ -1,5 +1,6 @@
 import React from 'react';
 import SideBarContainer from '../SideBarContainer';
+import TaskItem from '../tasks/TaskItem';
 
 class Project extends React.Component {
     constructor(props) {
@@ -9,7 +10,7 @@ class Project extends React.Component {
                 id: this.props.match.params.projectId
             }
         }
-        console.log(this.props);
+        // console.log(this.props);
         this.handleTasksIndex = this.handleTasksIndex.bind(this);
     }
 
@@ -67,13 +68,11 @@ class Project extends React.Component {
             return (
                     tasks.map((task) => {
                         return (
-                            <div className='tasks-table-row' key={task.id}>
-                                <div className='task-table-cell-completed'>{task.completed}</div>
-                                <div className='task-table-cell-task'>{task.title}</div>
-                                <div className='task-table-cell-assignee'>Assignee</div>
-                                <div className='task-table-cell-start-date'>{task.startDate}</div>
-                                <div className='task-table-cell-end-date'>{task.endDate}</div>
-                            </div>
+                            <TaskItem 
+                            task={task} 
+                            users={this.props.users} 
+                            project={this.props.projects[this.state.project.id]}
+                            teams={this.props.teams} />
                         )
                     })
             )

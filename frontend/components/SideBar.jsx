@@ -55,9 +55,9 @@ class SideBar extends React.Component {
                         <div className='shortcut-aside-label'>Projects</div>
                         <div className='shortcut-aside-field'>
                             <div>{
-                                this.props.projects.map((project, idx) => {
+                                this.props.projects.map((project) => {
                                     return (
-                                        <Link to={`/projects/${project.id}`} key={idx}>
+                                        <Link to={`/projects/${project.id}`} key={project.id}>
                                             <div className='mini-tile-container'>
                                                 <div className='mini-tile' style={{ background: this.handleColor(project.title) }}></div>
                                                 <div>{project.title}</div>
