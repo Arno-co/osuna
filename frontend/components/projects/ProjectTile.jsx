@@ -73,7 +73,7 @@ class ProjectTile extends React.Component {
                                 {this.state.showMenu === true ? <ProjectMenu handleProjectMenu={this.handleProjectMenu} project={this.props.project} openModal={this.props.openModal} /> : null}
                             </div>
                             <span className='icon-container'>
-                                <i className="fas fa-list fa-3x" ></i>
+                                <i className="fas fa-list fa-2x" ></i>
                             </span>
                             <div className='project-leader'>{
                                 this.props.users[this.props.project.projectOwnerId] ? this.handleName(this.props.users[this.props.project.projectOwnerId].username) : null

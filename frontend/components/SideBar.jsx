@@ -37,7 +37,7 @@ class SideBar extends React.Component {
                 <aside className="side-bar">
                     <div className="top-aside">
                         <img className="logo-aside" src={window.logo_darkURL} />
-                        <div className="" >Hi {this.props.currentUser.username}!
+                        <div className="user-greeting" >Hi {this.props.currentUser.username}!
 
                     <br />
                         </div>

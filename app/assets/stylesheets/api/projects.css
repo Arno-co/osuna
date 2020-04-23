@@ -5,16 +5,18 @@
 }
 
 .home-projects-index h2{
-    font-size: 20px;
+    font-size: 16px;
     width: 100%;
     border-bottom: 2px solid gray;
     padding-bottom: 20px;
-    margin: 20px;
+    margin: 0 20px 20px 20px;
 }
 
 .home-project-element{
-    font-size: 0.9rem;
+    font-size: 0.7rem;
+    width: 120px;
     text-align: center;
+    margin-top: 10px;
 }
 
 .home-project-container{
@@ -26,17 +28,17 @@
     border-radius: 30px;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    height: 221px;
+    height: 210px;
     min-width: 150px;
     padding: 15px 0;
-    width: 150px;
+    width: 120px;
     align-items: center;
     background: transparent;
     display: flex;
     flex-flow: column;
     position: relative;
     transition-duration: .4s;
-    margin: 20px;
+    margin: 20px 10px;
 }
 
 .tile-container:hover{
@@ -46,8 +48,8 @@
 
 .tile{
     border-radius: 20px;
-    height: 130px;
-    width: 130px;
+    height: 110px;
+    width: 110px;
     box-shadow: inset 0 -2px rgba(0,0,0,.05);
     align-items: center;
     background: #3ad580;
@@ -105,8 +107,8 @@
 
 .new-project-tile{
     border-radius: 20px;
-    height: 130px;
-    width: 130px;
+    height: 110px;
+    width: 110px;
     box-shadow: inset 0 -2px rgba(0,0,0,.05);
     align-items: center;
     background: #3ad580;

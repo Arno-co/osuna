@@ -4,13 +4,14 @@
 }
 
 .nav-home {
-    height: 15%;
+    height: 10%;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .nav-home h2{
-    font-size: 20px;
-    margin: 30px;
+    font-size: 16px;
+    padding: 30px;
 }
 
 .body-home{

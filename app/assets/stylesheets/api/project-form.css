@@ -76,7 +76,7 @@ input[type="date"] {
 .project-delete-form-title{
     font-size: 1.5rem;
     padding: 10px;
-    height: 25%;
+    height: 40%;
     border-bottom: 1px solid darkgray;
     width: 100%;
     box-sizing: border-box;
@@ -85,7 +85,7 @@ input[type="date"] {
 }
 
 .project-delete-form-body{
-    height: 75%;
+    height: 60%;
     padding: 10px;
     display: flex;
     flex-direction: column;
