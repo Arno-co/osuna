@@ -8,7 +8,8 @@ class Project extends React.Component {
         this.state = {
             project: {
                 id: this.props.match.params.projectId
-            }
+            },
+            displayedTasks: []
         }
         // console.log(this.props);
         this.handleTasksIndex = this.handleTasksIndex.bind(this);
@@ -26,7 +27,7 @@ class Project extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-
+        
         if (this.props.match.params.projectId !== prevProps.match.params.projectId) {
             const projectIdNumber = this.props.match.params.projectId;
 
@@ -35,6 +36,7 @@ class Project extends React.Component {
             this.props.fetchTasks();
             this.props.fetchProjects().then(() => (this.setState({ project: this.props.projects[projectIdNumber] })))
         }
+
     }
 
     handleColor(title) {
@@ -72,7 +74,10 @@ class Project extends React.Component {
                             task={task} 
                             users={this.props.users} 
                             project={this.props.projects[this.state.project.id]}
-                            teams={this.props.teams} />
+                            teams={this.props.teams}
+                            createTask={this.props.createTask}
+                            updateTask={this.props.updateTask}
+                            displayedTasks={this.state.displayedTasks} />
                         )
                     })
             )
@@ -82,7 +87,7 @@ class Project extends React.Component {
     }
 
     render() {
-     
+        console.log(this.state)
         if (this.props.users) {
             return (
                 <div className='project-page'>
@@ -103,8 +108,7 @@ class Project extends React.Component {
                         <div className='project-body-container'>
                             <div className='tasks-index-container'>
                                 <div className='tasks-table'>
-                                    <div className='tasks-table-row-top'>
-                                        <div className='task-table-cell-completed'></div>
+                                    <div className='tasks-table-row-top'>                                      
                                         <div className='task-table-cell-task'>Task</div>
                                         <div className='task-table-cell-assignee'>Assignee</div>
                                         <div className='task-table-cell-start-date'>Start Date</div>
