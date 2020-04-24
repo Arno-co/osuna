@@ -5,16 +5,21 @@ import { withRouter } from 'react-router-dom';
 class TaskItem extends React.Component {
     constructor(props) {
         super(props)
-        this.state = this.props.task;
+        this.state = this.props.task
         
-        this.toggleComplete = this.toggleComplete.bind(this)
+        this.toggleComplete = this.toggleComplete.bind(this);
+        this.handleDueDate = this.handleDueDate.bind(this);
+
     }
 
-    // componentDidUpdate(prevProps) {
-    //     if (prevProps.task !== this.props.task) {
-    //         this.setState(this.props.task)
-    //     }
+    // componentDidMount(){
+    //     this.handleDueDate(this.props.task.endDate);
     // }
+    componentDidUpdate(prevProps) {
+        if (prevProps.task !== this.props.task) {
+            this.setState(this.props.task)
+        }
+    }
 
     handleAssignee(id) {
         let user = this.props.users[id];
@@ -73,12 +78,29 @@ class TaskItem extends React.Component {
         
     }
 
-    render() {
+    handleDueDate(date) {
         
+        let today = this.props.formatDate();
+       
+        if (date > today) {
+            
+            return(
+                <div className='task-table-cell-end-date'>{this.props.task.endDate}</div>
+            )
+        } else {
+        
+            return(
+                <div className='task-table-cell-end-date-past-due'>{this.props.task.endDate}</div>
+            )
+        }
+    }
+
+    render() {
         let checked;
 
+
         (!this.state.completed) ? checked = 'complete-icon-container' : checked ='complete-icon-container-checked'
-        
+
         return (
             <div className='tasks-table-row' key={this.props.task.id}>
                 <div className='task-table-cell-task'>
@@ -89,7 +111,7 @@ class TaskItem extends React.Component {
                 </div>
                 {this.handleAssignee(this.props.task.assigneeId)}
                 <div className='task-table-cell-start-date'>{this.props.task.startDate}</div>
-                <div className='task-table-cell-end-date'>{this.props.task.endDate}</div>
+                {this.handleDueDate(this.props.task.endDate)}
             </div>
         )
     }

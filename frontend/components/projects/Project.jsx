@@ -83,6 +83,7 @@ class Project extends React.Component {
                             teams={this.props.teams}
                             createTask={this.props.createTask}
                             updateTask={this.props.updateTask}
+                            formatDate={this.formatDate}
                              />
                         )
                     })
@@ -95,9 +96,9 @@ class Project extends React.Component {
     formatDate() {
     let result = "";
     const d = new Date();
-    result += d.getDate() + "-" + (d.getMonth() + 1) + "-" + d.getFullYear();
+        result += d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
     return result;
-}
+    }
 
     handleNewTask() {
         this.props.createTask({

@@ -164,6 +164,15 @@
     
 }
 
+.task-table-cell-end-date-past-due {
+    border-bottom: 1px solid lightgray;
+    padding: 5px;
+    color: #e8384f;
+    align-items: center;
+    width: 15%;
+    line-height: 32px;
+}
+
 .team-member{
     color: white;
 }
