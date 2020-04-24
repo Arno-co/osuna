@@ -116,8 +116,8 @@ handleSubmit(e) {
 
 ## Going Forward
 
--Drag and drop for the projects
--Tasks display on the home page
--Responsive CSS for mobile view
+* Drag and drop for the projects
+* Tasks display on the home page
+* Responsive CSS for mobile view
 
 
