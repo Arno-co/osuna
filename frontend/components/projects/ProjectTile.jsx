@@ -9,7 +9,7 @@ class ProjectTile extends React.Component {
             showMenu: false
         }
         this.handleProjectMenu = this.handleProjectMenu.bind(this);
-        console.log(this.props)
+        
     }
 
     componentDidMount() {
@@ -59,6 +59,7 @@ class ProjectTile extends React.Component {
 
     render() {
         if (this.props.project) {
+           
             return (
                 <Link to={`/projects/${this.props.project.id}`} className="home-project-index-item">
                     <div className='tile-container'>

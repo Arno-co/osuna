@@ -9,10 +9,11 @@ class Project extends React.Component {
             project: {
                 id: this.props.match.params.projectId
             },
-            displayedTasks: []
+            tasks: this.props.tasks
         }
-        // console.log(this.props);
+    
         this.handleTasksIndex = this.handleTasksIndex.bind(this);
+        this.handleNewTask = this.handleNewTask.bind(this);
     }
 
     componentDidMount() {
@@ -39,6 +40,8 @@ class Project extends React.Component {
 
     }
 
+
+
     handleColor(title) {
 
         if (title) {
@@ -62,11 +65,14 @@ class Project extends React.Component {
         }
     }
 
+
     handleTasksIndex() {
+        let tasks=[];
+
         if (this.props.tasks) {
             
-            let tasks = this.props.tasks.filter(task => task.projectId === this.state.project.id)
-
+            tasks = this.props.tasks.filter(task => task.projectId === this.state.project.id)
+           
             return (
                     tasks.map((task) => {
                         return (
@@ -77,7 +83,7 @@ class Project extends React.Component {
                             teams={this.props.teams}
                             createTask={this.props.createTask}
                             updateTask={this.props.updateTask}
-                            displayedTasks={this.state.displayedTasks} />
+                             />
                         )
                     })
             )
@@ -86,8 +92,29 @@ class Project extends React.Component {
         }
     }
 
+    formatDate() {
+    let result = "";
+    const d = new Date();
+    result += d.getDate() + "-" + (d.getMonth() + 1) + "-" + d.getFullYear();
+    return result;
+}
+
+    handleNewTask() {
+        this.props.createTask({
+            title: 'Add a Title',
+            description: 'Add a description',
+            authorId: this.props.currentUser.id,
+            projectId: this.state.project.id,
+            assigneeId: this.props.currentUser.id,
+            completed: false,
+            startDate: this.formatDate(),
+            endDate: this.formatDate()
+        })
+        .then(() => this.props.fetchTasks(), err => console.log(err))
+    }
+
     render() {
-        console.log(this.state)
+      
         if (this.props.users) {
             return (
                 <div className='project-page'>
@@ -107,6 +134,9 @@ class Project extends React.Component {
                         </div>
                         <div className='project-body-container'>
                             <div className='tasks-index-container'>
+                                <div className='add-task-button-container'>
+                                    <div className='add-task-button' onClick={() => { this.handleNewTask() }}>ADD TASK</div>
+                                </div>
                                 <div className='tasks-table'>
                                     <div className='tasks-table-row-top'>                                      
                                         <div className='task-table-cell-task'>Task</div>

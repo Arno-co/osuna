@@ -9,7 +9,7 @@ const tasksReducer = (oldState = {}, action) => {
         case RECEIVE_TASKS:
             return action.tasks;
         case RECEIVE_TASK:
-            nextState[action.task] = action.task;
+            nextState[action.task.id] = action.task;
             return nextState;
         case REMOVE_TASK:
             delete nextState[action.taskId];

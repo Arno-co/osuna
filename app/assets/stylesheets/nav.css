@@ -16,8 +16,10 @@ nav.login-signup {
 }
 
 .nav-button {
-    height: 30px;
-    width: 100px;
+    height: 25px;
+    width: 70px;
+    line-height: 25px;
+    font-size: 0.8rem;
     border: 2px solid rgb(244, 134, 187);
     color: rgb(244, 134, 187);
     border-radius: 3px;

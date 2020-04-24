@@ -6,14 +6,15 @@ class TaskItem extends React.Component {
     constructor(props) {
         super(props)
         this.state = this.props.task;
-        // console.log(this.props)
+        
+        this.toggleComplete = this.toggleComplete.bind(this)
     }
 
-    componentDidUpdate(prevProps) {
-        if (prevProps.task !== this.props.task) {
-            this.setState(this.props.task)
-        }
-    }
+    // componentDidUpdate(prevProps) {
+    //     if (prevProps.task !== this.props.task) {
+    //         this.setState(this.props.task)
+    //     }
+    // }
 
     handleAssignee(id) {
         let user = this.props.users[id];
@@ -62,24 +63,26 @@ class TaskItem extends React.Component {
         }
     }
 
-    toggleComplete(id, value) {
-        return (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            this.props.updateTask({ id: id, completed: value });
-        };
+    
+    toggleComplete(e) {
+    
+        e.preventDefault();
+        e.stopPropagation();
+        this.props.updateTask({ id: this.state.id, completed: !this.state.completed })
+        .then((res) => {this.setState(res.task)});
+        
     }
 
     render() {
-
+        
         let checked;
 
         (!this.state.completed) ? checked = 'complete-icon-container' : checked ='complete-icon-container-checked'
-        this.props.displayedTasks.push(this.state.id)
+        
         return (
             <div className='tasks-table-row' key={this.props.task.id}>
                 <div className='task-table-cell-task'>
-                    <span onClick={this.toggleComplete(this.state.id, !this.state.completed)}className={checked}>
+                    <span onClick={(e) => this.toggleComplete(e)} className={checked}>
                         <i className="fas fa-check fa-s" ></i>
                     </span>
                     <div>{this.props.task.title}</div>

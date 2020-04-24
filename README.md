@@ -15,7 +15,7 @@ Users can access projects and tasks of their team, they can create and assign ta
 ## Technologies
  * Backend: Ruby on Rails/PostgreSQL
  * Frontend: JavaScript/React/Redux
- * HTML5/SCSS
+ * HTML5/CSS
  * Webpack
 
 ## Installation
@@ -116,7 +116,7 @@ handleSubmit(e) {
 
 ## Going Forward
 
-* Drag and drop for the projects
+* Drag and drop for projects
 * Tasks display on the home page
 * Responsive CSS for mobile view
 
