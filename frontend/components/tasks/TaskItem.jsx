@@ -9,7 +9,8 @@ class TaskItem extends React.Component {
         
         this.toggleComplete = this.toggleComplete.bind(this);
         this.handleDueDate = this.handleDueDate.bind(this);
-
+        this.toggleTaskForm = this.toggleTaskForm.bind(this);
+        console.log(this.props)
     }
 
     // componentDidMount(){
@@ -33,7 +34,7 @@ class TaskItem extends React.Component {
                             <div>{this.props.teams.length ? this.props.teams[0].name : null}</div>
                         </div>
                     </div>
-                    <div>{user.username}</div>
+                    <div className='full-name'>{user.username}</div>
                 </div>
             );
         } else {
@@ -68,7 +69,13 @@ class TaskItem extends React.Component {
         }
     }
 
-    
+    toggleTaskForm(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        this.props.history.push(`/projects/${this.props.project.id}/${this.props.task.id}`)
+    }
+
+
     toggleComplete(e) {
     
         e.preventDefault();
@@ -98,11 +105,10 @@ class TaskItem extends React.Component {
     render() {
         let checked;
 
-
         (!this.state.completed) ? checked = 'complete-icon-container' : checked ='complete-icon-container-checked'
 
         return (
-            <div className='tasks-table-row' key={this.props.task.id}>
+            <div className='tasks-table-row' key={this.props.task.id} onClick={this.toggleTaskForm}>
                 <div className='task-table-cell-task'>
                     <span onClick={(e) => this.toggleComplete(e)} className={checked}>
                         <i className="fas fa-check fa-s" ></i>

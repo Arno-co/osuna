@@ -1,6 +1,9 @@
 import React from 'react';
 import SideBarContainer from '../SideBarContainer';
 import TaskItem from '../tasks/TaskItem';
+import { AuthRoute } from '../../util/route_util';
+import { Route } from 'react-router-dom';
+import TaskFormContainer from '../tasks/TaskFormContainer';
 
 class Project extends React.Component {
     constructor(props) {
@@ -83,6 +86,7 @@ class Project extends React.Component {
                             teams={this.props.teams}
                             createTask={this.props.createTask}
                             updateTask={this.props.updateTask}
+                            history={this.props.history}
                             formatDate={this.formatDate}
                              />
                         )
@@ -149,8 +153,10 @@ class Project extends React.Component {
                                     <div className='tasks-table-row'></div>
                                 </div>
                             </div>
+                            <AuthRoute exact path="/projects/:projectId/:taskId" component={TaskFormContainer} />
                         </div>
                     </div>
+
                 </div>
             )
         } else {

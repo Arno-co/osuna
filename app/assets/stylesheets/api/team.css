@@ -17,10 +17,12 @@
 
 .team-member{
     display: flex;
-    min-width: 15px;
+    min-width: 25px;
+    max-width: 25px;
     width: 25px;
     height: 25px;
-    min-height: 15px;
+    min-height: 25px;
+    max-height: 25px;
     font-size: 12px;
     background: linear-gradient(262deg, #ff7854, #fd267d);
     padding: 5px;

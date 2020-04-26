@@ -115,7 +115,9 @@
 }
 .mini-tile{
     width: 12px;
+    min-width: 12px;
     height: 12px;
+    min-height: 12px;
     /* display: block; */
     border-radius: 3px;
     margin-right: 10px;

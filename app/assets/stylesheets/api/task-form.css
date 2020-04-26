@@ -1,0 +1,7 @@
+.task-form{
+    min-width: 500px;
+    max-width: 600px;
+    height: 100%;
+    display: flex;
+    transition-duration: .4s;
+}

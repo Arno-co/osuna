@@ -14,8 +14,12 @@ const Greeting = (props) => {
                     <br />
                     </div>
                     <button className="nav-button" onClick={() => (props.logout())}>LOG OUT</button>
+                    <Link to='/home'>
+                    <button className="nav-button" >HOME</button>
+                    </Link>
                 </div>
         </header>
+
         )
     } else {
         return (

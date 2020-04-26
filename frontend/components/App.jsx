@@ -22,8 +22,10 @@ const App = (props) => {
         <div className='main'>
             <Modal />
             <Route exact path="/" component={SplashPage} />
+            <AuthRoute exact path="/" component={HomeContainer} />
             <AuthRoute path="/home" component={HomeContainer} />
             <AuthRoute exact path="/projects/:projectId" component={ProjectContainer} />
+            <AuthRoute exact path="/projects/:projectId/:taskId?" component={ProjectContainer} />
         </div>
 )
 };

@@ -52,8 +52,15 @@
     color: gray;
 }
 
+.project-body-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
 .tasks-index-container{
     display: flex;
+    min-width: 580px;
     flex-direction: column;
     width: 100%;
     height: auto;
@@ -175,4 +182,20 @@
 
 .team-member{
     color: white;
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+
+    .full-name{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 736px) {
+
+    .task-table-cell-start-date{
+        display: none;
+    }
 }
