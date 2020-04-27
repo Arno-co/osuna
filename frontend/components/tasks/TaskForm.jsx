@@ -5,34 +5,63 @@ class TaskForm extends React.Component {
         super(props)
         console.log(this.props)
 
-        this.state = this.props.task
+        this.state = {
+            task: this.props.task,
+            showDelete: false
+        }
 
         this.toggleComplete = this.toggleComplete.bind(this);
         this.handleCloseForm = this.handleCloseForm.bind(this);
+        this.handleDeleteOption = this.handleDeleteOption.bind(this);
+        this.handleDeleteDropdown = this.handleDeleteDropdown.bind(this);
+        this.handleDeleteTask = this.handleDeleteTask.bind(this);
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.task !== this.props.task) {
-            this.setState(this.props.task)
+            this.setState({ task: this.props.task})
         }
     }
 
     toggleComplete(e) {
         e.preventDefault();
         e.stopPropagation();
-        this.props.updateTask({ id: this.state.id, completed: !this.state.completed })
-            .then((res) => { this.setState(res.task) });
+        this.props.updateTask({ id: this.state.task.id, completed: !this.state.task.completed })
+            .then((res) => { this.setState({ task: res.task}) });
     }
 
     handleCloseForm(e) {
         e.preventDefault();
         e.stopPropagation();
-       
         this.props.history.push(`/projects/${this.props.match.params.projectId}`)
     }
 
-    render() {
+    handleDeleteOption(e) {
+        e.preventDefault()
+        this.setState((state) => {
+            return { showDelete: !state.showDelete };
+        })
+    }
 
+    handleDeleteDropdown() {
+        if (this.state.showDelete === true) {
+            return(
+                <div className='task-delete-container'>
+                    <div className='task-delete-item' onClick={(e) => this.handleDeleteTask(e)}>Delete Task</div>
+                </div>
+            )
+        } else {
+            return null;
+        }
+    }
+
+    handleDeleteTask(e) {
+        this.props.deleteTask(this.state.task.id)
+        this.handleCloseForm(e)
+    }
+
+    render() {
+        // debugger
         if (this.props.task) {
             let checked;
             let completed;
@@ -52,9 +81,10 @@ class TaskForm extends React.Component {
                             </div>
                         </div>
                         <div className='task-form-header-icons-container'>
-                            <span className='etc-form-container' onClick={this.handleProjectMenu}>
+                            <span className='etc-form-container' onClick={this.handleDeleteOption}>
                                 <i className="fas fa-ellipsis-h fa-xs" ></i>
                             </span>
+                            {this.handleDeleteDropdown()}
                             <span className='close-form-container' onClick={this.handleCloseForm}>
                                 <i className="fas fa-times fa-s" ></i>
                             </span>

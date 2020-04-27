@@ -28,6 +28,7 @@
     border: 1px solid lightgray;
     border-radius: 5px;
     margin: 10px;
+    padding-left: 10px;
 }
 
 .project-field-description {
@@ -37,6 +38,8 @@
     margin: 10px;
     border: 1px solid lightgray;
     border-radius: 5px;
+    padding-left: 10px;
+    padding-top: 5px;
 }
 
 .dates {

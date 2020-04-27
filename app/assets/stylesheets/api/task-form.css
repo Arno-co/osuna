@@ -25,6 +25,8 @@
 
 .complete-task-button-container{
     padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .complete-task-button {
@@ -68,7 +70,7 @@
 
 .task-form-header-icons-container{
     display: flex;
-
+    position: relative;
 }
 
 .close-form-container{
@@ -84,8 +86,32 @@
 .etc-form-container{
     color: gray;
     padding: 10px;
+    position: relative;
 }
 
 .etc-form-container:hover{
     color: #151b26;
+}
+
+.task-delete-container{
+    position: absolute;
+    top: 30px;
+    left: -100px;
+    background: white;
+    padding: 5px 0 5px 0;
+    font-size: 0.9rem;
+    min-width: 150px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px lightgrey;
+    color: #151b26;
+    z-index: 10;
+}
+
+.task-delete-item{
+    padding: 5px;
+    width: 100%;
+}
+
+.task-delete-item:hover{
+    background-color: #e7e7e7;
 }

@@ -22,11 +22,11 @@ class ProjectTile extends React.Component {
 
 
         e.preventDefault()
-
+        
         this.setState((state) => {
             return { showMenu: !state.showMenu };
         })
-
+        
         
     };
 
