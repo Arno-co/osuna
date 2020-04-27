@@ -10,7 +10,7 @@ class TaskItem extends React.Component {
         this.toggleComplete = this.toggleComplete.bind(this);
         this.handleDueDate = this.handleDueDate.bind(this);
         this.toggleTaskForm = this.toggleTaskForm.bind(this);
-        console.log(this.props)
+
     }
 
     // componentDidMount(){
