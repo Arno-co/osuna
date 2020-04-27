@@ -106,8 +106,8 @@ class Project extends React.Component {
 
     handleNewTask() {
         this.props.createTask({
-            title: 'Add a Title',
-            description: 'Add a description',
+            title: '',
+            description: '',
             authorId: this.props.currentUser.id,
             projectId: this.state.project.id,
             assigneeId: this.props.currentUser.id,

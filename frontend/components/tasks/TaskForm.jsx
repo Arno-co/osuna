@@ -1,25 +1,36 @@
 import React from 'react';
+import debounce from 'lodash/debounce'
 
 class TaskForm extends React.Component {
     constructor(props) {
         super(props)
-        console.log(this.props)
+        // console.log(this.props)
 
         this.state = {
             task: this.props.task,
             showDelete: false
         }
-
+        console.log(this.state)
         this.toggleComplete = this.toggleComplete.bind(this);
         this.handleCloseForm = this.handleCloseForm.bind(this);
         this.handleDeleteOption = this.handleDeleteOption.bind(this);
         this.handleDeleteDropdown = this.handleDeleteDropdown.bind(this);
         this.handleDeleteTask = this.handleDeleteTask.bind(this);
+        this.renderTaskTitle = this.renderTaskTitle.bind(this);
+        this.debouncedUpdateTask = debounce(() => { this.props.updateTask(this.state.task) }, 500);
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.task !== this.props.task) {
             this.setState({ task: this.props.task})
+        }
+    }
+
+    update(field) {
+       
+        return e => {
+            this.setState({ task: { id: this.state.task.id, [field]: e.currentTarget.value} },
+             this.debouncedUpdateTask)
         }
     }
 
@@ -60,9 +71,21 @@ class TaskForm extends React.Component {
         this.handleCloseForm(e)
     }
 
+    renderTaskTitle() {
+            return (
+                <div className='task-title-container'>
+                    <textarea 
+                    className='task-title' 
+                    value={this.state.task.title} 
+                    onChange={this.update('title')}
+                    placeholder='Write a task name'></textarea>
+                </div>
+            )
+    }
+
     render() {
-        // debugger
-        if (this.props.task) {
+        console.log(this.state)
+        if (this.state.task) {
             let checked;
             let completed;
 
@@ -91,7 +114,9 @@ class TaskForm extends React.Component {
                         </div>
                     </div>
                     <div className='task-form-body'>
-
+                        {this.renderTaskTitle()}
+                        <div className='task-assignee-container'></div>
+                        <div className='task-date-container'></div>
                     </div>
                 </div>
             )
