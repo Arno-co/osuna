@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import TaskForm from './TaskForm';
-import { updateTask, fetchTask } from '../../actions/task_actions';
+import { updateTask, fetchTask, deleteTask } from '../../actions/task_actions';
 
 
 const mSTP = (state, ownProps) => ({
@@ -14,7 +14,8 @@ const mSTP = (state, ownProps) => ({
 
 const mDTP = (dispatch) => ({
     updateTask: (task) => dispatch(updateTask(task)),
-    fetchTask: (taskId) => dispatch(fetchTask(taskId)) 
+    fetchTask: (taskId) => dispatch(fetchTask(taskId)),
+    deleteTask: (taskId) => dispatch(deleteTask(taskId)) 
 })
 
 export default withRouter(connect(mSTP, mDTP)(TaskForm))

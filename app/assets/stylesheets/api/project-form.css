@@ -105,6 +105,12 @@ input[type="date"] {
 }
 
 #cancel-delete{
+    line-height: 25px;
     border: 2px solid grey;
     color: grey;
+}
+
+#cancel-delete:hover{
+    background-color: gray;
+    color: white;
 }

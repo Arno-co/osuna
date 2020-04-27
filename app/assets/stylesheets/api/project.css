@@ -147,11 +147,11 @@
 }
 
 .task-table-cell-task{
-    width: 50%;
+    width: 40%;
     display: flex;
 }
 .task-table-cell-assignee{
-    width: 20%;
+    width: 30%;
     display: flex;
 
 }
@@ -187,14 +187,14 @@
 
 
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1200px) {
 
     .full-name{
         display: none;
     }
 }
 
-@media only screen and (max-width: 736px) {
+@media only screen and (max-width: 1000px) {
 
     .task-table-cell-start-date{
         display: none;
