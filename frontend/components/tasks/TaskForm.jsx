@@ -4,13 +4,13 @@ import debounce from 'lodash/debounce'
 class TaskForm extends React.Component {
     constructor(props) {
         super(props)
-        // console.log(this.props)
 
         this.state = {
             task: this.props.task,
-            showDelete: false
+            showDelete: false,
+            showAssignee: false
         }
-        console.log(this.state)
+
         this.toggleComplete = this.toggleComplete.bind(this);
         this.handleCloseForm = this.handleCloseForm.bind(this);
         this.handleDeleteOption = this.handleDeleteOption.bind(this);
@@ -19,6 +19,9 @@ class TaskForm extends React.Component {
         this.renderTaskTitle = this.renderTaskTitle.bind(this);
         this.renderTaskAssignee = this.renderTaskAssignee.bind(this);
         this.handleAssignee = this.handleAssignee.bind(this);
+        this.handleAssigneeOptions = this.handleAssigneeOptions.bind(this);
+        this.handleAssigneeDropdown = this.handleAssigneeDropdown.bind(this);
+        this.changeAssignee = this.changeAssignee.bind(this);
         this.debouncedUpdateTask = debounce(() => { this.props.updateTask(this.state.task) }, 500);
     }
 
@@ -29,7 +32,6 @@ class TaskForm extends React.Component {
     }
 
     update(field) {
-       
         return e => {
             this.setState({ task: { id: this.state.task.id, [field]: e.currentTarget.value} },
              this.debouncedUpdateTask)
@@ -74,7 +76,6 @@ class TaskForm extends React.Component {
     }
 
     handleAssignee(id) {
-        
         if (this.props.users[id]) {
             let user = this.props.users[id];
             return (
@@ -118,6 +119,48 @@ class TaskForm extends React.Component {
         }
     }
 
+    handleAssigneeOptions(e) {
+        e.preventDefault()
+        this.setState((state) => {
+            return { showAssignee: !state.showAssignee };
+        })
+    }
+
+    changeAssignee(e) {
+        
+        e.preventDefault();
+        e.stopPropagation();
+        let newAssigneeId = e.currentTarget.value
+        this.props.updateTask({ id: this.state.task.id, assigneeId: newAssigneeId })
+            .then((res) => { this.setState({ task: res.task }) }, (err) => {console.log(err)});
+        // .then((res) => { console.log(res) });
+    }
+
+    handleAssigneeDropdown() {
+        if (this.state.showAssignee === true) {
+            return (
+                <div className='task-users-dropdown'>
+                    {
+                        Object.values(this.props.users).map((user) => {
+                            if (user.id !== this.state.task.assigneeId)
+                            return (
+                            <div 
+                            className='task-users-item' 
+                            key={user.id}
+                            value={user.id} 
+                            onClick={(e) => this.changeAssignee(e)}>{this.handleAssignee(user.id)}</div>
+                            )
+                        })
+                    }
+                </div>
+            )
+        } else {
+            return null;
+        }
+    }
+
+    
+
     renderTaskTitle() {
             return (
                 <div className='task-title-container'>
@@ -133,11 +176,12 @@ class TaskForm extends React.Component {
     renderTaskAssignee() {
         
         return(
-            <div className='task-assignee-container'>
+            <div className='task-assignee-container' onClick={this.handleAssigneeOptions}>
                 <div className='task-form-label'>
                     <div>Assignee</div>
                 </div>
                 <div className='task-form-field'>{this.handleAssignee(this.state.task.assigneeId)}</div>
+                {this.handleAssigneeDropdown()}
             </div>
         )
     }
