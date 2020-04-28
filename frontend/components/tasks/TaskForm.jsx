@@ -1,6 +1,7 @@
 import React from 'react';
-import debounce from 'lodash/debounce'
-
+import debounce from 'lodash/debounce';
+import { Link } from 'react-router-dom';
+ 
 class TaskForm extends React.Component {
     constructor(props) {
         super(props)
@@ -22,6 +23,7 @@ class TaskForm extends React.Component {
         this.handleAssigneeOptions = this.handleAssigneeOptions.bind(this);
         this.handleAssigneeDropdown = this.handleAssigneeDropdown.bind(this);
         this.changeAssignee = this.changeAssignee.bind(this);
+        this.renderProject = this.renderProject.bind(this);
         this.debouncedUpdateTask = debounce(() => { this.props.updateTask(this.state.task) }, 500);
     }
 
@@ -80,7 +82,7 @@ class TaskForm extends React.Component {
             let user = this.props.users[id];
             return (
                 <div className='assignee-field-container'>
-                    <div className='team-member' style={{ background: this.handleColor(user.username) }}>{this.handleName(user.username)}
+                    <div className='team-member' style={{ background: this.handleTeamColor(user.username) }}>{this.handleName(user.username)}
                     </div>
                     <div className='full-name'>
                         <div>{user.username}</div>
@@ -101,7 +103,7 @@ class TaskForm extends React.Component {
         }
     }
 
-    handleColor(title) {
+    handleTeamColor(title) {
         const initial = title.slice(0, 1).toUpperCase();
 
         if (['A', 'B', 'C', 'D', 'E'].includes(initial)) {
@@ -193,6 +195,39 @@ class TaskForm extends React.Component {
         )
     }
 
+    handleProjectColor(title) {
+        const initial = title.slice(0, 1).toUpperCase();
+
+        if (['A', 'B', 'C', 'D', 'E'].includes(initial)) {
+            return '#e8384f'
+        } else if (['G', 'H', 'I', 'J', 'K', 'L'].includes(initial)) {
+            return '#eec300'
+        } else if (['M', 'N', 'O', 'P', 'Q'].includes(initial)) {
+            return '#4186e0'
+        } else if (['R', 'S', 'T', 'U'].includes(initial)) {
+            return '#ea4e9d'
+        } else if (['V', 'W', 'X', 'Y', 'Z'].includes(initial)) {
+            return '#7a6ff0'
+        } else {
+            return '#aa62e3'
+        }
+    }
+
+    renderProject() {
+        if (this.props.project) {
+            return (
+                <Link to={`/projects/${this.props.project.id}`} key={this.props.project.id}>
+                    <div className='mini-tile-container'>
+                        <div className='mini-tile' style={{ background: this.handleProjectColor(this.props.project.title) }}></div>
+                        <div>{this.props.project.title}</div>
+                    </div>
+                </Link>
+            )
+        } else {
+            return null;
+        }
+    }
+
     render() {
         console.log(this.state)
         if (this.state.task) {
@@ -228,15 +263,19 @@ class TaskForm extends React.Component {
                         {this.renderTaskAssignee()}
                         <div className='task-start-date-container'>
                             <div className='task-form-label'>Start Date</div>
+                                <input className='task-form-date' type="date" value={this.state.task.startDate} onChange={this.update('startDate')}></input>
                             <div className='task-form-field'></div>
                         </div>
                         <div className='task-end-date-container'>
                             <div className='task-form-label'>Due Date</div>
+                                <input className='task-form-date' type="date" value={this.state.task.endDate} onChange={this.update('endDate')}></input>
                             <div className='task-form-field'></div>
                         </div>
                         <div className='task-project-container'>
                             <div className='task-form-label'>Project</div>
-                            <div className='task-form-field'></div>
+                            <div className='task-form-field'>
+                            {this.renderProject()}    
+                            </div>
                         </div>
                         <div className='task-description-container'>
                             <div className='task-form-label'>Description</div>

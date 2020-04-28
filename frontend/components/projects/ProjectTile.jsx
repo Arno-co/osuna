@@ -39,7 +39,7 @@ class ProjectTile extends React.Component {
         }
     }
 
-    handleColor(title) {
+    handleTeamColor(title) {
         const initial = title.slice(0,1).toUpperCase();
 
         if (['A', 'B', 'C', 'D', 'E'].includes(initial)) {
@@ -63,7 +63,7 @@ class ProjectTile extends React.Component {
             return (
                 <Link to={`/projects/${this.props.project.id}`} className="home-project-index-item">
                     <div className='tile-container'>
-                        <div className='tile' style={{ background: this.handleColor(this.props.project.title) }}>
+                        <div className='tile' style={{ background: this.handleTeamColor(this.props.project.title) }}>
                             <div className='tile-top-container'>
                                 <span className='star-icon-container'>
                                     <i className="fas fa-star fa-xs" ></i>

@@ -113,6 +113,11 @@
     display: flex;
 
 }
+
+.mini-tile-container-text:hover{
+    color: lightgray;
+}
+
 .mini-tile{
     width: 12px;
     min-width: 12px;

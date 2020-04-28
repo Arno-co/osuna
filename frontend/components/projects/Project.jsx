@@ -97,6 +97,7 @@ class Project extends React.Component {
         }
     }
 
+    
     formatDate() {
     let result = "";
     const d = new Date();

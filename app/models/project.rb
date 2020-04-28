@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-    validates :title, :description, :project_owner_id, :start_date, :end_date, presence: true
+    validates :title, :project_owner_id, :start_date, :end_date, presence: true
 
     belongs_to :user,
     foreign_key: :project_owner_id,

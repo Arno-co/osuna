@@ -11,7 +11,7 @@ class SideBar extends React.Component {
     }
 
     
-    handleColor(title) {
+    handleProjectColor(title) {
         const initial = title.slice(0, 1).toUpperCase();
 
         if (['A', 'B', 'C', 'D', 'E'].includes(initial)) {
@@ -59,8 +59,8 @@ class SideBar extends React.Component {
                                     return (
                                         <Link to={`/projects/${project.id}`} key={project.id}>
                                             <div className='mini-tile-container'>
-                                                <div className='mini-tile' style={{ background: this.handleColor(project.title) }}></div>
-                                                <div>{project.title}</div>
+                                                <div className='mini-tile' style={{ background: this.handleProjectColor(project.title) }}></div>
+                                                <div className='mini-tile-container-text'>{project.title}</div>
                                             </div>
                                         </Link>
                                     )

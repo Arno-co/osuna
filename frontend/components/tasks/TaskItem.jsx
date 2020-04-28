@@ -86,18 +86,18 @@ class TaskItem extends React.Component {
     }
 
     handleDueDate(date) {
-        
-        let today = this.props.formatDate();
+        let today = Date.now()
+        let parsedDate = Date.parse(date)
        
-        if (date > today) {
+        if (parsedDate < today) {
             
             return(
-                <div className='task-table-cell-end-date'>{this.props.task.endDate}</div>
+                <div className='task-table-cell-end-date-past-due'>{this.props.task.endDate}</div>
             )
         } else {
-        
+                
             return(
-                <div className='task-table-cell-end-date-past-due'>{this.props.task.endDate}</div>
+                <div className='task-table-cell-end-date'>{this.props.task.endDate}</div>
             )
         }
     }
