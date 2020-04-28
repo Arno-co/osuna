@@ -126,14 +126,20 @@ class TaskForm extends React.Component {
         })
     }
 
-    changeAssignee(e) {
-        
-        e.preventDefault();
-        e.stopPropagation();
-        let newAssigneeId = e.currentTarget.value
-        this.props.updateTask({ id: this.state.task.id, assigneeId: newAssigneeId })
-            .then((res) => { this.setState({ task: res.task }) }, (err) => {console.log(err)});
+    changeAssignee(id) {
+        debugger
+        // e.preventDefault();
+        // e.stopPropagation();
+        // let newAssigneeId = e.currentTarget.value
+        // this.props.updateTask({ id: this.state.task.id, assigneeId: newAssigneeId })
+        //     .then((res) => { this.setState({ task: res.task }) }, (err) => {console.log(err)});
         // .then((res) => { console.log(res) });
+
+        // e.preventDefault();
+        // e.stopPropagation();
+        
+        this.props.updateTask({ id: this.state.task.id, assigneeId: id })
+            .then((res) => { this.setState({ task: res.task }) }, (err) => { console.log(err) });
     }
 
     handleAssigneeDropdown() {
@@ -148,7 +154,8 @@ class TaskForm extends React.Component {
                             className='task-users-item' 
                             key={user.id}
                             value={user.id} 
-                            onClick={(e) => this.changeAssignee(e)}>{this.handleAssignee(user.id)}</div>
+                            onClick={() => this.changeAssignee(user.id)}
+                            >{this.handleAssignee(user.id)}</div>
                             )
                         })
                     }
