@@ -133,10 +133,12 @@ class Project extends React.Component {
                                         <i className="fas fa-list fa-2x" ></i>
                                     </span>
                                 </div>
-                                <h1>{this.state.project.title}</h1>
+                                <div className='project-header-text'>
+                                    <h1>{this.state.project.title}</h1>
+                                    <div className='project-owner'>{this.props.users[this.state.project.projectOwnerId] ? this.props.users[this.state.project.projectOwnerId].username : null}</div>
+                                    <div className='project-description'>{this.state.project.description}</div>
+                                </div>
                             </div>
-                            <div className='project-owner'>{this.props.users[this.state.project.projectOwnerId] ? this.props.users[this.state.project.projectOwnerId].username : null}</div>
-                            <div className='project-description'>{this.state.project.description}</div>
                         </div>
                         <div className='project-body-container'>
                             <div className='tasks-index-container'>

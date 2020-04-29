@@ -85,7 +85,7 @@ class TaskForm extends React.Component {
                 <div className='assignee-field-container'>
                     <div className='team-member' style={{ background: this.handleTeamColor(user.username) }}>{this.handleName(user.username)}
                     </div>
-                    <div className='full-name'>
+                    <div className='task-full-name'>
                         <div>{user.username}</div>
                     </div>
                 </div>

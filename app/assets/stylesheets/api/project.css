@@ -8,14 +8,15 @@
 .project-main{
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 82%;
+    height: 100%;
     box-sizing: border-box;
 }
 
 .project-main h1{
     font-size: 20px;
     font-weight: bold;
-    padding: 20px;
+    padding: 20px 15px;
     box-sizing: border-box;
 }
 
@@ -39,8 +40,15 @@
 
 .project-header-container{
     border-bottom: 1px solid lightgray;
+    height: 20%;
     box-sizing: border-box;
     font-size: 0.8rem;
+}
+
+.project-header-text{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .project-owner{
@@ -55,14 +63,14 @@
 
 .project-body-container{
     width: 100%;
-    height: 100%;
+    height: 80%;
     display: flex;
     transition-duration: 2s;
 }
 
 .tasks-index-container{
     display: flex;
-    min-width: 580px;
+    min-width: 500px;
     flex-direction: column;
     width: 100%;
     height: auto;
@@ -186,18 +194,24 @@
     color: white;
 }
 
-
+.full-name{
+    display: flex;
+}
 
 @media only screen and (max-width: 1200px) {
 
     .full-name{
         display: none;
     }
-}
-
-@media only screen and (max-width: 1000px) {
-
     .task-table-cell-start-date{
         display: none;
     }
+
+    .task-table-cell-assignee{
+        width: 15%;
+    }
 }
+/* 
+@media only screen and (max-width: 1000px) {
+
+} */

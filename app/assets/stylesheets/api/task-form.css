@@ -1,9 +1,9 @@
 .task-form{
-    min-width: 500px;
+    min-width: 400px;
     width: 40%;
     /* max-width: 600px; */
     height: 100%;
-    display: flex;
+    display: inline-table;
     flex-direction: column;
     transition-duration: 2s;
     border-left: 1px solid lightgray;
@@ -75,6 +75,7 @@
     display: flex;
     position: relative;
     align-items: center;
+    margin-right: 15px;
 }
 
 .close-form-container{
@@ -99,8 +100,8 @@
 
 .task-delete-container{
     position: absolute;
-    top: 40px;
-    left: -150px;
+    top: 55px;
+    left: -120px;
     background: white;
     padding: 5px 0 5px 0;
     font-size: 0.9rem;
@@ -135,7 +136,7 @@
   font-size: 24px;
   /* font-weight: 500; */
   line-height: 45px;
-  margin: 20px;
+  margin: 10px 20px;
   border-radius: 4px;
   border: 1px solid transparent;
   box-sizing: content-box;
@@ -186,7 +187,7 @@ textarea:focus  {
     position: relative
  }
 
- .full-name{
+ .task-full-name{
      display: flex;
      align-items: center;
      font-size: 0.8rem;
