@@ -12,11 +12,11 @@ class ProjectTile extends React.Component {
         
     }
 
-    componentDidMount() {
-        this.props.fetchUsers()
-        this.props.fetchTeams()
-        this.props.fetchProjects()
-    }
+    // componentDidMount() {
+    //     this.props.fetchUsers()
+    //     this.props.fetchTeams()
+    //     this.props.fetchProjects()
+    // }
 
     handleProjectMenu(e) {
 

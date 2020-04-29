@@ -74,6 +74,7 @@ class TaskForm extends React.Component {
 
     handleDeleteTask(e) {
         this.props.deleteTask(this.state.task.id)
+        this.props.fetchTasks()
         this.handleCloseForm(e)
     }
 
@@ -121,6 +122,24 @@ class TaskForm extends React.Component {
         }
     }
 
+    handleProjectColor(title) {
+        const initial = title.slice(0, 1).toUpperCase();
+
+        if (['A', 'B', 'C', 'D', 'E'].includes(initial)) {
+            return '#e8384f'
+        } else if (['G', 'H', 'I', 'J', 'K', 'L'].includes(initial)) {
+            return '#eec300'
+        } else if (['M', 'N', 'O', 'P', 'Q'].includes(initial)) {
+            return '#4186e0'
+        } else if (['R', 'S', 'T', 'U'].includes(initial)) {
+            return '#ea4e9d'
+        } else if (['V', 'W', 'X', 'Y', 'Z'].includes(initial)) {
+            return '#7a6ff0'
+        } else {
+            return '#aa62e3'
+        }
+    }
+
     handleAssigneeOptions(e) {
         e.preventDefault()
         this.setState((state) => {
@@ -129,19 +148,9 @@ class TaskForm extends React.Component {
     }
 
     changeAssignee(id) {
-        debugger
-        // e.preventDefault();
-        // e.stopPropagation();
-        // let newAssigneeId = e.currentTarget.value
-        // this.props.updateTask({ id: this.state.task.id, assigneeId: newAssigneeId })
-        //     .then((res) => { this.setState({ task: res.task }) }, (err) => {console.log(err)});
-        // .then((res) => { console.log(res) });
-
-        // e.preventDefault();
-        // e.stopPropagation();
         
         this.props.updateTask({ id: this.state.task.id, assigneeId: id })
-            .then((res) => { this.setState({ task: res.task }) }, (err) => { console.log(err) });
+            .then((res) => { this.setState({ task: res.task }) });
     }
 
     handleAssigneeDropdown() {
@@ -195,24 +204,6 @@ class TaskForm extends React.Component {
         )
     }
 
-    handleProjectColor(title) {
-        const initial = title.slice(0, 1).toUpperCase();
-
-        if (['A', 'B', 'C', 'D', 'E'].includes(initial)) {
-            return '#e8384f'
-        } else if (['G', 'H', 'I', 'J', 'K', 'L'].includes(initial)) {
-            return '#eec300'
-        } else if (['M', 'N', 'O', 'P', 'Q'].includes(initial)) {
-            return '#4186e0'
-        } else if (['R', 'S', 'T', 'U'].includes(initial)) {
-            return '#ea4e9d'
-        } else if (['V', 'W', 'X', 'Y', 'Z'].includes(initial)) {
-            return '#7a6ff0'
-        } else {
-            return '#aa62e3'
-        }
-    }
-
     renderProject() {
         if (this.props.project) {
             return (
@@ -226,6 +217,22 @@ class TaskForm extends React.Component {
         } else {
             return null;
         }
+    }
+
+    renderDescription() {
+
+        return (
+            <div className='task-description-container'>
+                <div className='task-form-label'>Description</div>
+                {/* <div className='task-form-field'> */}
+                    <textarea
+                        className='task-description'
+                        value={this.state.task.description}
+                        onChange={this.update('description')}
+                        placeholder='Add more details to this task'></textarea>
+                {/* </div> */}
+            </div>
+        )
     }
 
     render() {
@@ -277,10 +284,7 @@ class TaskForm extends React.Component {
                             {this.renderProject()}    
                             </div>
                         </div>
-                        <div className='task-description-container'>
-                            <div className='task-form-label'>Description</div>
-                            <div className='task-form-field'></div>
-                        </div>
+                        {this.renderDescription()}
                     </div>
                 </div>
             )

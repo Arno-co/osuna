@@ -3,7 +3,8 @@ import GreetingContainer from './GreetingContainer';
 import { openModal } from '../actions/modal_actions';
 import { clearErrors } from './../actions/session_actions';
 import { connect } from 'react-redux';
-import { AuthRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { withRouter } from 'react-router-dom';
 import HomeContainer from './HomeContainer';
 
 function Splash({openModal, currentUser}) {
@@ -45,4 +46,4 @@ const mapDispatchToProps = dispatch => ({
     clearErrors: () => dispatch(clearErrors())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Splash);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Splash));

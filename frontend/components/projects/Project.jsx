@@ -1,7 +1,7 @@
 import React from 'react';
 import SideBarContainer from '../SideBarContainer';
 import TaskItem from '../tasks/TaskItem';
-import { AuthRoute } from '../../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import { Route } from 'react-router-dom';
 import TaskFormContainer from '../tasks/TaskFormContainer';
 
@@ -154,7 +154,7 @@ class Project extends React.Component {
                                     <div className='tasks-table-row'></div>
                                 </div>
                             </div>
-                            <AuthRoute exact path="/projects/:projectId/:taskId" component={TaskFormContainer} />
+                            <ProtectedRoute exact path="/projects/:projectId/:taskId" component={TaskFormContainer} />
                         </div>
                     </div>
 

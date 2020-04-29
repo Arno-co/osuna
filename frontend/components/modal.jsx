@@ -2,7 +2,7 @@ import React from 'react';
 import { closeModal } from '../actions/modal_actions';
 import { clearErrors } from '../actions/session_actions';
 import { connect } from 'react-redux';
-import { AuthRoute } from '../util/route_util'
+import { AuthRoute, ProtectedRoute } from '../util/route_util'
 import LoginFormContainer from './LoginFormContainer';
 import SignupFormContainer from './SignupFormContainer';
 import TeamFormContainer from './teams/TeamForm';
