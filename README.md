@@ -2,6 +2,14 @@
 
 # Osuna
 
+## Technologies
+ * Backend: Ruby on Rails/PostgreSQL
+ * Frontend: JavaScript/React/Redux
+ * HTML5/CSS
+ * Webpack
+ 
+ ## About
+
 Osuna is an Asana clone, it is a single page web application designed to help teams organize, track and manage their projects and related tasks. 
 Users can access projects and tasks of their team, they can create and assign tasks.
 
@@ -12,11 +20,6 @@ Users can access projects and tasks of their team, they can create and assign ta
 
 [Osuna Live Demo](https://osuna.herokuapp.com/#/)
 
-## Technologies
- * Backend: Ruby on Rails/PostgreSQL
- * Frontend: JavaScript/React/Redux
- * HTML5/CSS
- * Webpack
 
 ## Installation
 ### Pre-requisites
