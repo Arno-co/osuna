@@ -42,6 +42,7 @@
     border-radius: 3px;
     text-align: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .complete-task-button-checked {
@@ -55,6 +56,7 @@
     border-radius: 3px;
     text-align: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .complete-task-button:hover {
@@ -92,6 +94,7 @@
     color: gray;
     padding: 10px;
     position: relative;
+    cursor: pointer;
 }
 
 .etc-form-container:hover{
@@ -221,6 +224,7 @@ textarea:focus  {
     border: 1px solid transparent;
     box-sizing: content-box;
     padding-right: 5px;
+    cursor: pointer;
  }
 
  .task-users-dropdown{

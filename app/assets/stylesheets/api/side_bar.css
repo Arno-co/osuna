@@ -58,7 +58,7 @@
     border: 2px solid rgb(244, 134, 187);
     border-radius: 3px;
     text-align: center;
-  
+    cursor: pointer;
 }
 .button-aside:hover {
     
