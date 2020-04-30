@@ -122,6 +122,7 @@ class SessionForm extends React.Component {
             )
         }
     }
+
     renderErrors() {
         if (this.props.errors) {
             return (
@@ -136,7 +137,7 @@ class SessionForm extends React.Component {
 
     fillDemo(e) {
         e.preventDefault();
-        this.props.loginForm({ email: 'at@donika.com', password: 'password'})
+        this.props.loginForm({ email: 'at@donika.com', password: 'osunacoco'})
             .then(() => (this.props.closeModal())).then(() => this.props.history.push('/home'))
     }
 
