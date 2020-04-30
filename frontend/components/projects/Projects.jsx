@@ -18,7 +18,23 @@ class Projects extends React.Component {
     render() {
   
         if (!this.props.projects.length) {
-            return null;
+            return (
+                <div className='home-projects-index'>
+                    <h2>Projects</h2>
+                    <div className='home-project-container'>
+                        <div className='tile-container' onClick={() => this.props.openModal('createProject')}>
+                            <div className='new-project-tile'>
+                                <span className='icon-container'>
+                                    <i className="fas fa-plus-square fa-3x" ></i>
+                                </span>
+                            </div>
+                            <div className='home-project-element'>
+                                Add a project
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )
         } else {
             return (
                 <div className='home-projects-index'>
