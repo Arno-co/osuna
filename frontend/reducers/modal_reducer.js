@@ -6,6 +6,7 @@ const modalReducer = (state = {type: null, id: null}, action) => {
         case OPEN_MODAL:
             return action.modal;
         case CLOSE_MODAL:
+            localStorage.clear()
             return { type: null, id: null };
         default:
             return state;

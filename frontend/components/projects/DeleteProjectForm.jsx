@@ -46,8 +46,8 @@ class DeleteProjectForm extends React.Component {
                         <div className='project-delete-form-body'>
                             <p>Deleting this project will delete all the project data and associated tasks.</p>
                             <div className='project-delete-form-buttons'>
-                                <button className='nav-button' id='cancel-delete' onClick={this.props.closeModal}>CANCEL</button>
-                                <input className='nav-button' type='submit' value='DELETE' />
+                                <button className='delete-cancel-button' onClick={this.props.closeModal}>CANCEL</button>
+                                <input className='delete-confirm-button' type='submit' value='DELETE' />
                             </div>
                         </div>
                         {this.renderErrors()}

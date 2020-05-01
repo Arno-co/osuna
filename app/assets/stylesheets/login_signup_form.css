@@ -1,6 +1,7 @@
 .login-signup-form {
     /* border: 2px solid red; */
-    height: 500px;
+    min-height: 500px;
+    height: auto;
     width: 400px;
     background-color: white;
     text-align: center;
