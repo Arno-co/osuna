@@ -34,7 +34,7 @@ export const fetchTasks = () => dispatch => {
 
 export const fetchTask = (taskId) => dispatch => {
     return TaskApiUtil.fetchTask(taskId)
-    .tehn((task) => dispatch(receiveTask(task)
+    .then((task) => dispatch(receiveTask(task)
     ), err => (dispatch(receiveErrors(err.responseJSON))))
 }
 

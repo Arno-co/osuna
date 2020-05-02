@@ -9,7 +9,8 @@ class TaskForm extends React.Component {
         this.state = {
             task: this.props.task,
             showDelete: false,
-            showAssignee: false
+            showAssignee: false,
+            assignee: null
         }
 
         this.toggleComplete = this.toggleComplete.bind(this);
@@ -29,8 +30,18 @@ class TaskForm extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (prevProps.task !== this.props.task) {
-            this.setState({ task: this.props.task})
+            this.setState({ task: this.props.task, assignee: this.props.users[this.props.task.assigneeId]})
         }
+    }
+
+    componentDidMount() {
+        this.props.fetchUsers().then(() => {
+            this.props.fetchTask(this.props.match.params.taskId)
+        }).then(() => {
+            this.setState({ assignee: this.props.users[this.props.task.assigneeId]})
+        
+        }, () => console.log('fail'));
+
     }
 
     update(field) {
@@ -78,9 +89,8 @@ class TaskForm extends React.Component {
         this.handleCloseForm(e)
     }
 
-    handleAssignee(id) {
-        if (this.props.users[id]) {
-            let user = this.props.users[id];
+    handleAssignee(assignee) {
+            let user = assignee;
             return (
                 <div className='assignee-field-container'>
                     <div className='team-member' style={{ background: this.handleTeamColor(user.username) }}>{this.handleName(user.username)}
@@ -90,9 +100,6 @@ class TaskForm extends React.Component {
                     </div>
                 </div>
             );
-        } else {
-            return null;
-        }
     }
 
     handleName(name) {
@@ -159,14 +166,14 @@ class TaskForm extends React.Component {
                 <div className='task-users-dropdown'>
                     {
                         Object.values(this.props.users).map((user) => {
-                            if (user.id !== this.state.task.assigneeId)
+                            if (user.id !== this.state.assignee.id)
                             return (
                             <div 
                             className='task-users-item' 
                             key={user.id}
                             value={user.id} 
                             onClick={() => this.changeAssignee(user.id)}
-                            >{this.handleAssignee(user.id)}</div>
+                            >{this.handleAssignee(user)}</div>
                             )
                         })
                     }
@@ -193,15 +200,17 @@ class TaskForm extends React.Component {
 
     renderTaskAssignee() {
         
-        return(
-            <div className='task-assignee-container' onClick={this.handleAssigneeOptions}>
-                <div className='task-form-label'>
-                    <div>Assignee</div>
+        if (this.state.assignee) {
+            return (
+                <div className='task-assignee-container' onClick={this.handleAssigneeOptions}>
+                    <div className='task-form-label'>
+                        <div>Assignee</div>
+                    </div>
+                    <div className='task-form-field'>{this.handleAssignee(this.state.assignee)}</div>
+                    {this.handleAssigneeDropdown()}
                 </div>
-                <div className='task-form-field'>{this.handleAssignee(this.state.task.assigneeId)}</div>
-                {this.handleAssigneeDropdown()}
-            </div>
-        )
+            )
+        }
     }
 
     renderProject() {
@@ -236,7 +245,6 @@ class TaskForm extends React.Component {
     }
 
     render() {
-        console.log(this.state)
         if (this.state.task) {
             let checked;
             let completed;
