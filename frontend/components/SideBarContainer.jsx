@@ -9,7 +9,8 @@ const mapSTP = (state) => ({
     currentUser: state.session.currentUser,
     users: Object.values(state.entities.users),
     teams: Object.values(state.entities.teams),
-    projects: Object.values(state.entities.projects)
+    projects: Object.values(state.entities.projects),
+    tasks: Object.values(state.entities.tasks)
 })
 
 const mapDTP = (dispatch) => ({

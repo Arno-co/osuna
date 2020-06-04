@@ -29,6 +29,14 @@ class SideBar extends React.Component {
         }
     }
 
+    handleTaskColor(task) {
+        if (task.completed) {
+            return '#25e8c8'
+        } else {
+            return 'white'
+        }
+    }
+
 
     render() {
         if (this.props.currentUser) {
@@ -68,7 +76,22 @@ class SideBar extends React.Component {
                             }</div>
                         </div>
                         <div className='shortcut-aside-label'>Tasks</div>
-                        <div className='shortcut-aside-field'></div>
+                        <div className='shortcut-aside-field'>
+                        <div>{
+                                this.props.tasks.map((task) => {
+                                    if (task.assigneeId === this.props.currentUser.id) {
+                                        return (
+                                            <Link to={`/projects/${task.projectId}`} key={task.id}>
+                                                <div className='mini-tile-container'>
+                                                    <div className='mini-tile' style={{ background: this.handleTaskColor(task) }}></div>
+                                                    <div className='mini-tile-container-text'>{task.title}</div>
+                                                </div>
+                                            </Link>
+                                        )
+                                    }
+                                })
+                            }</div>
+                        </div>
                     </div>
                     <div className="bottom-aside">
                         <a className='icon-arnoco-gh' href="https://github.com/Arno-co">
