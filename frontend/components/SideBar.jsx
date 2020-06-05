@@ -29,11 +29,26 @@ class SideBar extends React.Component {
         }
     }
 
-    handleTaskColor(task) {
-        if (task.completed) {
-            return '#25e8c8'
+    handleDueDate(date) {
+        let today = Date.now()
+        let parsedDate = Date.parse(date)
+
+        if (parsedDate < today) {
+            return 'red'
         } else {
             return 'white'
+        }
+    }
+
+    handleTaskColor(task) {
+        let today = Date.now()
+        let parsedDate = Date.parse(task.endDate)
+        if (task.completed) {
+            return '#25e8c8'
+        } else if (parsedDate < today) {
+           return 'red'
+        } else {
+            return "white"
         }
     }
 

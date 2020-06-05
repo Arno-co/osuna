@@ -88,6 +88,7 @@ class Project extends React.Component {
                             updateTask={this.props.updateTask}
                             history={this.props.history}
                             formatDate={this.formatDate}
+                            key={task.id}
                              />
                         )
                     })

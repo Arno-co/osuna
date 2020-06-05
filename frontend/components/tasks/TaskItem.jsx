@@ -13,9 +13,7 @@ class TaskItem extends React.Component {
 
     }
 
-    // componentDidMount(){
-    //     this.handleDueDate(this.props.task.endDate);
-    // }
+  
     componentDidUpdate(prevProps) {
         if (prevProps.task !== this.props.task) {
             this.setState(this.props.task)
