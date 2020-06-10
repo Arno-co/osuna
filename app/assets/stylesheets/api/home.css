@@ -7,11 +7,53 @@
     height: 10%;
     width: 100%;
     box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
 }
 
 .nav-home h2{
     font-size: 16px;
     padding: 30px;
+}
+
+.home-search-container{
+    border: 1px solid grey;
+    border-radius: 16px;
+    font-size: 0.7rem;
+    width: 150px;
+    height: 25px;
+    padding: 5px;
+    margin: 30px 50px;
+    display: flex;
+    align-items: center;
+}
+
+.home-search-container-large{
+    border: 1px solid grey;
+    border-radius: 16px;
+    font-size: 0.7rem;
+    width: 450px;
+    height: 25px;
+    padding: 5px;
+    margin: 30px 50px;
+    display: flex;
+    align-items: center;
+}
+
+.home-search-container form{
+    display: flex;
+}
+
+.home-search-container input{
+    width: 115px;
+}
+.home-search-container-large input{
+    width: 400px;
+}
+
+.search-icon-container{
+    padding: 0.5rem;
+    color: gray;
 }
 
 .body-home{
