@@ -47,11 +47,13 @@ class HomeSearch extends React.Component {
             }
         })
 
-        if(projectOptions.length === 0 && taskOptions.length === 0) {
-            return null;
-        } else {
-            this.setState({projectOptions: projectOptions, taskOptions: taskOptions})
-        }  
+        this.setState({ projectOptions: projectOptions, taskOptions: taskOptions })
+
+        // if(projectOptions.length === 0 && taskOptions.length === 0) {
+        //     return null;
+        // } else {
+        //     this.setState({projectOptions: projectOptions, taskOptions: taskOptions})
+        // }  
     }
 
     renderOptions() {
@@ -94,7 +96,7 @@ class HomeSearch extends React.Component {
             return null;
         } else if (this.state.projectOptions.length === 0 && this.state.taskOptions.length === 0) {
             return (
-                <div>No results found.</div>
+                <div className='search-dropdown-container'>No results found.</div>
             );
         } else {
             return this.renderOptions()
