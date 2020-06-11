@@ -87,7 +87,10 @@
 }
 
 .dropdown-title{
-    margin: 10px 0 10px 0;
-    
+    margin: 10px 0 10px 0; 
+}
+
+.dropdown-option:hover{
+    color: gray;
 }
 

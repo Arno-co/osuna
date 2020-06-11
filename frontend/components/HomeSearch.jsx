@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 class HomeSearch extends React.Component {
@@ -48,16 +49,9 @@ class HomeSearch extends React.Component {
         })
 
         this.setState({ projectOptions: projectOptions, taskOptions: taskOptions })
-
-        // if(projectOptions.length === 0 && taskOptions.length === 0) {
-        //     return null;
-        // } else {
-        //     this.setState({projectOptions: projectOptions, taskOptions: taskOptions})
-        // }  
     }
 
     renderOptions() {
-        // console.log(this.state.projectOptions)
         return(
             <div className='search-dropdown-container'>
                 <div className='dropdown-title'>Projects</div>
@@ -66,9 +60,10 @@ class HomeSearch extends React.Component {
                     : 
                     <ul>{
                     this.state.projectOptions.map((project) => {
-                        console.log(project.title)
                         return (
-                            <li key={project.id}>{project.title}</li>
+                             <Link to={`/projects/${project.id}`} key={project.id}>
+                                 <li className='dropdown-option'>{project.title}</li>
+                             </Link>
                         )
                     })
                     }</ul>}
@@ -78,9 +73,10 @@ class HomeSearch extends React.Component {
                     : 
                     <ul>{
                     this.state.taskOptions.map((task) => {
-                        console.log(task.title)
                         return (
-                            <li key={task.id}>{task.title}</li>
+                            <Link to={`/projects/${task.projectId}`} key={task.id}>
+                                <li className='dropdown-option'>{task.title}</li>
+                            </Link>
                         )
                     })
                     }</ul>
