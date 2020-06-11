@@ -96,7 +96,7 @@ class SideBar extends React.Component {
                                 this.props.tasks.map((task) => {
                                     if (task.assigneeId === this.props.currentUser.id) {
                                         return (
-                                            <Link to={`/projects/${task.projectId}`} key={task.id}>
+                                            <Link to={`/projects/${task.projectId}/${task.id}`} key={task.id}>
                                                 <div className='mini-tile-container'>
                                                     <div className='mini-tile' style={{ background: this.handleTaskColor(task) }}></div>
                                                     <div className='mini-tile-container-text'>{task.title}</div>

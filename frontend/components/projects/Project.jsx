@@ -4,6 +4,7 @@ import TaskItem from '../tasks/TaskItem';
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import { Route } from 'react-router-dom';
 import TaskFormContainer from '../tasks/TaskFormContainer';
+import HomeSearch from '../HomeSearch';
 
 class Project extends React.Component {
     constructor(props) {
@@ -140,6 +141,7 @@ class Project extends React.Component {
                                     <div className='project-description'>{this.state.project.description}</div>
                                 </div>
                             </div>
+                            <HomeSearch projects={Object.values(this.props.projects)} tasks={this.props.tasks} />
                         </div>
                         <div className='project-body-container'>
                             <div className='tasks-index-container'>

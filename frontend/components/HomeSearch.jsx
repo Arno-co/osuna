@@ -20,14 +20,18 @@ class HomeSearch extends React.Component {
 
 
     handleDisplay(e){
-        e.preventDefault();
+        // e.preventDefault();
         e.stopPropagation();
-        this.setState({active: !this.state.active})
+        this.setState({active: !this.state.active, inputText:''})
     }
 
     inputChange(e) {
         const value = e.target.value;
-        this.setState({ inputText: value }, () => this.checkOptions())
+        if (this.state.active === false) {
+            this.setState({ inputText: value, active: true }, () => this.checkOptions())
+        } else {
+            this.setState({ inputText: value }, () => this.checkOptions())
+        }
     }
 
     checkOptions(){
@@ -61,7 +65,7 @@ class HomeSearch extends React.Component {
                     <ul>{
                     this.state.projectOptions.map((project) => {
                         return (
-                             <Link to={`/projects/${project.id}`} key={project.id}>
+                            <Link to={`/projects/${project.id}`} key={project.id} onClick={(e) => this.handleDisplay(e)}>
                                  <li className='dropdown-option'>{project.title}</li>
                              </Link>
                         )
@@ -74,7 +78,7 @@ class HomeSearch extends React.Component {
                     <ul>{
                     this.state.taskOptions.map((task) => {
                         return (
-                            <Link to={`/projects/${task.projectId}`} key={task.id}>
+                            <Link to={`/projects/${task.projectId}/${task.id}`} key={task.id} onClick={(e) => this.handleDisplay(e)}>
                                 <li className='dropdown-option'>{task.title}</li>
                             </Link>
                         )
