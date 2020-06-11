@@ -61,9 +61,9 @@
 
 .complete-task-button:hover {
     
-    /* background-color: #d3fff5; */
-    border: 2px solid #25e8c8;
-    color: #25e8c8;
+    background-color: grey;
+    border: 2px solid grey;
+    color: white;
 }
 
 .complete-task-button-checked:hover {

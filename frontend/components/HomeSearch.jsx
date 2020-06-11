@@ -11,7 +11,12 @@ class HomeSearch extends React.Component {
             taskOptions: []
         };
         this.inputChange = this.inputChange.bind(this);
+        this.handleDisplay = this.handleDisplay.bind(this);
+        this.checkOptions = this.checkOptions.bind(this);
+        this.renderOptions = this.renderOptions.bind(this);
+        this.handleDropDown = this.handleDropDown.bind(this);
     }
+
 
     handleDisplay(e){
         e.preventDefault();
@@ -21,8 +26,7 @@ class HomeSearch extends React.Component {
 
     inputChange(e) {
         const value = e.target.value;
-        this.setState({inputText: value})
-        console.log(this.state.value)
+        this.setState({ inputText: value }, () => this.checkOptions())
     }
 
     checkOptions(){
@@ -32,6 +36,8 @@ class HomeSearch extends React.Component {
         this.props.projects.forEach(project => {
             if (project.title.toLowerCase().includes(this.state.inputText.toLowerCase())) {
                 projectOptions.push(project)
+            } else {
+                return projectOptions;
             }
         })
 
@@ -49,26 +55,57 @@ class HomeSearch extends React.Component {
     }
 
     renderOptions() {
+        // console.log(this.state.projectOptions)
         return(
-            <div>
-                <div>Projects</div>
-                <div>{
+            <div className='search-dropdown-container'>
+                <div className='dropdown-title'>Projects</div>
+                {(this.state.projectOptions.length === 0) ? 
+                    <div>No projects found</div> 
+                    : 
+                    <ul>{
                     this.state.projectOptions.map((project) => {
                         console.log(project.title)
-                        return(
-                        <div>{project.title}</div>
+                        return (
+                            <li key={project.id}>{project.title}</li>
                         )
                     })
-                    }</div>
+                    }</ul>}
+                <div className='dropdown-title'>Tasks</div>
+                {(this.state.taskOptions.length === 0) ?
+                    < div > No tasks found</div>
+                    : 
+                    <ul>{
+                    this.state.taskOptions.map((task) => {
+                        console.log(task.title)
+                        return (
+                            <li key={task.id}>{task.title}</li>
+                        )
+                    })
+                    }</ul>
+                }
             </div>
         )
+    
+    }
+
+    handleDropDown() {
+         
+        if(this.state.inputText.length === 0) {
+            return null;
+        } else if (this.state.projectOptions.length === 0 && this.state.taskOptions.length === 0) {
+            return (
+                <div>No results found.</div>
+            );
+        } else {
+            return this.renderOptions()
+        }
     }
 
     render() {
         let active;
         (this.state.active) ? active = 'home-search-container-large' : active = 'home-search-container' 
         return(
-            <div>
+            <div className='home-search-bar'>
                 <div className={active} onClick={(e) => this.handleDisplay(e)}>
                     <form>
                         <span className='search-icon-container'>
@@ -80,9 +117,7 @@ class HomeSearch extends React.Component {
                             value={this.state.inputText}
                             placeholder='Search' />
                     </form>
-                </div>
-                <div>
-                    {this.renderOptions()}
+                {this.handleDropDown()}
                 </div>
             </div>
         )
