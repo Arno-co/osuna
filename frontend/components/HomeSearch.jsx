@@ -20,7 +20,6 @@ class HomeSearch extends React.Component {
 
 
     handleDisplay(e){
-        // e.preventDefault();
         e.stopPropagation();
         this.setState({active: !this.state.active, inputText:''})
     }
@@ -58,7 +57,7 @@ class HomeSearch extends React.Component {
     renderOptions() {
         return(
             <div className='search-dropdown-container'>
-                <div className='dropdown-title'>Projects</div>
+                <div className='dropdown-title'>PROJECTS</div>
                 {(this.state.projectOptions.length === 0) ? 
                     <div>No projects found</div> 
                     : 
@@ -71,7 +70,7 @@ class HomeSearch extends React.Component {
                         )
                     })
                     }</ul>}
-                <div className='dropdown-title'>Tasks</div>
+                <div className='dropdown-title'>TASKS</div>
                 {(this.state.taskOptions.length === 0) ?
                     < div > No tasks found</div>
                     : 

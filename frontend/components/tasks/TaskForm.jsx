@@ -84,8 +84,7 @@ class TaskForm extends React.Component {
     }
 
     handleDeleteTask(e) {
-        this.props.deleteTask(this.state.task.id)
-        this.props.fetchTasks()
+        this.props.deleteTask(this.state.task.id).then(() => this.props.fetchTasks());
         this.handleCloseForm(e)
     }
 
