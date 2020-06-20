@@ -115,12 +115,12 @@ class SideBar extends React.Component {
                         <a className='icon-arnoco-li' href="https://www.linkedin.com/in/arnaud-cognard-127556a/">
                             <i className="fab fa-linkedin fa-3x"></i>
                         </a>
-                        <a className='icon-arnoco-al' href="https://angel.co/u/arnaud-cognard">
+                        {/* <a className='icon-arnoco-al' href="https://angel.co/u/arnaud-cognard">
                             <i className="fab fa-angellist fa-3x"></i>
-                        </a>
-                        {/* <a className='icon-arnoco-we' href="">
+                        </a> */}
+                        <a className='icon-arnoco-we' href="https://arnaudcognard.com/">
                         <i className="fas fa-briefcase fa-3x"></i>
-                    </a>     */}
+                        </a>    
                     </div>
                 </aside>
 
