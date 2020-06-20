@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import reactStringReplace from 'react-string-replace';
 
 
 class HomeSearch extends React.Component {
@@ -55,6 +56,7 @@ class HomeSearch extends React.Component {
     }
 
     renderOptions() {
+      
         return(
             <div className='search-dropdown-container'>
                 <div className='dropdown-title'>PROJECTS</div>
@@ -65,7 +67,7 @@ class HomeSearch extends React.Component {
                     this.state.projectOptions.map((project) => {
                         return (
                             <Link to={`/projects/${project.id}`} key={project.id} onClick={(e) => this.handleDisplay(e)}>
-                                 <li className='dropdown-option'>{project.title}</li>
+                                <li className='dropdown-option'>{reactStringReplace(project.title, this.state.inputText, (match, i) => <span className="hl" key={i}>{match}</span>)}</li>
                              </Link>
                         )
                     })
@@ -78,7 +80,7 @@ class HomeSearch extends React.Component {
                     this.state.taskOptions.map((task) => {
                         return (
                             <Link to={`/projects/${task.projectId}/${task.id}`} key={task.id} onClick={(e) => this.handleDisplay(e)}>
-                                <li className='dropdown-option'>{task.title}</li>
+                                <li className='dropdown-option'>{reactStringReplace(task.title, this.state.inputText, (match, i) => <span className="hl" key={i}>{match}</span>)}</li>
                             </Link>
                         )
                     })
