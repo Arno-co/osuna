@@ -3,11 +3,19 @@ import { signup, login, logout } from '../actions/session_actions';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import Team from './teams/Team';
+import ProjectsList from './projects/ProjectsList';
 import { render } from 'react-dom';
 
 class SideBar extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            projectsOpen: "down",
+            teamOpen: "down",
+            tasksOpen: "down"
+        }
+        this.handleClickTeam = this.handleClickTeam.bind(this);
+        this.handleClickProjects = this.handleClickProjects.bind(this);
     }
 
     
@@ -52,7 +60,20 @@ class SideBar extends React.Component {
         }
     }
 
+    handleClickTeam() {
+        let direction = this.state.teamOpen;
+        let newDirection = direction === "up" ? "down" : "up";
 
+        this.setState({teamOpen: newDirection})
+    }
+
+    handleClickProjects() {
+        console.log(this.state)
+        let direction = this.state.projectsOpen;
+        let newDirection = direction === "up" ? "down" : "up";
+
+        this.setState({ projectsOpen: newDirection })
+    }
     render() {
         if (this.props.currentUser) {
 
@@ -64,7 +85,6 @@ class SideBar extends React.Component {
 
                     <br />
                         </div>
-                        {/* <div>{props.team.name}</div> */}
                         <button className="button-aside" onClick={() => {
                             this.props.logout();
                             this.props.history.push('/')
@@ -72,12 +92,30 @@ class SideBar extends React.Component {
                         <Link to={`/home`}>
                             <i className="fas fa-home fa-1x"></i>
                         </Link>
-                        <div className='shortcut-aside-label'>Team</div>
-                        <Team users={this.props.users} teams={this.props.teams} />
-                        <div className='shortcut-aside-field'></div>
-                        <div className='shortcut-aside-label'>Projects</div>
+                        <span className='shortcut-aside-label' onClick={this.handleClickTeam}>
+                            <div>Team</div>
+                            <i className={`fas fa-angle-${this.state.teamOpen}`}></i>
+                        </span>
+                       
                         <div className='shortcut-aside-field'>
-                            <div>{
+                            {this.state.teamOpen === "down" ?
+                                <Team users={this.props.users} teams={this.props.teams} />
+                                :
+                                null
+                            }
+                        </div>
+                        <span className='shortcut-aside-label' onClick={this.handleClickProjects}>
+                            <div>Projects</div>
+                            <i className={`fas fa-angle-${this.state.projectsOpen}`}></i>
+                        </span>
+                        <div className='shortcut-aside-field'>
+                            {this.state.projectsOpen === "down" ?
+                                <ProjectsList projects={this.props.projects} />
+                                :
+                                null
+                            }
+                            
+                            {/* <div>{
                                 this.props.projects.map((project) => {
                                     return (
                                         <Link to={`/projects/${project.id}`} key={project.id}>
@@ -88,7 +126,7 @@ class SideBar extends React.Component {
                                         </Link>
                                     )
                                 })
-                            }</div>
+                            }</div> */}
                         </div>
                         <div className='shortcut-aside-label'>Tasks</div>
                         <div className='shortcut-aside-field'>
@@ -109,16 +147,16 @@ class SideBar extends React.Component {
                         </div>
                     </div>
                     <div className="bottom-aside">
-                        <a className='icon-arnoco-gh' href="https://github.com/Arno-co">
+                        <a className='icon-arnoco-gh' target="_blank" href="https://github.com/Arno-co">
                             <i className="fab fa-github-square fa-3x"></i>
                         </a>
-                        <a className='icon-arnoco-li' href="https://www.linkedin.com/in/arnaud-cognard-127556a/">
+                        <a className='icon-arnoco-li' target="_blank" href="https://www.linkedin.com/in/arnaud-cognard-127556a/">
                             <i className="fab fa-linkedin fa-3x"></i>
                         </a>
-                        {/* <a className='icon-arnoco-al' href="https://angel.co/u/arnaud-cognard">
+                        {/* <a className='icon-arnoco-al' target="_blank" href="https://angel.co/u/arnaud-cognard">
                             <i className="fab fa-angellist fa-3x"></i>
                         </a> */}
-                        <a className='icon-arnoco-we' href="https://arnaudcognard.com/">
+                        <a className='icon-arnoco-we' target="_blank" href="https://arnaudcognard.com/">
                         <i className="fas fa-briefcase fa-3x"></i>
                         </a>    
                     </div>
@@ -127,13 +165,6 @@ class SideBar extends React.Component {
             )
         } else {
             return (
-                // <div>Not signed in!
-                //     <br />
-                //     <Link to='/signup'>SIGN UP</Link>
-                //     <br />
-                //     <Link to='/login'>LOG IN</Link>
-                //     <br />
-                // </div>
                 <nav className="login-signup">
                     <button className='button-aside' onClick={() => this.props.openModal('login')}>LOG IN</button>
 

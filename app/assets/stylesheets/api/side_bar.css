@@ -30,14 +30,23 @@
     font-size: 0.8rem;
     padding: 10px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
 }
+
+.shortcut-aside-label:hover {
+    color: white;
+}
+
 .shortcut-aside-field {
     display: inline-table;
     color: white;
     font-size: 0.8rem;
     width:100%;
     height: auto;
-    padding-left: 30px;
+    padding-left: 10px;
     box-sizing: border-box;
 }
 
