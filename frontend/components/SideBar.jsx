@@ -15,32 +15,13 @@ class SideBar extends React.Component {
             teamOpen: "down",
             tasksOpen: "down"
         }
-        this.handleClickTeam = this.handleClickTeam.bind(this);
-        this.handleClickProjects = this.handleClickProjects.bind(this);
-        this.handleClickTasks = this.handleClickTasks.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
-
-
-    handleClickTeam() {
-        let direction = this.state.teamOpen;
+    handleClick(field) {
+        let direction = this.state[field];
         let newDirection = direction === "up" ? "down" : "up";
-
-        this.setState({teamOpen: newDirection})
-    }
-
-    handleClickProjects() {
-        let direction = this.state.projectsOpen;
-        let newDirection = direction === "up" ? "down" : "up";
-
-        this.setState({ projectsOpen: newDirection })
-    }
-
-    handleClickTasks() {
-        let direction = this.state.tasksOpen;
-        let newDirection = direction === "up" ? "down" : "up";
-
-        this.setState({ tasksOpen: newDirection })
+        this.setState({ [field]: newDirection })
     }
 
     render() {
@@ -61,7 +42,7 @@ class SideBar extends React.Component {
                         <Link to={`/home`}>
                             <i className="fas fa-home fa-1x"></i>
                         </Link>
-                        <span className='shortcut-aside-label' onClick={this.handleClickTeam}>
+                        <span className='shortcut-aside-label' onClick={() => this.handleClick('teamOpen')}>
                             <div>Team</div>
                             <i className={`fas fa-angle-${this.state.teamOpen}`}></i>
                         </span>
@@ -73,7 +54,7 @@ class SideBar extends React.Component {
                                 null
                             }
                         </div>
-                        <span className='shortcut-aside-label' onClick={this.handleClickProjects}>
+                        <span className='shortcut-aside-label' onClick={() => this.handleClick('projectsOpen')}>
                             <div>Projects</div>
                             <i className={`fas fa-angle-${this.state.projectsOpen}`}></i>
                         </span>
@@ -84,7 +65,7 @@ class SideBar extends React.Component {
                                 null
                             }
                         </div>
-                        <span className='shortcut-aside-label' onClick={this.handleClickTasks}>
+                        <span className='shortcut-aside-label' onClick={() => this.handleClick('tasksOpen')}>
                             <div>Tasks</div>
                             <i className={`fas fa-angle-${this.state.tasksOpen}`}></i>
                         </span>

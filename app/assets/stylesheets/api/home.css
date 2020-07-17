@@ -17,7 +17,7 @@
 }
 
 .home-search-container{
-    border: 1px solid grey;
+    border: 1px solid lightgrey;
     border-radius: 16px;
     font-size: 0.7rem;
     width: 150px;
@@ -29,7 +29,7 @@
 }
 
 .home-search-container-large{
-    border: 1px solid grey;
+    border: 1px solid lightgrey;
     border-radius: 16px;
     font-size: 0.7rem;
     width: 450px;
@@ -95,5 +95,5 @@
 }
 
 .hl {
-  background: #f1d96c;
+  background: lightgray;
 }

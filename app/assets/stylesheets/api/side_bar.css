@@ -34,6 +34,7 @@
     flex-direction: row;
     justify-content: space-between;
     cursor: pointer;
+    transition: all .07s ease;
 }
 
 .shortcut-aside-label:hover {
@@ -84,6 +85,7 @@
     margin-top: auto;
     margin-bottom: 30px;
     height: 80px;
+    bottom: 0;
 }
 
 .icon-arnoco-gh{ 

@@ -4,16 +4,7 @@ import { Link } from 'react-router-dom';
 const TasksList = (props) => {
     const { tasks, currentUser } = props;
 
-    // const handleDueDate = (date)=> {
-    //     let today = Date.now()
-    //     let parsedDate = Date.parse(date)
 
-    //     if (parsedDate < today) {
-    //         return 'red'
-    //     } else {
-    //         return 'white'
-    //     }
-    // }
 
     const handleTaskColor = (task) => {
         let today = Date.now()
