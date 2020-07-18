@@ -100,6 +100,18 @@ class TaskItem extends React.Component {
         }
     }
 
+    handlePastDue(date) {
+        let today = Date.now()
+        let parsedDate = Date.parse(date)
+
+        if (parsedDate < today && !this.props.task.completed) {
+
+            return (
+                <div className='task-past-due'>PAST DUE</div>
+            )
+        }
+    }
+
     render() {
         let checked;
 
@@ -112,6 +124,7 @@ class TaskItem extends React.Component {
                         <i className="fas fa-check fa-s" ></i>
                     </span>
                     <div>{this.props.task.title}</div>
+                    <div>{this.handlePastDue(this.props.task.endDate)}</div>
                 </div>
                 {this.handleAssignee(this.props.task.assigneeId)}
                 <div className='task-table-cell-start-date'>{this.props.task.startDate}</div>

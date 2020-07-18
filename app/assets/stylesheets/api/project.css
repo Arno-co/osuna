@@ -190,6 +190,13 @@
     width: 40%;
     display: flex;
 }
+
+.task-past-due{
+    margin-left: 20px;
+    color: #e8384f;
+    font-size: 0.6rem;
+}
+
 .task-table-cell-assignee{
     width: 30%;
     display: flex;
