@@ -147,6 +147,10 @@ class Project extends React.Component {
                             <div className='tasks-index-container'>
                                 <div className='add-task-button-container'>
                                     <div className='add-task-button' onClick={() => { this.handleNewTask() }}>ADD TASK</div>
+                                    
+                                    <div className='back-projects-button'>
+                                        <a href="#/home">BACK TO PROJECTS</a>
+                                    </div>
                                 </div>
                                 <div className='tasks-table'>
                                     <div className='tasks-table-row-top'>                                      
