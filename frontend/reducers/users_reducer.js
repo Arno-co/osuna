@@ -10,6 +10,7 @@ const usersReducer = (oldState = {}, action) => {
             nextState[action.currentUser.id] = action.currentUser;
             return nextState;
         case RECEIVE_USERS:
+            console.log(action)
             return action.users;
         case RECEIVE_USER:
             nextState[action.user.id] = action.user;

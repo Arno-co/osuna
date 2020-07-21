@@ -9,6 +9,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util'
 import { Route, Switch, Redirect } from 'react-router-dom';
 import TeamForm from './teams/TeamForm';
 import ProjectContainer from './projects/ProjectContainer';
+import TeamMemberContainer from './teams/TeamMemberContainer';
 
 const App = (props) => {
 
@@ -27,6 +28,7 @@ const App = (props) => {
             <ProtectedRoute exact path="/home" component={HomeContainer} />
             {/* <AuthRoute exact path="/projects/:projectId" component={ProjectContainer} /> */}
             <ProtectedRoute exact path="/projects/:projectId/:taskId?" component={ProjectContainer} />
+            <ProtectedRoute exact path="/team/:userId/:taskId?" component={TeamMemberContainer} />
         </div>
     )
 }

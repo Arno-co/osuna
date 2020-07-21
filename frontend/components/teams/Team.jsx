@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 class Team extends React.Component {
@@ -42,15 +43,18 @@ class Team extends React.Component {
                     {
                         this.props.users.map((user, idx) => {
                             return (
-                                <div key={idx}>
-                                    <div className='team-member' style={{ background: this.handleColor(user.username) }}>{this.handleName(user.username)}
-                                        <div className='team-member-hover' key={idx} style={{ background: this.handleColor(user.username) }}>
-                                            <div>{user.username}</div>
-                                            <br/>
-                                            <div>{this.props.teams.length ? this.props.teams[0].name : null}</div>
+                                <Link to={`/team/${user.id}`}>
+                                    <div key={idx}>
+                                        <div className='team-member' style={{ background: this.handleColor(user.username) }}>{this.handleName(user.username)}
+                                            <div className='team-member-hover' key={idx} style={{ background: this.handleColor(user.username) }}>
+                                                <div>{user.username}</div>
+                                                <br />
+                                                <div>{this.props.teams.length ? this.props.teams[0].name : null}</div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </Link>
+                                
                             )
                         })
                     }
