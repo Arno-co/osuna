@@ -44,7 +44,7 @@
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid lightgray;
-    height: 20%;
+    height: 10%;
     box-sizing: border-box;
     font-size: 0.8rem;
 }
@@ -55,11 +55,33 @@
     width: 100%;
 }
 
+.team-member-header-text h1{
+    padding-bottom: 0;
+}
+
+.team-member-header-text h4{
+    margin: 5px 15px 5px 15px;
+}
 
 .team-member-body-container{
     width: 100%;
     height: 80%;
     display: flex;
     flex-direction: column;
-    transition-duration: 2s;
+    /* transition-duration: 2s; */
+}
+
+.team-member-index{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.team-member-index h2{
+    font-size: 16px;
+    width: 100%;
+    border-bottom: 2px solid gray;
+    padding-bottom: 20px;
+    margin: 20px;
 }

@@ -18,14 +18,12 @@ class TeamMember extends React.Component {
         }
         this.handleTeamColor = this.handleTeamColor.bind(this);
         this.handleProjects = this.handleProjects.bind(this);
-        this.handleAuthoredTasksIndex = this.handleAuthoredTasksIndex.bind(this);
-        this.handleAssignedTasksIndex = this.handleAssignedTasksIndex.bind(this);
+        this.handleTasksIndex = this.handleTasksIndex.bind(this);
         this.handleNewTask = this.handleNewTask.bind(this);
     }
 
     componentDidMount() {
         const userIdNumber = this.props.match.params.userId;
-        console.log(userIdNumber, 'CDM')
 
         this.props.fetchProjects();
         this.props.fetchTeams();
@@ -37,8 +35,7 @@ class TeamMember extends React.Component {
 
         if (this.props.match.params.userId !== prevProps.match.params.userId) {
             const userIdNumber = this.props.match.params.userId;
-            console.log(userIdNumber)
-
+            
             this.props.fetchProjects();
             this.props.fetchTeams();
             this.props.fetchTasks();
@@ -84,6 +81,7 @@ class TeamMember extends React.Component {
                         <div className='home-project-container' key={project.id}>
                             <ProjectTile
                                 project={project}
+                                page={'team'}
                                 users={this.props.users}
                                 openModal={this.props.openModal}
                                 fetchProjects={this.props.fetchProjects}
@@ -99,42 +97,16 @@ class TeamMember extends React.Component {
         }
     }
 
-
-    handleAssignedTasksIndex() {
+    handleTasksIndex(filter) {
         let tasks = [];
 
         if (this.props.tasks) {
 
-            tasks = this.props.tasks.filter(task => task.authorId === this.state.user.id)
-
-            return (
-                tasks.map((task) => {
-                    return (
-                        <TaskItem
-                            task={task}
-                            users={this.props.users}
-                            project={this.props.projects[task.projectId]}
-                            teams={this.props.teams}
-                            createTask={this.props.createTask}
-                            updateTask={this.props.updateTask}
-                            history={this.props.history}
-                            formatDate={this.formatDate}
-                            key={task.id}
-                        />
-                    )
-                })
-            )
-        } else {
-            return null;
-        }
-    }
-
-    handleAuthoredTasksIndex() {
-        let tasks = [];
-
-        if (this.props.tasks) {
-
-            tasks = this.props.tasks.filter(task => task.assigneeId === this.state.user.id)
+            if (filter === 'assigned') {
+                tasks = this.props.tasks.filter(task => task.assigneeId === this.state.user.id)
+            } else if (filter === 'authored') {
+                tasks = this.props.tasks.filter(task => task.authorId === this.state.user.id)
+            }
 
             return (
                 tasks.map((task) => {
@@ -202,6 +174,7 @@ class TeamMember extends React.Component {
 
         if (this.state.user.username) {
             const user = this.state.user;
+            const team = this.props.teams[user.teamId]
             return (
                 <div className='team-member-page'>
                     <SideBarContainer />
@@ -214,68 +187,49 @@ class TeamMember extends React.Component {
                                     </span>
                                 </div>
                                 <div className='team-member-header-text'>
-                                    <h1>{this.state.user.username}</h1>
-                                    {/* <div className='project-owner'>{this.props.users[this.state.project.projectOwnerId] ? this.props.users[this.state.project.projectOwnerId].username : null}</div>
-                                    <div className='project-description'>{this.state.project.description}</div> */}
+                                    <h1>{user.username}</h1>
+                                    <h4>{user.email}</h4>
+                                    <h4>{team.name}</h4>
                                 </div>
                             </div>
                             <HomeSearch projects={Object.values(this.props.projects)} tasks={this.props.tasks} />
                         </div>
                         <div className='team-member-body-container'>
-                            <div className='home-projects-index'>
-                                <h2>Projects</h2>
+                            <div className='team-member-index'>
+                                <h2>Owned Projects</h2>
                                 {this.handleProjects()}
-                                <div className='home-project-container'>
-                                    <div className='tile-container' onClick={() => this.props.openModal('createProject')}>
-                                        <div className='new-project-tile'>
-                                            <span className='icon-container'>
-                                                <i className="fas fa-plus-square fa-3x" ></i>
-                                            </span>
+                            </div>
+                            <div className='team-member-index'>
+                                <h2>Assigned Tasks</h2>
+                                <div className='tasks-index-container'>
+                                    <div className='tasks-table'>
+                                        <div className='tasks-table-row-top'>
+                                            <div className='task-table-cell-task'>Task</div>
+                                            <div className='task-table-cell-assignee'>Assignee</div>
+                                            <div className='task-table-cell-start-date'>Start Date</div>
+                                            <div className='task-table-cell-end-date'>Due Date</div>
                                         </div>
-                                        <div className='home-project-element'>
-                                            Add a project
-                            </div>
+                                        {this.handleTasksIndex('assigned')}
+                                        <div className='tasks-table-row'></div>
                                     </div>
                                 </div>
                             </div>
-                            <div className='tasks-index-container'>
-                                {/* <div className='add-task-button-container'>
-                                    <div className='add-task-button' onClick={() => { this.handleNewTask() }}>ADD TASK</div>
-
-                                    <div className='back-projects-button'>
-                                        <a href="#/home">BACK TO PROJECTS</a>
+                            <div className='team-member-index'>
+                                <h2>Authored Tasks</h2>
+                                <div className='tasks-index-container'>
+                                    <div className='tasks-table'>
+                                        <div className='tasks-table-row-top'>
+                                            <div className='task-table-cell-task'>Task</div>
+                                            <div className='task-table-cell-assignee'>Assignee</div>
+                                            <div className='task-table-cell-start-date'>Start Date</div>
+                                            <div className='task-table-cell-end-date'>Due Date</div>
+                                        </div>
+                                        {this.handleTasksIndex('authored')}
+                                        <div className='tasks-table-row'></div>
                                     </div>
-                                </div> */}
-                                <div className='tasks-table'>
-                                    <div className='tasks-table-row-top'>
-                                        <div className='task-table-cell-task'>Task</div>
-                                        <div className='task-table-cell-assignee'>Assignee</div>
-                                        <div className='task-table-cell-start-date'>Start Date</div>
-                                        <div className='task-table-cell-end-date'>Due Date</div>
-                                    </div>
-                                    {this.handleAssignedTasksIndex()}
-                                    <div className='tasks-table-row'></div>
                                 </div>
                             </div>
-                            <div className='tasks-index-container'>
-                                {/* <div className='add-task-button-container'>
-                                    <div className='add-task-button' onClick={() => { this.handleNewTask() }}>ADD TASK</div>
-
-                                    <div className='back-projects-button'>
-                                        <a href="#/home">BACK TO PROJECTS</a>
-                                    </div>
-                                </div> */}
-                                <div className='tasks-table'>
-                                    <div className='tasks-table-row-top'>
-                                        <div className='task-table-cell-task'>Task</div>
-                                        <div className='task-table-cell-assignee'>Assignee</div>
-                                        <div className='task-table-cell-start-date'>Start Date</div>
-                                        <div className='task-table-cell-end-date'>Due Date</div>
-                                    </div>
-                                    {this.handleAuthoredTasksIndex()}
-                                    <div className='tasks-table-row'></div>
-                                </div>
-                            </div>
+                            
                         </div>
                             <ProtectedRoute exact path="/projects/:projectId/:taskId" component={TaskFormContainer} />
                     </div>
@@ -283,7 +237,6 @@ class TeamMember extends React.Component {
                 </div>
             )
         } else {
-            console.log('ELSE')
             return null;
         }
     }

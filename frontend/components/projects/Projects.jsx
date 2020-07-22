@@ -46,6 +46,7 @@ class Projects extends React.Component {
                                         <div className='home-project-container' key={project.id}>
                                             <ProjectTile 
                                             project={project} 
+                                            page={'home'}
                                             users={this.props.users} 
                                             openModal={this.props.openModal}
                                             fetchProjects={this.props.fetchProjects}

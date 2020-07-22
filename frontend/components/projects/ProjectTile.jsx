@@ -12,12 +12,6 @@ class ProjectTile extends React.Component {
         
     }
 
-    // componentDidMount() {
-    //     this.props.fetchUsers()
-    //     this.props.fetchTeams()
-    //     this.props.fetchProjects()
-    // }
-
     handleProjectMenu(e) {
 
 
@@ -60,33 +54,64 @@ class ProjectTile extends React.Component {
     render() {
         if (this.props.project) {
            
-            return (
-                <Link to={`/projects/${this.props.project.id}`} className="home-project-index-item">
-                    <div className='tile-container'>
-                        <div className='tile' style={{ background: this.handleTeamColor(this.props.project.title) }}>
-                            <div className='tile-top-container'>
-                                <span className='star-icon-container'>
-                                    <i className="fas fa-star fa-xs" ></i>
+            if (this.props.page === 'home') {
+                return (
+                    <Link to={`/projects/${this.props.project.id}`} className="home-project-index-item">
+                        <div className='tile-container'>
+                            <div className='tile' style={{ background: this.handleTeamColor(this.props.project.title) }}>
+                                <div className='tile-top-container'>
+                                    <span className='star-icon-container'>
+                                        <i className="fas fa-star fa-xs" ></i>
+                                    </span>
+                                    <span className='etc-icon-container' onClick={this.handleProjectMenu}>
+                                        <i className="fas fa-ellipsis-h fa-xs" ></i>
+                                    </span>
+                                    {this.state.showMenu === true ? <ProjectMenu handleProjectMenu={this.handleProjectMenu} project={this.props.project} openModal={this.props.openModal} /> : null}
+                                </div>
+                                <span className='icon-container'>
+                                    <i className="fas fa-list fa-2x" ></i>
                                 </span>
-                                <span className='etc-icon-container' onClick={this.handleProjectMenu}>
-                                    <i className="fas fa-ellipsis-h fa-xs" ></i>
-                                </span>
-                                {this.state.showMenu === true ? <ProjectMenu handleProjectMenu={this.handleProjectMenu} project={this.props.project} openModal={this.props.openModal} /> : null}
+                                <div className='project-leader'>{
+                                    this.props.users[this.props.project.projectOwnerId] ? this.handleName(this.props.users[this.props.project.projectOwnerId].username) : null
+
+                                }</div>
                             </div>
-                            <span className='icon-container'>
-                                <i className="fas fa-list fa-2x" ></i>
-                            </span>
-                            <div className='project-leader'>{
-                                this.props.users[this.props.project.projectOwnerId] ? this.handleName(this.props.users[this.props.project.projectOwnerId].username) : null
-                                
-                            }</div>
+                            <div className='home-project-element'>
+                                {this.props.project.title}
+                            </div>
+                        </div>
+                    </Link>
+                )
+            } else if (this.props.page === 'team') {
+                return (
+                    <Link to={`/projects/${this.props.project.id}`} className="home-project-index-item">
+                        <div className='project-mini-tile-container' style={{ background: this.handleTeamColor(this.props.project.title) }}>
+                            {/* <div className='tile' style={{ background: this.handleTeamColor(this.props.project.title) }}> */}
+                                {/* <div className='tile-top-container'>
+                                    <span className='star-icon-container'>
+                                        <i className="fas fa-star fa-xs" ></i>
+                                    </span>
+                                    <span className='etc-icon-container' onClick={this.handleProjectMenu}>
+                                        <i className="fas fa-ellipsis-h fa-xs" ></i>
+                                    </span>
+                                    {this.state.showMenu === true ? <ProjectMenu handleProjectMenu={this.handleProjectMenu} project={this.props.project} openModal={this.props.openModal} /> : null}
+                                </div> */}
+                                <span className='icon-container'>
+                                    <i className="fas fa-list fa-2x" ></i>
+                                </span>
+                                {/* <div className='project-leader'>{
+                                    this.props.users[this.props.project.projectOwnerId] ? this.handleName(this.props.users[this.props.project.projectOwnerId].username) : null
+
+                                }</div> */}
+                            {/* </div> */}
+                            
                         </div>
                         <div className='home-project-element'>
-                            {this.props.project.title}
+                                {this.props.project.title}
                         </div>
-                    </div>
-                </Link>
-            )
+                    </Link>
+                )
+            }
         } else {
             return null;
         }
