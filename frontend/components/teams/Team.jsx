@@ -43,8 +43,8 @@ class Team extends React.Component {
                     {
                         this.props.users.map((user, idx) => {
                             return (
-                                <Link to={`/team/${user.id}`}>
-                                    <div key={idx}>
+                                <Link to={`/team/${user.id}`} key={idx}>
+                                    <div>
                                         <div className='team-member' style={{ background: this.handleColor(user.username) }}>{this.handleName(user.username)}
                                             <div className='team-member-hover' key={idx} style={{ background: this.handleColor(user.username) }}>
                                                 <div>{user.username}</div>

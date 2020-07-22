@@ -4,6 +4,7 @@ import TaskItem from '../tasks/TaskItem';
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import { Route } from 'react-router-dom';
 import TaskFormContainer from '../tasks/TaskFormContainer';
+import ProjectTile from '../projects/ProjectTile';
 import HomeSearch from '../HomeSearch';
 
 class TeamMember extends React.Component {
@@ -16,6 +17,7 @@ class TeamMember extends React.Component {
             tasks: this.props.tasks
         }
         this.handleTeamColor = this.handleTeamColor.bind(this);
+        this.handleProjects = this.handleProjects.bind(this);
         this.handleAuthoredTasksIndex = this.handleAuthoredTasksIndex.bind(this);
         this.handleAssignedTasksIndex = this.handleAssignedTasksIndex.bind(this);
         this.handleNewTask = this.handleNewTask.bind(this);
@@ -69,6 +71,34 @@ class TeamMember extends React.Component {
             return null;
         }
     }
+
+    handleProjects() {
+        let projects = [];
+
+        if (this.props.projects) {
+            projects = Object.values(this.props.projects).filter(project => project.projectOwnerId === this.state.user.id);
+
+            return (
+                projects.map((project) => {
+                    return (
+                        <div className='home-project-container' key={project.id}>
+                            <ProjectTile
+                                project={project}
+                                users={this.props.users}
+                                openModal={this.props.openModal}
+                                fetchProjects={this.props.fetchProjects}
+                                fetchUsers={this.props.fetchUsers}
+                                fetchTeams={this.props.fetchTeams}
+                            />
+                        </div>
+                    )
+                })
+            )
+        } else {
+            return null;
+        }
+    }
+
 
     handleAssignedTasksIndex() {
         let tasks = [];
@@ -173,13 +203,12 @@ class TeamMember extends React.Component {
         if (this.state.user.username) {
             const user = this.state.user;
             return (
-                <div className='project-page'>
+                <div className='team-member-page'>
                     <SideBarContainer />
                     <div className='team-member-main'>
                         <div className='team-member-header-container'>
                             <div className='team-member-title-container'>
                                 <div className='team-member-mini-tile-container' style={{ background: this.handleTeamColor(user.username) }}>
-                                {/* <div className='team-member-mini-tile-container' style={{ background: 'red' }}> */}
                                     <span className='team-member-mini-tile'>
                                         <i className="fas fa-user-astronaut fa-4x" ></i>
                                     </span>
@@ -192,7 +221,23 @@ class TeamMember extends React.Component {
                             </div>
                             <HomeSearch projects={Object.values(this.props.projects)} tasks={this.props.tasks} />
                         </div>
-                        <div className='project-body-container'>
+                        <div className='team-member-body-container'>
+                            <div className='home-projects-index'>
+                                <h2>Projects</h2>
+                                {this.handleProjects()}
+                                <div className='home-project-container'>
+                                    <div className='tile-container' onClick={() => this.props.openModal('createProject')}>
+                                        <div className='new-project-tile'>
+                                            <span className='icon-container'>
+                                                <i className="fas fa-plus-square fa-3x" ></i>
+                                            </span>
+                                        </div>
+                                        <div className='home-project-element'>
+                                            Add a project
+                            </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div className='tasks-index-container'>
                                 {/* <div className='add-task-button-container'>
                                     <div className='add-task-button' onClick={() => { this.handleNewTask() }}>ADD TASK</div>
