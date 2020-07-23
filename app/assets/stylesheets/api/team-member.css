@@ -67,8 +67,14 @@
     width: 100%;
     height: 80%;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     /* transition-duration: 2s; */
+}
+
+.team-member-indices{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .team-member-index{

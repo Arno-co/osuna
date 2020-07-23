@@ -113,6 +113,8 @@ class TeamMember extends React.Component {
                     return (
                         <TaskItem
                             task={task}
+                            page={'team'}
+                            user={this.state.user}
                             users={this.props.users}
                             project={this.props.projects[task.projectId]}
                             teams={this.props.teams}
@@ -195,43 +197,56 @@ class TeamMember extends React.Component {
                             <HomeSearch projects={Object.values(this.props.projects)} tasks={this.props.tasks} />
                         </div>
                         <div className='team-member-body-container'>
-                            <div className='team-member-index'>
-                                <h2>Owned Projects</h2>
-                                {this.handleProjects()}
-                            </div>
-                            <div className='team-member-index'>
-                                <h2>Assigned Tasks</h2>
-                                <div className='tasks-index-container'>
-                                    <div className='tasks-table'>
-                                        <div className='tasks-table-row-top'>
-                                            <div className='task-table-cell-task'>Task</div>
-                                            <div className='task-table-cell-assignee'>Assignee</div>
-                                            <div className='task-table-cell-start-date'>Start Date</div>
-                                            <div className='task-table-cell-end-date'>Due Date</div>
+                            <div className='team-member-indices'>
+                                <div className='team-member-index'>
+                                    {user.id === this.props.currentUser.id ?
+                                        <h2>Your Owned Projects</h2>
+                                        :
+                                        <h2>{`${user.username}'s Owned Projects`}</h2>
+                                    }
+                                    {this.handleProjects()}
+                                </div>
+                                <div className='team-member-index'>
+                                    {user.id === this.props.currentUser.id ?
+                                        <h2>Your Assigned Tasks</h2>
+                                        :
+                                        <h2>{`${user.username}'s Assigned Tasks`}</h2>
+                                    }
+                                    <div className='tasks-index-container'>
+                                        <div className='tasks-table'>
+                                            <div className='tasks-table-row-top'>
+                                                <div className='task-table-cell-task'>Task</div>
+                                                <div className='task-table-cell-assignee'>Assignee</div>
+                                                <div className='task-table-cell-start-date'>Start Date</div>
+                                                <div className='task-table-cell-end-date'>Due Date</div>
+                                            </div>
+                                            {this.handleTasksIndex('assigned')}
+                                            <div className='tasks-table-row'></div>
                                         </div>
-                                        {this.handleTasksIndex('assigned')}
-                                        <div className='tasks-table-row'></div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className='team-member-index'>
-                                <h2>Authored Tasks</h2>
-                                <div className='tasks-index-container'>
-                                    <div className='tasks-table'>
-                                        <div className='tasks-table-row-top'>
-                                            <div className='task-table-cell-task'>Task</div>
-                                            <div className='task-table-cell-assignee'>Assignee</div>
-                                            <div className='task-table-cell-start-date'>Start Date</div>
-                                            <div className='task-table-cell-end-date'>Due Date</div>
+                                <div className='team-member-index'>
+                                    {user.id === this.props.currentUser.id ?
+                                        <h2>Your Authored Tasks</h2>
+                                        :
+                                        <h2>{`${user.username}'s Authored Tasks`}</h2>
+                                    }
+                                    <div className='tasks-index-container'>
+                                        <div className='tasks-table'>
+                                            <div className='tasks-table-row-top'>
+                                                <div className='task-table-cell-task'>Task</div>
+                                                <div className='task-table-cell-assignee'>Assignee</div>
+                                                <div className='task-table-cell-start-date'>Start Date</div>
+                                                <div className='task-table-cell-end-date'>Due Date</div>
+                                            </div>
+                                            {this.handleTasksIndex('authored')}
+                                            <div className='tasks-table-row'></div>
                                         </div>
-                                        {this.handleTasksIndex('authored')}
-                                        <div className='tasks-table-row'></div>
                                     </div>
                                 </div>
-                            </div>
-                            
+                            </div>     
+                            <ProtectedRoute exact path="/team/:userId/:taskId" component={TaskFormContainer} />
                         </div>
-                            <ProtectedRoute exact path="/projects/:projectId/:taskId" component={TaskFormContainer} />
                     </div>
 
                 </div>

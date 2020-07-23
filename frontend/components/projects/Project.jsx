@@ -82,6 +82,7 @@ class Project extends React.Component {
                         return (
                             <TaskItem 
                             task={task} 
+                            page={'project'}
                             users={this.props.users} 
                             project={this.props.projects[this.state.project.id]}
                             teams={this.props.teams}

@@ -70,7 +70,11 @@ class TaskItem extends React.Component {
     toggleTaskForm(e) {
         e.preventDefault();
         e.stopPropagation();
-        this.props.history.push(`/projects/${this.props.project.id}/${this.props.task.id}`)
+        if (this.props.page === 'project') {
+            this.props.history.push(`/projects/${this.props.project.id}/${this.props.task.id}`)
+        } else if (this.props.page === 'team') {
+            this.props.history.push(`/team/${this.props.user.id}/${this.props.task.id}`)
+        }
     }
 
 
