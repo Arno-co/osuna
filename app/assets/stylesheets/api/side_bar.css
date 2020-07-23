@@ -122,6 +122,7 @@
 }
 .mini-tile-container{
     display: flex;
+    min-height: 15px;
 
 }
 

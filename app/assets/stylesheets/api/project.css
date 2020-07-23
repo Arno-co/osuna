@@ -67,8 +67,9 @@
 
 .project-body-container{
     width: 100%;
-    height: 80%;
+    height: 100%;
     display: flex;
+    overflow: scroll;
     transition-duration: 2s;
 }
 

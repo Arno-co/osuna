@@ -65,10 +65,9 @@
 
 .team-member-body-container{
     width: 100%;
-    height: 80%;
+    height: 100%;
     display: flex;
-    /* flex-direction: column; */
-    /* transition-duration: 2s; */
+    overflow: scroll;
 }
 
 .team-member-indices{
