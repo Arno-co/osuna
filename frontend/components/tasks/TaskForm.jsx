@@ -61,7 +61,6 @@ class TaskForm extends React.Component {
     handleCloseForm(e) {
         e.preventDefault();
         e.stopPropagation();
-        // console.log(this.props)
         if (this.props.match.params.projectId) {
             this.props.history.push(`/projects/${this.props.match.params.projectId}`)
         } else if (this.props.match.params.userId){

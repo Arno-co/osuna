@@ -10,7 +10,8 @@ class HomeSearch extends React.Component {
             active: false,
             inputText: '',
             projectOptions: [], 
-            taskOptions: []
+            taskOptions: [],
+            userOptions: []
         };
         this.inputChange = this.inputChange.bind(this);
         this.handleDisplay = this.handleDisplay.bind(this);
@@ -37,7 +38,8 @@ class HomeSearch extends React.Component {
     checkOptions(){
         const projectOptions = [];
         const taskOptions = [];
-
+        const userOptions = []
+;
         this.props.projects.forEach(project => {
             if (project.title.toLowerCase().includes(this.state.inputText.toLowerCase())) {
                 projectOptions.push(project)
@@ -52,7 +54,13 @@ class HomeSearch extends React.Component {
             }
         })
 
-        this.setState({ projectOptions: projectOptions, taskOptions: taskOptions })
+        this.props.users.forEach(user => {
+            if (user.username.toLowerCase().includes(this.state.inputText.toLowerCase())) {
+                userOptions.push(user)
+            }
+        })
+
+        this.setState({ projectOptions: projectOptions, taskOptions: taskOptions, userOptions: userOptions })
     }
 
     renderOptions() {
@@ -86,6 +94,20 @@ class HomeSearch extends React.Component {
                     })
                     }</ul>
                 }
+                <div className='dropdown-title'>TEAM MEMBERS</div>
+                {(this.state.userOptions.length === 0) ?
+                    < div > No team members found</div>
+                    :
+                    <ul>{
+                        this.state.userOptions.map((user) => {
+                            return (
+                                <Link to={`/team/${user.id}`} key={user.id} onClick={(e) => this.handleDisplay(e)}>
+                                    <li className='dropdown-option'>{reactStringReplace(user.username, this.state.inputText, (match, i) => <span className="hl" key={i}>{match}</span>)}</li>
+                                </Link>
+                            )
+                        })
+                    }</ul>
+                }
             </div>
         )
     
@@ -95,7 +117,7 @@ class HomeSearch extends React.Component {
          
         if(this.state.inputText.length === 0) {
             return null;
-        } else if (this.state.projectOptions.length === 0 && this.state.taskOptions.length === 0) {
+        } else if (this.state.projectOptions.length === 0 && this.state.taskOptions.length === 0 && this.state.userOptions.length === 0) {
             return (
                 <div className='search-dropdown-container'>No results found.</div>
             );

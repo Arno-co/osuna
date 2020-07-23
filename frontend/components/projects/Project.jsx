@@ -142,7 +142,7 @@ class Project extends React.Component {
                                     <div className='project-description'>{this.state.project.description}</div>
                                 </div>
                             </div>
-                            <HomeSearch projects={Object.values(this.props.projects)} tasks={this.props.tasks} />
+                            <HomeSearch projects={Object.values(this.props.projects)} tasks={this.props.tasks} users={Object.values(this.props.users)}/>
                         </div>
                         <div className='project-body-container'>
                             <div className='tasks-index-container'>

@@ -75,23 +75,29 @@ class TeamMember extends React.Component {
         if (this.props.projects) {
             projects = Object.values(this.props.projects).filter(project => project.projectOwnerId === this.state.user.id);
 
-            return (
-                projects.map((project) => {
-                    return (
-                        <div className='home-project-container' key={project.id}>
-                            <ProjectTile
-                                project={project}
-                                page={'team'}
-                                users={this.props.users}
-                                openModal={this.props.openModal}
-                                fetchProjects={this.props.fetchProjects}
-                                fetchUsers={this.props.fetchUsers}
-                                fetchTeams={this.props.fetchTeams}
-                            />
-                        </div>
-                    )
-                })
-            )
+            if (projects.length) {
+                return (
+                    projects.map((project) => {
+                        return (
+                            <div className='home-project-container' key={project.id}>
+                                <ProjectTile
+                                    project={project}
+                                    page={'team'}
+                                    users={this.props.users}
+                                    openModal={this.props.openModal}
+                                    fetchProjects={this.props.fetchProjects}
+                                    fetchUsers={this.props.fetchUsers}
+                                    fetchTeams={this.props.fetchTeams}
+                                />
+                            </div>
+                        )
+                    })
+                )
+            } else {
+                return (
+                    <div className='empty-list'>No Projects To Display</div>
+                )
+            }
         } else {
             return null;
         }
@@ -108,25 +114,31 @@ class TeamMember extends React.Component {
                 tasks = this.props.tasks.filter(task => task.authorId === this.state.user.id)
             }
 
-            return (
-                tasks.map((task) => {
-                    return (
-                        <TaskItem
-                            task={task}
-                            page={'team'}
-                            user={this.state.user}
-                            users={this.props.users}
-                            project={this.props.projects[task.projectId]}
-                            teams={this.props.teams}
-                            createTask={this.props.createTask}
-                            updateTask={this.props.updateTask}
-                            history={this.props.history}
-                            formatDate={this.formatDate}
-                            key={task.id}
-                        />
-                    )
-                })
-            )
+            if (tasks.length) {
+                return (
+                    tasks.map((task) => {
+                        return (
+                            <TaskItem
+                                task={task}
+                                page={'team'}
+                                user={this.state.user}
+                                users={this.props.users}
+                                project={this.props.projects[task.projectId]}
+                                teams={this.props.teams}
+                                createTask={this.props.createTask}
+                                updateTask={this.props.updateTask}
+                                history={this.props.history}
+                                formatDate={this.formatDate}
+                                key={task.id}
+                            />
+                        )
+                    })
+                )
+            } else {
+                return (
+                    <div className='empty-list'>No Tasks To Display</div>
+                )
+            }
         } else {
             return null;
         }
@@ -194,7 +206,7 @@ class TeamMember extends React.Component {
                                     <h4>{team.name}</h4>
                                 </div>
                             </div>
-                            <HomeSearch projects={Object.values(this.props.projects)} tasks={this.props.tasks} />
+                            <HomeSearch projects={Object.values(this.props.projects)} tasks={this.props.tasks} users={Object.values(this.props.users)}/>
                         </div>
                         <div className='team-member-body-container'>
                             <div className='team-member-indices'>

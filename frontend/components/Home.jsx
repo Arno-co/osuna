@@ -29,7 +29,7 @@ class Home extends React.Component {
                 <div className="main-home">
                     <div className='nav-home'>
                         <h2>Home</h2>
-                        <HomeSearch projects={this.props.projects}  tasks={this.props.tasks}/>
+                        <HomeSearch projects={this.props.projects}  tasks={this.props.tasks} users={Object.values(this.props.users)}/>
                     </div>
                     <div className='body-home'>
                         {/* <ProjectForm team={this.props.team} /> */}
