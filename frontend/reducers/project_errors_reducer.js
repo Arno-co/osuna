@@ -9,6 +9,7 @@ const projectErrorsReducer = (oldState = [], action) => {
     Object.freeze(oldState);
     let nextState = Object.assign({}, oldState);
 
+    console.log(action)
     switch (action.type) {
         case RECEIVE_PROJECT_ERRORS:
             if (action.errors) {

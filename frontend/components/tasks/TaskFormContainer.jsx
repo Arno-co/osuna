@@ -9,7 +9,7 @@ import { fetchUsers } from '../../actions/user_actions';
 const mSTP = (state, ownProps) => ({
     currentUser: state.session.currentUser,
     task: state.entities.tasks[ownProps.match.params.taskId],
-    project: state.entities.projects[ownProps.match.params.projectId],
+    projects: state.entities.projects,
     users: state.entities.users
 })
 

@@ -35,6 +35,7 @@ class TaskForm extends React.Component {
     }
 
     componentDidMount() {
+        console.log(this.props, 'PROPS')
         this.props.fetchUsers().then(() => {
             this.props.fetchTask(this.props.match.params.taskId)
         }).then(() => {
@@ -217,12 +218,13 @@ class TaskForm extends React.Component {
     }
 
     renderProject() {
-        if (this.props.project) {
+        const project = this.props.projects[this.state.task.projectId]
+        if (project) {
             return (
-                <Link to={`/projects/${this.props.project.id}`} key={this.props.project.id}>
+                <Link to={`/projects/${project.id}`} key={project.id}>
                     <div className='mini-tile-container'>
-                        <div className='mini-tile' style={{ background: this.handleProjectColor(this.props.project.title) }}></div>
-                        <div>{this.props.project.title}</div>
+                        <div className='mini-tile' style={{ background: this.handleProjectColor(project.title) }}></div>
+                        <div>{project.title}</div>
                     </div>
                 </Link>
             )
