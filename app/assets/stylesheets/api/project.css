@@ -47,12 +47,17 @@
     height: 20%;
     box-sizing: border-box;
     font-size: 0.8rem;
+    overflow: hidden;
 }
 
 .project-header-text{
     display: flex;
     flex-direction: column;
     width: 100%;
+}
+
+.project-header-text h1{
+    padding: 20px 15px 5px 15px;
 }
 
 .project-owner{
