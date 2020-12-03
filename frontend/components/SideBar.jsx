@@ -78,16 +78,16 @@ class SideBar extends React.Component {
                         </div>
                     </div>
                     <div className="bottom-aside">
-                        <a className='icon-arnoco-gh' target="_blank" href="https://github.com/Arno-co">
+                        <a className='icon-arnoco-gh' target="_blank" rel="noopener noreferrer" href="https://github.com/Arno-co">
                             <i className="fab fa-github-square fa-3x"></i>
                         </a>
-                        <a className='icon-arnoco-li' target="_blank" href="https://www.linkedin.com/in/arnaud-cognard-127556a/">
+                        <a className='icon-arnoco-li' target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/arnaud-cognard-127556a/">
                             <i className="fab fa-linkedin fa-3x"></i>
                         </a>
-                        {/* <a className='icon-arnoco-al' target="_blank" href="https://angel.co/u/arnaud-cognard">
+                        {/* <a className='icon-arnoco-al' target="_blank" rel="noopener noreferrer" href="https://angel.co/u/arnaud-cognard">
                             <i className="fab fa-angellist fa-3x"></i>
                         </a> */}
-                        <a className='icon-arnoco-we' target="_blank" href="https://arnaudcognard.com/">
+                        <a className='icon-arnoco-we' target="_blank" rel="noopener noreferrer" href="https://arnaudcognard.com/">
                         <i className="fas fa-briefcase fa-3x"></i>
                         </a>    
                     </div>
